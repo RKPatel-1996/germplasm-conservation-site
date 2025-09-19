@@ -1,0 +1,105 @@
+/* src/pages/Home.css */
+
+/* --- General Enhancements --- */
+
+/* Add a subtle fade-in animation to the whole page on load */
+.home-container {
+  animation: fadeIn 0.8s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* --- Hero Section Styles --- */
+
+.hero-section {
+  position: relative;
+  height: 45vh; /* A bit more height for drama */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-align: center;
+  border-radius: 8px;
+  margin-bottom: 2rem;
+  padding: 1rem;
+  overflow: hidden; /* Ensures background doesn't spill */
+}
+
+.hero-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url(https://images.unsplash.com/photo-1563233269-7e2f17d41038?auto=format&fit=crop&w=1400);
+  background-size: cover;
+  background-position: center;
+  filter: brightness(0.5);
+  border-radius: inherit;
+  z-index: 1;
+  transition: transform 0.4s ease-out; /* Smooth zoom effect */
+}
+
+/* Add a cool zoom effect to the background on hover */
+.hero-section:hover .hero-background {
+  transform: scale(1.05);
+}
+
+.hero-text {
+  z-index: 2; /* Ensures text is on top of the background */
+}
+
+/* Make the animated text cursor more visible */
+.hero-text .TypeAnimation__cursor {
+  color: #ffc107; /* A bright, complementary color */
+  font-size: 2.5rem;
+}
+
+/* --- Interactive Card Styles --- */
+
+.interactive-card {
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  height: 100%; /* Makes all cards in a row the same height */
+}
+
+.interactive-card:hover {
+  transform: translateY(-8px); /* Lifts the card up instead of just scaling */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
+}
+
+/* --- Genetic Erosion Visual --- */
+.erosion-visual-container .MuiSvgIcon-root {
+  /* Control the size of the seed icons */
+  font-size: 1rem;
+}
+
+/* --- MOBILE FRIENDLY MEDIA QUERIES --- */
+/* These styles will ONLY apply if the screen width is 768px or less */
+
+@media (max-width: 768px) {
+  .hero-section {
+    height: 40vh; /* Reduce height on mobile */
+  }
+
+  /* We need to target the MUI typography classes directly here */
+  .hero-text .MuiTypography-h2 {
+    font-size: 2.2rem; /* Make the main headline smaller */
+  }
+
+  .hero-text .MuiTypography-h5 {
+    font-size: 1.1rem; /* Make the sub-headline smaller */
+  }
+
+  .erosion-visual-container .MuiSvgIcon-root {
+    font-size: 0.6rem; /* Make seed icons smaller to fit on the screen */
+  }
+}
