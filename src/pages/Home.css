@@ -5248,3 +5248,161 @@
     line-height: 1.35 !important;
   }
 }
+
+/* === READABILITY AMPLIFICATION 02 · MEDIUM + SMALL ============= */
+/*
+   Large display titles intentionally unchanged.
+
+   New desktop target:
+   medium/body       ~16-18 px
+   secondary         ~15-16 px
+   small/metadata    ~14-15 px
+*/
+
+/* Main explanatory/body copy */
+.deck-slide:nth-of-type(-n+15) p {
+  font-size: clamp(0.98rem, 0.94vw, 1.10rem);
+  line-height: 1.48;
+}
+
+/* Small labels, metadata, captions */
+.deck-slide:nth-of-type(-n+15) small {
+  font-size: clamp(0.86rem, 0.80vw, 0.96rem) !important;
+  line-height: 1.42 !important;
+}
+
+/* Small interactive / source text */
+.deck-slide:nth-of-type(-n+15) a {
+  font-size: clamp(0.84rem, 0.78vw, 0.94rem);
+  line-height: 1.4;
+}
+
+/* Buttons are often carrying meaningful terminology */
+.deck-slide:nth-of-type(-n+15) button {
+  font-size: clamp(0.90rem, 0.84vw, 1rem);
+}
+
+/* ---------------------------------------------------------------
+   SLIDE 2
+   --------------------------------------------------------------- */
+
+.deck-slide:nth-of-type(2) .case-driven-scenario span,
+.deck-slide:nth-of-type(2) .compact-response-title > span,
+.deck-slide:nth-of-type(2) .dynamic-case-heading > span,
+.deck-slide:nth-of-type(2) .compact-field small,
+.deck-slide:nth-of-type(2) .dynamic-case-stats span,
+.deck-slide:nth-of-type(2) .dynamic-case-links a {
+  font-size: clamp(0.86rem, 0.80vw, 0.94rem) !important;
+}
+
+.deck-slide:nth-of-type(2) .case-driven-scenario p,
+.deck-slide:nth-of-type(2) .compact-response-caption,
+.deck-slide:nth-of-type(2) .dynamic-case-heading > p,
+.deck-slide:nth-of-type(2) .dynamic-case-lesson,
+.deck-slide:nth-of-type(2) .case-driven-bottom {
+  font-size: clamp(0.98rem, 0.92vw, 1.08rem) !important;
+}
+
+/* ---------------------------------------------------------------
+   SLIDES 3-5
+   --------------------------------------------------------------- */
+
+.deck-slide:nth-of-type(3) p,
+.deck-slide:nth-of-type(3) [class*="takeaway"],
+.deck-slide:nth-of-type(3) [class*="question"],
+.deck-slide:nth-of-type(4) .trait-gap-footer,
+.deck-slide:nth-of-type(4) .breeder-problem p,
+.deck-slide:nth-of-type(5) .search-slide__takeaway {
+  font-size: clamp(1rem, 0.94vw, 1.10rem) !important;
+}
+
+.deck-slide:nth-of-type(5) .source-detail p {
+  font-size: clamp(1.04rem, 0.98vw, 1.14rem) !important;
+}
+
+/* ---------------------------------------------------------------
+   SLIDE 6
+   --------------------------------------------------------------- */
+
+.deck-slide:nth-of-type(6) .case-timeline article > span,
+.deck-slide:nth-of-type(6) .case-conclusion small {
+  font-size: clamp(0.86rem, 0.80vw, 0.94rem) !important;
+}
+
+.deck-slide:nth-of-type(6) .case-timeline article p,
+.deck-slide:nth-of-type(6) .case-question span,
+.deck-slide:nth-of-type(6) .case-resources,
+.deck-slide:nth-of-type(6) .case-resources a {
+  font-size: clamp(0.98rem, 0.92vw, 1.08rem) !important;
+}
+
+/* ---------------------------------------------------------------
+   SLIDES 7-10
+   --------------------------------------------------------------- */
+
+.deck-slide:nth-of-type(7) .definition-equation article > span,
+.deck-slide:nth-of-type(8) .form-detail > span,
+.deck-slide:nth-of-type(8) .form-detail-meta small,
+.deck-slide:nth-of-type(9) .accession-label,
+.deck-slide:nth-of-type(9) .passport-record > span,
+.deck-slide:nth-of-type(10) .conservation-flow article > span {
+  font-size: clamp(0.86rem, 0.80vw, 0.94rem) !important;
+}
+
+.deck-slide:nth-of-type(7) .definition-equation article > strong,
+.deck-slide:nth-of-type(7) .definition-distinction,
+.deck-slide:nth-of-type(8) .form-detail > p,
+.deck-slide:nth-of-type(8) .form-note,
+.deck-slide:nth-of-type(9) .accession-object p,
+.deck-slide:nth-of-type(9) .passport-record small,
+.deck-slide:nth-of-type(9) .accession-bottom span,
+.deck-slide:nth-of-type(10) .conservation-flow article p,
+.deck-slide:nth-of-type(10) .conservation-rule {
+  font-size: clamp(0.98rem, 0.92vw, 1.08rem) !important;
+}
+
+/* ---------------------------------------------------------------
+   SLIDES 11-15
+   --------------------------------------------------------------- */
+
+.deck-slide:nth-of-type(11) .seed-type-detail > span,
+.deck-slide:nth-of-type(11) .seed-type-meta small,
+.deck-slide:nth-of-type(11) .seed-spectrum strong,
+.deck-slide:nth-of-type(11) .seed-spectrum span,
+.deck-slide:nth-of-type(12) .method-grid article > span,
+.deck-slide:nth-of-type(13) .genebank-pipeline article > span,
+.deck-slide:nth-of-type(14) .lifecycle-buttons button > span,
+.deck-slide:nth-of-type(14) .lifecycle-detail > span,
+.deck-slide:nth-of-type(14) .lifecycle-detail small,
+.deck-slide:nth-of-type(15) .usable-grid article > span {
+  font-size: clamp(0.86rem, 0.80vw, 0.94rem) !important;
+}
+
+.deck-slide:nth-of-type(11) .seed-type-detail > p,
+.deck-slide:nth-of-type(11) .seed-type-meta strong,
+.deck-slide:nth-of-type(12) .method-grid p,
+.deck-slide:nth-of-type(12) .method-conclusion,
+.deck-slide:nth-of-type(12) .chapter-next,
+.deck-slide:nth-of-type(13) .genebank-pipeline article small,
+.deck-slide:nth-of-type(13) .pipeline-note,
+.deck-slide:nth-of-type(13) .source-link-row,
+.deck-slide:nth-of-type(13) .source-link-row a,
+.deck-slide:nth-of-type(14) .lifecycle-detail > p,
+.deck-slide:nth-of-type(14) .lifecycle-warning,
+.deck-slide:nth-of-type(15) .usable-grid p,
+.deck-slide:nth-of-type(15) .usable-loop,
+.deck-slide:nth-of-type(15) .chapter-next {
+  font-size: clamp(0.98rem, 0.92vw, 1.08rem) !important;
+  line-height: 1.44 !important;
+}
+
+/* Keep short-height laptops safe. */
+@media (max-height: 720px) and (min-width: 621px) {
+  .deck-slide:nth-of-type(-n+15) p {
+    line-height: 1.36 !important;
+  }
+
+  .deck-slide:nth-of-type(-n+15) small {
+    font-size: 0.82rem !important;
+  }
+}
