@@ -50,6 +50,19 @@ const slides = [
     id: "method-map",
     label: "Conservation Methods",
   },
+  {
+    id: "genebank-pipeline",
+    label: "Inside a Genebank",
+  },
+  {
+    id: "accession-lifecycle",
+    label: "Accession Lifecycle",
+  },
+  {
+    id: "regenerate-use",
+    label: "Keep It Usable",
+  },
+
 
 ];
 
@@ -229,6 +242,61 @@ const seedBehaviours = {
     route: "Living collections · in-vitro methods · cryopreservation",
   },
 };
+const genebankStages = {
+  acquire: {
+    number: "01",
+    label: "Acquire",
+    title: "Acquire and register",
+    description:
+      "Material enters the collection with a unique accession identity and documentation describing what it is and where it came from.",
+    output: "Traceable accession + passport data",
+  },
+
+  prepare: {
+    number: "02",
+    label: "Prepare",
+    title: "Prepare the material",
+    description:
+      "The material is handled according to its biology. Orthodox seed may be cleaned and dried, while vegetative or sensitive material requires different protocols.",
+    output: "Material prepared for its conservation method",
+  },
+
+  test: {
+    number: "03",
+    label: "Test",
+    title: "Check quality and viability",
+    description:
+      "Genebanks assess whether material is viable and suitable for conservation. Health, identity and other quality checks may also be required.",
+    output: "Baseline condition documented",
+  },
+
+  store: {
+    number: "04",
+    label: "Store",
+    title: "Place it under controlled conservation",
+    description:
+      "The accession is stored using the method appropriate to its biology: seed storage, field conservation, in-vitro culture or cryopreservation.",
+    output: "Protected genetic resource",
+  },
+
+  monitor: {
+    number: "05",
+    label: "Monitor",
+    title: "Monitor through time",
+    description:
+      "Storage does not end management. Collections are checked so declining viability, quantity or integrity can be detected before material is lost.",
+    output: "Evidence that the accession remains usable",
+  },
+
+  regenerate: {
+    number: "06",
+    label: "Regenerate",
+    title: "Regenerate when necessary",
+    description:
+      "When viability or available quantity becomes too low, material may be grown or propagated again while trying to preserve its original genetic composition.",
+    output: "Renewed material for continued conservation",
+  },
+};
 const totalPlants = 20;
 
 function MiniCropField({ survivors }) {
@@ -270,11 +338,13 @@ function Home() {
   const [activeSource, setActiveSource] = useState("wild");
   const [activeForm, setActiveForm] = useState("seed");
   const [activeSeedType, setActiveSeedType] = useState("orthodox");
+  const [activeGenebankStage, setActiveGenebankStage] = useState("acquire");
 
   const scenario = stressScenarios[activeStress];
   const source = traitSources[activeSource];
   const form = germplasmForms[activeForm];
   const seedType = seedBehaviours[activeSeedType];
+  const genebankStage = genebankStages[activeGenebankStage];
 
   const currentChapter =
     slideIndex < 3
@@ -283,7 +353,9 @@ function Home() {
         ? "Chapter 02 · Where useful variation comes from"
         : slideIndex < 9
           ? "Chapter 03 · What is germplasm?"
-          : "Chapter 04 · Choosing a conservation method";
+          : slideIndex < 12
+            ? "Chapter 04 · Choosing a conservation method"
+            : "Chapter 05 · Inside a genebank";
 
   const previousSlide = () => {
     setSlideIndex((current) => Math.max(0, current - 1));
@@ -1184,6 +1256,201 @@ function Home() {
               <span>Chapter 05</span>
               <strong>
                 What happens after material enters a genebank? &rarr;
+              </strong>
+            </div>
+          </div>
+        </SlideFrame>
+
+        <SlideFrame active={slideIndex === 12}>
+          <div className="genebank-pipeline-slide">
+            <span className="slide-eyebrow">
+              13 · A GENEBANK IS NOT JUST A FREEZER
+            </span>
+
+            <h2>
+              Conservation is an
+              <em> active management cycle.</em>
+            </h2>
+
+            <p className="genebank-intro">
+              Material must remain identifiable, viable and available for future use.
+            </p>
+
+            <div className="genebank-pipeline">
+              <article>
+                <span>01</span>
+                <strong>Acquire</strong>
+                <small>receive material</small>
+              </article>
+
+              <b>&rarr;</b>
+
+              <article>
+                <span>02</span>
+                <strong>Document</strong>
+                <small>assign identity</small>
+              </article>
+
+              <b>&rarr;</b>
+
+              <article>
+                <span>03</span>
+                <strong>Prepare</strong>
+                <small>process correctly</small>
+              </article>
+
+              <b>&rarr;</b>
+
+              <article>
+                <span>04</span>
+                <strong>Store</strong>
+                <small>protect material</small>
+              </article>
+
+              <b>&rarr;</b>
+
+              <article>
+                <span>05</span>
+                <strong>Monitor</strong>
+                <small>check condition</small>
+              </article>
+
+              <b>&rarr;</b>
+
+              <article className="pipeline-use">
+                <span>06</span>
+                <strong>Regenerate / use</strong>
+                <small>keep it available</small>
+              </article>
+            </div>
+
+            <div className="pipeline-note">
+              <strong>The exact protocol varies by crop and conservation method.</strong>
+              <span>
+                The common goal is to preserve both the biological material and
+                the information that makes it scientifically useful.
+              </span>
+            </div>
+          </div>
+        </SlideFrame>
+
+        <SlideFrame active={slideIndex === 13}>
+          <div className="lifecycle-slide">
+            <div className="slide-heading slide-heading--compact">
+              <span className="slide-eyebrow">
+                14 · FOLLOW ONE ACCESSION
+              </span>
+
+              <h2>
+                Every accession has
+                <em> a lifecycle.</em>
+              </h2>
+            </div>
+
+            <div className="lifecycle-layout">
+              <div className="lifecycle-buttons">
+                {Object.entries(genebankStages).map(([key, item]) => (
+                  <button
+                    key={key}
+                    type="button"
+                    className={activeGenebankStage === key ? "active" : ""}
+                    onClick={() => setActiveGenebankStage(key)}
+                  >
+                    <span>{item.number}</span>
+                    <strong>{item.label}</strong>
+                  </button>
+                ))}
+              </div>
+
+              <article className="lifecycle-detail">
+                <span>
+                  STEP {genebankStage.number}
+                </span>
+
+                <h3>{genebankStage.title}</h3>
+
+                <p>{genebankStage.description}</p>
+
+                <div>
+                  <small>RESULT</small>
+                  <strong>{genebankStage.output}</strong>
+                </div>
+              </article>
+            </div>
+
+            <div className="lifecycle-warning">
+              <strong>Storage alone is not conservation.</strong>
+              <span>
+                An accession must remain identifiable, biologically viable and
+                recoverable when someone needs it.
+              </span>
+            </div>
+          </div>
+        </SlideFrame>
+
+        <SlideFrame active={slideIndex === 14}>
+          <div className="usable-slide">
+            <span className="slide-eyebrow">
+              15 · CONSERVATION MUST PRESERVE USE
+            </span>
+
+            <h2>
+              A collection succeeds when material can
+              <em> return to research and breeding.</em>
+            </h2>
+
+            <div className="usable-grid">
+              <article>
+                <span>MONITOR</span>
+                <h3>Is it still alive?</h3>
+                <p>
+                  Viability and condition are monitored so deterioration can be
+                  detected before the accession is lost.
+                </p>
+              </article>
+
+              <article>
+                <span>REGENERATE</span>
+                <h3>Renew when necessary</h3>
+                <p>
+                  When viability or available quantity becomes too low, material
+                  is multiplied again while protecting genetic integrity.
+                </p>
+              </article>
+
+              <article>
+                <span>SAFETY DUPLICATE</span>
+                <h3>Do not keep the only copy in one place</h3>
+                <p>
+                  Important collections can be duplicated at another secure
+                  location to reduce the risk of catastrophic loss.
+                </p>
+              </article>
+
+              <article>
+                <span>DISTRIBUTE</span>
+                <h3>Put conserved diversity back into use</h3>
+                <p>
+                  Viable material can be supplied for legitimate research,
+                  evaluation and crop-improvement work.
+                </p>
+              </article>
+            </div>
+
+            <div className="usable-loop">
+              <strong>
+                CONSERVE &rarr; MONITOR &rarr; REGENERATE &rarr; DISTRIBUTE
+              </strong>
+
+              <span>
+                A genebank is a living scientific infrastructure, not a static warehouse.
+              </span>
+            </div>
+
+            <div className="chapter-next chapter-next--chapter5">
+              <span>Chapter 06</span>
+              <strong>
+                How do genebanks connect into a global conservation system? &rarr;
               </strong>
             </div>
           </div>

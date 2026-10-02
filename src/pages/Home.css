@@ -2026,3 +2026,282 @@
     display: none;
   }
 }
+
+/* === CHAPTER 05 ================================================= */
+
+.genebank-pipeline-slide,
+.lifecycle-slide,
+.usable-slide {
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.genebank-pipeline-slide h2,
+.usable-slide h2 {
+  max-width: 1180px;
+  margin: 0.6rem 0;
+  font-size: clamp(2rem, 4.5vw, 4.6rem);
+  line-height: 0.98;
+  letter-spacing: -0.055em;
+}
+
+.genebank-pipeline-slide h2 em,
+.lifecycle-slide h2 em,
+.usable-slide h2 em {
+  color: var(--deck-green);
+  font-style: normal;
+}
+
+.genebank-intro {
+  margin: 0 0 1rem;
+  color: var(--deck-muted);
+}
+
+.genebank-pipeline {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr auto 1fr auto 1fr auto 1fr auto 1.25fr;
+  gap: 0.4rem;
+  align-items: center;
+}
+
+.genebank-pipeline article {
+  min-height: 120px;
+  padding: 0.8rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border: 1px solid var(--deck-line);
+  border-radius: 16px;
+  background: #fff;
+}
+
+.genebank-pipeline article > span {
+  color: var(--deck-green);
+  font-size: 0.6rem;
+  font-weight: 900;
+}
+
+.genebank-pipeline article strong {
+  margin-top: 0.35rem;
+}
+
+.genebank-pipeline article small {
+  margin-top: 0.2rem;
+  color: var(--deck-muted);
+}
+
+.genebank-pipeline > b {
+  color: #8c978f;
+}
+
+.pipeline-use {
+  background: var(--deck-green-dark) !important;
+  color: #fff;
+}
+
+.pipeline-use small {
+  color: #bed0c1 !important;
+}
+
+.pipeline-note {
+  max-width: 1000px;
+  margin: 1rem auto 0;
+  padding: 0.7rem 0.9rem;
+  display: flex;
+  gap: 0.5rem;
+  border-radius: 12px;
+  background: #edf3ea;
+  font-size: 0.76rem;
+}
+
+.pipeline-note span,
+.lifecycle-warning span {
+  color: var(--deck-muted);
+}
+
+.lifecycle-layout {
+  flex: 1;
+  min-height: 0;
+  margin-top: 1rem;
+  display: grid;
+  grid-template-columns: 0.7fr 1.3fr;
+  gap: 1rem;
+  align-items: center;
+}
+
+.lifecycle-buttons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.55rem;
+}
+
+.lifecycle-buttons button {
+  min-height: 64px;
+  padding: 0.6rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: 1px solid var(--deck-line);
+  border-radius: 14px;
+  background: #fff;
+  color: var(--deck-ink);
+  cursor: pointer;
+}
+
+.lifecycle-buttons button > span {
+  color: var(--deck-green);
+  font-size: 0.62rem;
+  font-weight: 900;
+}
+
+.lifecycle-buttons button:hover,
+.lifecycle-buttons button.active {
+  border-color: var(--deck-green);
+  background: var(--deck-green-soft);
+}
+
+.lifecycle-detail {
+  padding: 1.4rem;
+  border: 1px solid var(--deck-line);
+  border-radius: 22px;
+  background: #fff;
+}
+
+.lifecycle-detail > span {
+  color: var(--deck-green);
+  font-size: 0.64rem;
+  font-weight: 900;
+}
+
+.lifecycle-detail h3 {
+  margin: 0.4rem 0 0.6rem;
+  font-size: clamp(1.5rem, 2.8vw, 2.6rem);
+}
+
+.lifecycle-detail > p {
+  color: var(--deck-muted);
+  line-height: 1.6;
+}
+
+.lifecycle-detail > div {
+  margin-top: 1rem;
+  padding: 0.75rem;
+  border-radius: 12px;
+  background: #f1f5ef;
+}
+
+.lifecycle-detail small,
+.lifecycle-detail div strong {
+  display: block;
+}
+
+.lifecycle-detail small {
+  color: var(--deck-muted);
+  font-size: 0.56rem;
+  font-weight: 900;
+}
+
+.lifecycle-detail div strong {
+  margin-top: 0.25rem;
+}
+
+.lifecycle-warning {
+  max-width: 900px;
+  margin: 0.7rem auto 0;
+  display: flex;
+  gap: 0.5rem;
+  font-size: 0.76rem;
+}
+
+.usable-grid {
+  margin-top: 1rem;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.7rem;
+}
+
+.usable-grid article {
+  padding: 0.9rem;
+  border: 1px solid var(--deck-line);
+  border-radius: 16px;
+  background: #fff;
+}
+
+.usable-grid article > span {
+  color: var(--deck-green);
+  font-size: 0.58rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+}
+
+.usable-grid h3 {
+  margin: 0.45rem 0 0.35rem;
+}
+
+.usable-grid p {
+  color: var(--deck-muted);
+  font-size: 0.72rem;
+  line-height: 1.45;
+}
+
+.usable-loop {
+  margin-top: 0.75rem;
+  padding: 0.7rem 0.9rem;
+  display: flex;
+  justify-content: center;
+  gap: 0.6rem;
+  border-radius: 12px;
+  background: var(--deck-green-dark);
+  color: #fff;
+  font-size: 0.72rem;
+}
+
+.usable-loop span {
+  color: #bfd1c2;
+}
+
+.chapter-next--chapter5 {
+  margin-top: 0.6rem;
+}
+
+@media (max-width: 620px) {
+  .genebank-pipeline {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .genebank-pipeline > b {
+    display: none;
+  }
+
+  .genebank-pipeline article {
+    min-height: 70px;
+  }
+
+  .pipeline-note {
+    display: none;
+  }
+
+  .lifecycle-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .lifecycle-buttons {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .lifecycle-buttons button {
+    min-height: 44px;
+  }
+
+  .usable-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .usable-loop {
+    display: none;
+  }
+}
