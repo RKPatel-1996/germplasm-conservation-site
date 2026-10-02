@@ -51,6 +51,9 @@ function Set-AIText {
     $Text = $Text -replace "`r`n", "`n"
     $Text = $Text -replace "`r", "`n"
 
+    # Remove trailing horizontal whitespace before every line ending.
+    $Text = [regex]::Replace($Text, '[ \t]+(?=\n|$)', '')
+
     $Utf8 = [System.Text.UTF8Encoding]::new($false)
 
     [System.IO.File]::WriteAllText(
