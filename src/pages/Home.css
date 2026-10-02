@@ -4310,3 +4310,123 @@
     display: none;
   }
 }
+
+/* === TYPOGRAPHY REBALANCE ====================================== */
+
+.deck-slide h1 {
+  font-size: clamp(3.1rem, 5.5vw, 4.9rem) !important;
+  line-height: 0.94 !important;
+  letter-spacing: -0.055em !important;
+  max-width: 1120px !important;
+}
+
+.case-driven-heading h2 {
+  font-size: clamp(1.55rem, 2.9vw, 2.75rem) !important;
+  line-height: 0.98 !important;
+  max-width: 460px !important;
+}
+
+.global-network-slide h2,
+.cgiar-genesys-slide h2,
+.svalbard-slide h2,
+.india-system-slide h2,
+.india-genebank-slide h2,
+.india-safety-slide h2,
+.seedbank-limit-slide h2,
+.invitro-slide h2,
+.cryo-slide h2,
+.return-use-slide h2,
+.trait-evaluation-slide h2,
+.bank-field-slide h2,
+.resource-map-slide h2,
+.read-accession-slide h2,
+.explore-challenge-slide h2 {
+  font-size: clamp(1.9rem, 3.25vw, 3.3rem) !important;
+  line-height: 0.98 !important;
+  max-width: 1040px !important;
+}
+
+.deck-slide p {
+  line-height: 1.48 !important;
+}
+
+.case-driven-scenario p,
+.compact-response-caption,
+.dynamic-case-heading > p,
+.dynamic-case-stats span,
+.dynamic-case-lesson,
+.dynamic-case-links a,
+.case-driven-bottom,
+.source-link-row,
+.source-link-row a,
+.resource-map-grid p,
+.explore-task-grid p,
+.accession-reading-record small,
+.accession-reading-record strong,
+.accession-reading-questions li,
+.india-crop-stats span,
+.data-date,
+.global-network-flow p,
+.global-resource-grid p,
+.svalbard-rule,
+.india-system-note,
+.india-stat-note,
+.india-safety-rule,
+.invitro-use-grid span,
+.cryo-process article small,
+.real-case-stats span,
+.dynamic-case-stats span,
+.backup-flow small,
+.global-stat-row small,
+.genesys-card > small,
+.course-synthesis > p {
+  font-size: 0.68rem !important;
+  line-height: 1.42 !important;
+}
+
+.evidence-scenario-strip strong,
+.case-driven-scenario strong,
+.real-case-header > strong,
+.dynamic-case-heading h3,
+.accession-reading-record strong,
+.india-crop-stats strong,
+.global-network-flow h3,
+.seedbank-limit-grid h3,
+.invitro-flow article > strong,
+.cryo-process article > strong,
+.return-use-flow article > strong,
+.bank-field-flow article > strong {
+  line-height: 1.15 !important;
+}
+
+.global-stat-row strong,
+.real-case-stats strong,
+.dynamic-case-stats strong,
+.india-crop-stats strong {
+  font-size: clamp(1.05rem, 1.8vw, 1.45rem) !important;
+}
+
+@media (max-width: 620px) {
+  .deck-slide h1 {
+    font-size: clamp(2.35rem, 8vw, 3.3rem) !important;
+  }
+
+  .case-driven-heading h2,
+  .global-network-slide h2,
+  .cgiar-genesys-slide h2,
+  .svalbard-slide h2,
+  .india-system-slide h2,
+  .india-genebank-slide h2,
+  .india-safety-slide h2,
+  .seedbank-limit-slide h2,
+  .invitro-slide h2,
+  .cryo-slide h2,
+  .return-use-slide h2,
+  .trait-evaluation-slide h2,
+  .bank-field-slide h2,
+  .resource-map-slide h2,
+  .read-accession-slide h2,
+  .explore-challenge-slide h2 {
+    font-size: clamp(1.55rem, 5.4vw, 2.2rem) !important;
+  }
+}
