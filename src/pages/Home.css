@@ -3964,3 +3964,349 @@
     display: none;
   }
 }
+
+/* === SLIDE 02: DYNAMIC REAL-STRESS CASES ======================= */
+
+.case-driven-stress-slide {
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.case-driven-heading {
+  display: grid;
+  grid-template-columns: 0.78fr 1.22fr;
+  gap: 1rem;
+  align-items: end;
+}
+
+.case-driven-heading h2 {
+  margin: 0.4rem 0 0;
+  max-width: 500px;
+  font-size: clamp(1.8rem, 3.55vw, 3.55rem);
+  line-height: 0.98;
+  letter-spacing: -0.05em;
+}
+
+.case-driven-heading h2 em {
+  display: block;
+  color: var(--deck-green);
+  font-style: normal;
+}
+
+.case-driven-buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.5rem;
+}
+
+.case-driven-buttons button {
+  min-height: 50px;
+  border: 1px solid var(--deck-line);
+  border-radius: 14px;
+  background: #fff;
+  color: var(--deck-ink);
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.case-driven-buttons button:hover,
+.case-driven-buttons button.active {
+  border-color: var(--deck-green-dark);
+  background: var(--deck-green-dark);
+  color: #fff;
+}
+
+.case-driven-scenario {
+  margin-top: 0.6rem;
+  padding: 0.5rem 0.75rem;
+  display: grid;
+  grid-template-columns: 0.95fr 1.05fr;
+  gap: 1rem;
+  align-items: center;
+  border: 1px solid var(--deck-line);
+  border-radius: 13px;
+  background: #f6f8f3;
+}
+
+.case-driven-scenario > div {
+  display: flex;
+  flex-direction: column;
+}
+
+.case-driven-scenario span {
+  color: #b84b38;
+  font-size: 0.54rem;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+}
+
+.case-driven-scenario strong {
+  margin-top: 0.12rem;
+  font-size: 0.86rem;
+}
+
+.case-driven-scenario p {
+  margin: 0;
+  color: var(--deck-muted);
+  font-size: 0.67rem;
+  line-height: 1.4;
+}
+
+.case-driven-body {
+  flex: 1;
+  min-height: 0;
+  margin-top: 0.6rem;
+  display: grid;
+  grid-template-columns: 0.82fr 1.18fr;
+  gap: 0.7rem;
+  align-items: stretch;
+}
+
+.compact-response-panel,
+.dynamic-real-case {
+  min-height: 0;
+  padding: 0.75rem;
+  border: 1px solid var(--deck-line);
+  border-radius: 17px;
+}
+
+.compact-response-panel {
+  background: #f8f7f1;
+}
+
+.compact-response-title > span,
+.dynamic-case-heading > span {
+  display: block;
+  color: var(--deck-green);
+  font-size: 0.53rem;
+  font-weight: 900;
+  letter-spacing: 0.09em;
+}
+
+.compact-response-title > strong {
+  display: block;
+  margin-top: 0.15rem;
+  font-size: 0.8rem;
+}
+
+.compact-response-fields {
+  margin-top: 0.5rem;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 0.35rem;
+  align-items: center;
+}
+
+.compact-field {
+  padding: 0.45rem;
+  border-radius: 12px;
+}
+
+.compact-field--narrow {
+  background: #faefea;
+}
+
+.compact-field--broad {
+  background: #eaf4e8;
+}
+
+.compact-field > div:first-child {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.35rem;
+  align-items: center;
+}
+
+.compact-field strong {
+  font-size: 0.68rem;
+}
+
+.compact-field small {
+  color: var(--deck-muted);
+  font-size: 0.5rem;
+}
+
+.compact-mini-field {
+  height: 105px;
+  margin-top: 0.25rem;
+  overflow: hidden;
+  border-radius: 9px;
+}
+
+.compact-mini-field .mini-field {
+  height: 105px !important;
+  min-height: 0 !important;
+}
+
+.compact-mini-field .plant {
+  transform: scale(0.62);
+  transform-origin: bottom center;
+}
+
+.compact-vs {
+  color: var(--deck-muted);
+  font-size: 0.52rem;
+  font-weight: 900;
+}
+
+.compact-response-caption {
+  margin: 0.45rem 0 0;
+  color: var(--deck-muted);
+  font-size: 0.6rem;
+  line-height: 1.35;
+}
+
+.dynamic-real-case {
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+}
+
+.dynamic-case-heading h3 {
+  margin: 0.25rem 0 0.3rem;
+  font-size: clamp(1.05rem, 1.7vw, 1.55rem);
+}
+
+.dynamic-case-heading > p {
+  margin: 0;
+  color: var(--deck-muted);
+  font-size: 0.65rem;
+  line-height: 1.4;
+}
+
+.dynamic-case-stats {
+  margin-top: 0.5rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(105px, 1fr));
+  gap: 0.4rem;
+}
+
+.dynamic-case-stats > div {
+  padding: 0.45rem 0.5rem;
+  border-radius: 10px;
+  background: var(--deck-green-soft);
+}
+
+.dynamic-case-stats strong,
+.dynamic-case-stats span {
+  display: block;
+}
+
+.dynamic-case-stats strong {
+  color: var(--deck-green-dark);
+  font-size: clamp(0.95rem, 1.7vw, 1.35rem);
+}
+
+.dynamic-case-stats span {
+  margin-top: 0.1rem;
+  color: var(--deck-muted);
+  font-size: 0.52rem;
+  line-height: 1.25;
+}
+
+.dynamic-case-lesson {
+  margin-top: 0.45rem;
+  padding: 0.45rem 0.55rem;
+  border-radius: 10px;
+  background: #f5eee4;
+  font-size: 0.6rem;
+}
+
+.dynamic-case-lesson strong,
+.dynamic-case-lesson span {
+  display: block;
+}
+
+.dynamic-case-lesson span {
+  margin-top: 0.15rem;
+  color: var(--deck-muted);
+  line-height: 1.35;
+}
+
+.dynamic-case-links {
+  margin-top: auto;
+  padding-top: 0.45rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.dynamic-case-links a {
+  padding: 0.3rem 0.45rem;
+  border: 1px solid var(--deck-line);
+  border-radius: 8px;
+  color: var(--deck-green-dark);
+  font-size: 0.55rem;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.dynamic-case-links a:hover {
+  border-color: var(--deck-green);
+  background: var(--deck-green-soft);
+}
+
+.case-driven-bottom {
+  max-width: 1000px;
+  margin: 0.5rem auto 0;
+  padding: 0.42rem 0.65rem;
+  display: flex;
+  gap: 0.4rem;
+  border-radius: 10px;
+  background: #edf3ea;
+  font-size: 0.6rem;
+}
+
+.case-driven-bottom span {
+  color: var(--deck-muted);
+}
+
+@media (max-height: 760px) and (min-width: 621px) {
+  .compact-mini-field,
+  .compact-mini-field .mini-field {
+    height: 82px !important;
+  }
+
+  .case-driven-heading h2 {
+    font-size: clamp(1.55rem, 3vw, 2.9rem);
+  }
+
+  .compact-response-caption {
+    display: none;
+  }
+}
+
+@media (max-width: 620px) {
+  .case-driven-heading {
+    grid-template-columns: 1fr;
+  }
+
+  .case-driven-buttons {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .case-driven-buttons button {
+    min-height: 36px;
+    font-size: 0.62rem;
+  }
+
+  .case-driven-scenario {
+    grid-template-columns: 1fr;
+  }
+
+  .case-driven-body {
+    grid-template-columns: 1fr;
+  }
+
+  .compact-response-panel {
+    display: none;
+  }
+
+  .case-driven-bottom {
+    display: none;
+  }
+}

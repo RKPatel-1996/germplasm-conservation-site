@@ -399,6 +399,127 @@ const breedingTraitExamples = {
       "Pre-breeding helps transfer useful variation into material breeders can use more readily.",
   },
 };
+const stressCaseStudies = {
+  disease: {
+    kicker: "REAL CASE · GENETIC UNIFORMITY + DISEASE",
+    title: "1970 · Southern corn leaf blight",
+    context:
+      "A new race of the pathogen encountered a crop in which most commercial hybrids shared the same vulnerable cytoplasmic background.",
+    stats: [
+      {
+        value: "15%",
+        label: "of the North American corn crop destroyed",
+      },
+      {
+        value: ">85%",
+        label: "of hybrids shared the cms-T genetic background",
+      },
+    ],
+    lesson:
+      "When a large crop shares the same susceptibility, a pathogen can turn genetic uniformity into system-wide vulnerability.",
+    sources: [
+      {
+        label: "USDA ARS · full case",
+        href: "https://www.ars.usda.gov/research/publications/publication/?seqNo115=336830",
+      },
+    ],
+  },
+
+  drought: {
+    kicker: "REAL CASE · DROUGHT + BREEDING RESPONSE",
+    title: "Zimbabwe · drought-tolerant maize",
+    context:
+      "Drought repeatedly reduces maize production in southern Africa. Breeding programmes developed maize with alternative genetic responses to water stress.",
+    stats: [
+      {
+        value: "617 kg/ha",
+        label: "more maize harvested by households using drought-tolerant varieties",
+      },
+      {
+        value: "~9 months",
+        label: "additional food-security equivalent reported in the study",
+      },
+    ],
+    lesson:
+      "The same drought does not have to produce the same outcome when varieties differ genetically in their stress response.",
+    sources: [
+      {
+        label: "CIMMYT · full case",
+        href: "https://www.cimmyt.org/news/drought-tolerant-maize-provides-extra-9-months-of-food-for-farming-families/",
+      },
+      {
+        label: "DT maize programme",
+        href: "https://www.cimmyt.org/projects/drought-tolerant-maize-for-africa-dtma/",
+      },
+    ],
+  },
+
+  heat: {
+    kicker: "REAL CASE · HEATWAVE + VARIETAL RESPONSE",
+    title: "India · 2022 wheat heatwave",
+    context:
+      "Extreme heat struck major wheat-growing areas during a sensitive late stage of the crop and reduced production.",
+    stats: [
+      {
+        value: "4.5%",
+        label: "estimated national production reduction versus normal-year weather",
+      },
+      {
+        value: "up to 15%",
+        label: "estimated yield losses in some regions",
+      },
+      {
+        value: "3.6–5.4%",
+        label: "yield advantage reported for heat-tolerant DBW187 / DBW222 versus HD-3086",
+      },
+    ],
+    lesson:
+      "Heat exposure was widespread, but varietal response differed — exactly the kind of variation breeders need to preserve and use.",
+    sources: [
+      {
+        label: "Full heatwave study",
+        href: "https://doi.org/10.1088/1748-9326/acf871",
+      },
+      {
+        label: "Government of India · heat-tolerant wheat",
+        href: "https://www.pib.gov.in/PressReleasePage.aspx?PRID=1882246&lang=2&reg=48",
+      },
+    ],
+  },
+
+  salinity: {
+    kicker: "REAL CASE · SALINITY + TOLERANT VARIETIES",
+    title: "Bangladesh · fields salinized after Cyclone Aila",
+    context:
+      "After Cyclone Aila in 2009, severe salinity left affected coastal farmers unable to obtain reasonable dry-season rice harvests.",
+    stats: [
+      {
+        value: "2009",
+        label: "Cyclone Aila intensified the salinity problem in the case village",
+      },
+      {
+        value: "~4 t/ha",
+        label: "average yield in salt-tolerant rice demonstration trials",
+      },
+      {
+        value: "10 dS/m",
+        label: "reported salinity tolerance of the demonstrated varieties",
+      },
+    ],
+    lesson:
+      "Salt-tolerant genetic material allowed rice production to return where ordinary varieties struggled under the changed soil conditions.",
+    sources: [
+      {
+        label: "IRRI Rice Today · full case",
+        href: "https://ricetoday.irri.org/a-successful-salt-tolerant-rice-variety-in-sreefalkathi-village/",
+      },
+      {
+        label: "Current IRRI salinity breeding",
+        href: "https://news.irri.org/2024/11/advancing-resilience-2024-irri-nares.html",
+      },
+    ],
+  },
+};
 const totalPlants = 20;
 
 function MiniCropField({ survivors }) {
@@ -444,6 +565,7 @@ function Home() {
   const [activeBreedingTrait, setActiveBreedingTrait] = useState("disease");
 
   const scenario = stressScenarios[activeStress];
+  const stressCase = stressCaseStudies[activeStress];
   const source = traitSources[activeSource];
   const form = germplasmForms[activeForm];
   const seedType = seedBehaviours[activeSeedType];
@@ -611,9 +733,9 @@ function Home() {
         {/* ------------------------------------------------------- */}
 
         <SlideFrame active={slideIndex === 1}>
-          <div className="evidence-stress-slide">
+          <div className="case-driven-stress-slide">
 
-            <div className="evidence-stress-heading">
+            <div className="case-driven-heading">
               <div>
                 <span className="slide-eyebrow">02 · TEST THE CROP</span>
 
@@ -623,7 +745,7 @@ function Home() {
                 </h2>
               </div>
 
-              <div className="evidence-stress-buttons">
+              <div className="case-driven-buttons">
                 {Object.entries(stressScenarios).map(([key, item]) => (
                   <button
                     key={key}
@@ -637,7 +759,7 @@ function Home() {
               </div>
             </div>
 
-            <div className="evidence-scenario-strip">
+            <div className="case-driven-scenario">
               <div>
                 <span>{scenario.eyebrow}</span>
                 <strong>{scenario.title}</strong>
@@ -646,145 +768,95 @@ function Home() {
               <p>{scenario.short}</p>
             </div>
 
-            <div className="evidence-comparison-grid">
+            <div className="case-driven-body">
 
-              <article className="evidence-comparison-card evidence-comparison-card--narrow">
-                <div className="evidence-card-heading">
-                  <span>A</span>
+              <article className="compact-response-panel">
+                <div className="compact-response-title">
+                  <span>CONCEPT</span>
+                  <strong>Same stress — different genetic responses</strong>
+                </div>
 
-                  <div>
-                    <strong>Narrow response range</strong>
-                    <small>many plants share a similar genetic response</small>
+                <div className="compact-response-fields">
+
+                  <div className="compact-field compact-field--narrow">
+                    <div>
+                      <strong>Narrow</strong>
+                      <small>similar response</small>
+                    </div>
+
+                    <div className="compact-mini-field">
+                      <MiniCropField survivors={scenario.narrowSurvivors} />
+                    </div>
                   </div>
+
+                  <div className="compact-vs">
+                    VS
+                  </div>
+
+                  <div className="compact-field compact-field--broad">
+                    <div>
+                      <strong>Broader</strong>
+                      <small>more possible responses</small>
+                    </div>
+
+                    <div className="compact-mini-field">
+                      <MiniCropField survivors={scenario.diverseSurvivors} />
+                    </div>
+                  </div>
+
                 </div>
 
-                <div className="evidence-mini-field">
-                  <MiniCropField survivors={scenario.narrowSurvivors} />
-                </div>
-
-                <p>{scenario.narrow}</p>
+                <p className="compact-response-caption">
+                  Genetic diversity does not guarantee survival. It increases
+                  the range of biological responses available for selection.
+                </p>
               </article>
 
-              <div className="same-stress-badge">
-                SAME
-                <br />
-                STRESS
-              </div>
+              <article className="dynamic-real-case">
 
-              <article className="evidence-comparison-card evidence-comparison-card--broad">
-                <div className="evidence-card-heading">
-                  <span>B</span>
-
-                  <div>
-                    <strong>Broader response range</strong>
-                    <small>more genetic variation is represented</small>
-                  </div>
+                <div className="dynamic-case-heading">
+                  <span>{stressCase.kicker}</span>
+                  <h3>{stressCase.title}</h3>
+                  <p>{stressCase.context}</p>
                 </div>
 
-                <div className="evidence-mini-field">
-                  <MiniCropField survivors={scenario.diverseSurvivors} />
+                <div className="dynamic-case-stats">
+                  {stressCase.stats.map((stat) => (
+                    <div key={`${stat.value}-${stat.label}`}>
+                      <strong>{stat.value}</strong>
+                      <span>{stat.label}</span>
+                    </div>
+                  ))}
                 </div>
 
-                <p>{scenario.diverse}</p>
+                <div className="dynamic-case-lesson">
+                  <strong>Why this matters</strong>
+                  <span>{stressCase.lesson}</span>
+                </div>
+
+                <div className="dynamic-case-links">
+                  {stressCase.sources.map((source) => (
+                    <a
+                      key={source.href}
+                      href={source.href}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      {source.label} &nearr;
+                    </a>
+                  ))}
+                </div>
+
               </article>
 
             </div>
 
-            <div className="real-evidence-grid">
-
-              <article className="real-case-card">
-                <div className="real-case-header">
-                  <span>REAL CASE · CROP LOSS</span>
-                  <strong>1970 · Southern corn leaf blight</strong>
-                </div>
-
-                <div className="real-case-stats">
-                  <div>
-                    <strong>&gt;85%</strong>
-                    <span>
-                      of hybrids had the cms-T genetic background
-                    </span>
-                  </div>
-
-                  <div>
-                    <strong>~15%</strong>
-                    <span>
-                      of the North American corn crop was destroyed
-                    </span>
-                  </div>
-                </div>
-
-                <p>
-                  A pathogen adapted to the widely used Texas male-sterile
-                  cytoplasm exposed the danger of relying on a highly uniform
-                  crop background.
-                </p>
-
-                <a
-                  href="https://www.ars.usda.gov/research/publications/publication/?seqNo115=336830"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  USDA Agricultural Research Service &nearr;
-                </a>
-              </article>
-
-              <article className="real-case-card real-case-card--backup">
-                <div className="real-case-header">
-                  <span>REAL CASE · BACKUP USED</span>
-                  <strong>Syria → Svalbard → Lebanon & Morocco</strong>
-                </div>
-
-                <div className="real-case-stats">
-                  <div>
-                    <strong>80%+</strong>
-                    <span>
-                      of ICARDA's collection had been safety-duplicated
-                    </span>
-                  </div>
-
-                  <div>
-                    <strong>2015</strong>
-                    <span>
-                      first withdrawal from the Svalbard Seed Vault
-                    </span>
-                  </div>
-                </div>
-
-                <p>
-                  After ICARDA lost access to its Syrian genebank during the
-                  conflict, its safety duplicates were used to rebuild active
-                  collections in Lebanon and Morocco.
-                </p>
-
-                <div className="real-case-links">
-                  <a
-                    href="https://www.croptrust.org/what-we-do/programs/svalbard-global-seed-vault/"
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    Crop Trust &nearr;
-                  </a>
-
-                  <a
-                    href="https://icarda.org/publications/22012/safeguarding-global-seed-heritage-syria-svalbard"
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    ICARDA case study &nearr;
-                  </a>
-                </div>
-              </article>
-
-            </div>
-
-            <div className="evidence-key-idea">
-              <strong>Why conserve diversity?</strong>
+            <div className="case-driven-bottom">
+              <strong>Conservation logic:</strong>
 
               <span>
-                Genetic uniformity can magnify vulnerability. Conserved and
-                safety-duplicated diversity preserves options before the next
-                disease, environmental stress or disaster occurs.
+                we cannot predict which stress or trait will matter next, so
+                preserving diverse genetic resources preserves future options.
               </span>
             </div>
 
