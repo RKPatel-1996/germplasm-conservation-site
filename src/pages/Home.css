@@ -4795,3 +4795,207 @@
     font-size: clamp(1.8rem, 3vw, 2.9rem) !important;
   }
 }
+
+/* === READABILITY BATCH 03 · SLIDES 11-15 ======================= */
+
+/* ---------------------------------------------------------------
+   SLIDE 11 · Seed behaviour
+   --------------------------------------------------------------- */
+
+.deck-slide:nth-of-type(11) .slide-heading h2 {
+  font-size: clamp(2rem, 3.3vw, 3.3rem) !important;
+  line-height: 0.98 !important;
+}
+
+.deck-slide:nth-of-type(11) .seed-type-buttons button {
+  font-size: clamp(0.88rem, 0.82vw, 1rem) !important;
+}
+
+.deck-slide:nth-of-type(11) .seed-type-detail > span {
+  font-size: clamp(0.70rem, 0.65vw, 0.80rem) !important;
+}
+
+.deck-slide:nth-of-type(11) .seed-type-detail h3 {
+  font-size: clamp(1.45rem, 2.2vw, 2.15rem) !important;
+}
+
+.deck-slide:nth-of-type(11) .seed-type-detail > p {
+  font-size: clamp(0.90rem, 0.84vw, 1rem) !important;
+  line-height: 1.55 !important;
+}
+
+.deck-slide:nth-of-type(11) .seed-type-meta small {
+  font-size: clamp(0.70rem, 0.65vw, 0.80rem) !important;
+}
+
+.deck-slide:nth-of-type(11) .seed-type-meta strong {
+  font-size: clamp(0.84rem, 0.78vw, 0.94rem) !important;
+  line-height: 1.4 !important;
+}
+
+.deck-slide:nth-of-type(11) .seed-spectrum strong {
+  font-size: clamp(0.72rem, 0.67vw, 0.82rem) !important;
+}
+
+.deck-slide:nth-of-type(11) .seed-spectrum span {
+  font-size: clamp(0.70rem, 0.65vw, 0.80rem) !important;
+}
+
+/* ---------------------------------------------------------------
+   SLIDE 12 · Conservation-method map
+   --------------------------------------------------------------- */
+
+.deck-slide:nth-of-type(12) .method-map-slide h2 {
+  font-size: clamp(2rem, 3.3vw, 3.3rem) !important;
+  line-height: 0.98 !important;
+  max-width: 1080px !important;
+}
+
+.deck-slide:nth-of-type(12) .method-grid article > span {
+  font-size: clamp(0.70rem, 0.65vw, 0.80rem) !important;
+}
+
+.deck-slide:nth-of-type(12) .method-grid h3 {
+  font-size: clamp(1rem, 0.94vw, 1.12rem) !important;
+}
+
+.deck-slide:nth-of-type(12) .method-grid p {
+  font-size: clamp(0.80rem, 0.75vw, 0.90rem) !important;
+  line-height: 1.45 !important;
+}
+
+.deck-slide:nth-of-type(12) .method-conclusion {
+  font-size: clamp(0.82rem, 0.76vw, 0.92rem) !important;
+  line-height: 1.45 !important;
+}
+
+.deck-slide:nth-of-type(12) .chapter-next {
+  font-size: clamp(0.78rem, 0.72vw, 0.88rem) !important;
+}
+
+/* ---------------------------------------------------------------
+   SLIDE 13 · Inside a genebank
+   --------------------------------------------------------------- */
+
+.deck-slide:nth-of-type(13) .genebank-pipeline-slide h2 {
+  font-size: clamp(2rem, 3.25vw, 3.25rem) !important;
+  line-height: 0.98 !important;
+}
+
+.deck-slide:nth-of-type(13) .genebank-intro {
+  font-size: clamp(0.92rem, 0.86vw, 1.04rem) !important;
+  line-height: 1.5 !important;
+}
+
+.deck-slide:nth-of-type(13) .genebank-pipeline article > span {
+  font-size: clamp(0.70rem, 0.65vw, 0.80rem) !important;
+}
+
+.deck-slide:nth-of-type(13) .genebank-pipeline article strong {
+  font-size: clamp(0.88rem, 0.82vw, 0.98rem) !important;
+}
+
+.deck-slide:nth-of-type(13) .genebank-pipeline article small {
+  font-size: clamp(0.72rem, 0.67vw, 0.82rem) !important;
+  line-height: 1.35 !important;
+}
+
+.deck-slide:nth-of-type(13) .pipeline-note {
+  font-size: clamp(0.82rem, 0.76vw, 0.92rem) !important;
+  line-height: 1.45 !important;
+}
+
+.deck-slide:nth-of-type(13) .source-link-row,
+.deck-slide:nth-of-type(13) .source-link-row a {
+  font-size: clamp(0.72rem, 0.67vw, 0.82rem) !important;
+}
+
+/* ---------------------------------------------------------------
+   SLIDE 14 · Accession lifecycle
+   --------------------------------------------------------------- */
+
+.deck-slide:nth-of-type(14) .slide-heading h2 {
+  font-size: clamp(2rem, 3.25vw, 3.25rem) !important;
+  line-height: 0.98 !important;
+}
+
+.deck-slide:nth-of-type(14) .lifecycle-buttons button {
+  font-size: clamp(0.82rem, 0.76vw, 0.92rem) !important;
+}
+
+.deck-slide:nth-of-type(14) .lifecycle-buttons button > span {
+  font-size: clamp(0.68rem, 0.63vw, 0.78rem) !important;
+}
+
+.deck-slide:nth-of-type(14) .lifecycle-detail > span {
+  font-size: clamp(0.70rem, 0.65vw, 0.80rem) !important;
+}
+
+.deck-slide:nth-of-type(14) .lifecycle-detail h3 {
+  font-size: clamp(1.5rem, 2.2vw, 2.15rem) !important;
+}
+
+.deck-slide:nth-of-type(14) .lifecycle-detail > p {
+  font-size: clamp(0.90rem, 0.84vw, 1rem) !important;
+  line-height: 1.55 !important;
+}
+
+.deck-slide:nth-of-type(14) .lifecycle-detail small {
+  font-size: clamp(0.68rem, 0.63vw, 0.78rem) !important;
+}
+
+.deck-slide:nth-of-type(14) .lifecycle-detail div strong {
+  font-size: clamp(0.84rem, 0.78vw, 0.94rem) !important;
+}
+
+.deck-slide:nth-of-type(14) .lifecycle-warning {
+  font-size: clamp(0.82rem, 0.76vw, 0.92rem) !important;
+  line-height: 1.45 !important;
+}
+
+/* ---------------------------------------------------------------
+   SLIDE 15 · Keep germplasm usable
+   --------------------------------------------------------------- */
+
+.deck-slide:nth-of-type(15) .usable-slide h2 {
+  font-size: clamp(2rem, 3.25vw, 3.25rem) !important;
+  line-height: 0.98 !important;
+  max-width: 1080px !important;
+}
+
+.deck-slide:nth-of-type(15) .usable-grid article > span {
+  font-size: clamp(0.70rem, 0.65vw, 0.80rem) !important;
+}
+
+.deck-slide:nth-of-type(15) .usable-grid h3 {
+  font-size: clamp(1rem, 0.94vw, 1.12rem) !important;
+  line-height: 1.2 !important;
+}
+
+.deck-slide:nth-of-type(15) .usable-grid p {
+  font-size: clamp(0.80rem, 0.75vw, 0.90rem) !important;
+  line-height: 1.48 !important;
+}
+
+.deck-slide:nth-of-type(15) .usable-loop {
+  font-size: clamp(0.80rem, 0.74vw, 0.90rem) !important;
+  line-height: 1.4 !important;
+}
+
+.deck-slide:nth-of-type(15) .chapter-next {
+  font-size: clamp(0.78rem, 0.72vw, 0.88rem) !important;
+}
+
+/* ---------------------------------------------------------------
+   SHORT DESKTOP VIEWPORTS
+   --------------------------------------------------------------- */
+
+@media (max-height: 760px) and (min-width: 621px) {
+  .deck-slide:nth-of-type(11) .slide-heading h2,
+  .deck-slide:nth-of-type(12) .method-map-slide h2,
+  .deck-slide:nth-of-type(13) .genebank-pipeline-slide h2,
+  .deck-slide:nth-of-type(14) .slide-heading h2,
+  .deck-slide:nth-of-type(15) .usable-slide h2 {
+    font-size: clamp(1.8rem, 2.9vw, 2.8rem) !important;
+  }
+}
