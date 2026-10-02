@@ -5765,3 +5765,187 @@
     font-size: 0.82rem !important;
   }
 }
+
+/* === READABILITY BATCH 06 · SLIDES 26-30 ======================= */
+/*
+   Final established standard:
+   body / explanation : ~16-18 px
+   secondary text     : ~15-16 px
+   labels / metadata  : ~14-15 px
+   display titles     : unchanged
+*/
+
+/* ---------------------------------------------------------------
+   SHARED BASE · SLIDES 26-30
+   --------------------------------------------------------------- */
+
+.deck-slide:nth-of-type(n+26):nth-of-type(-n+30) p {
+  font-size: clamp(0.98rem, 0.94vw, 1.10rem);
+  line-height: 1.48;
+}
+
+.deck-slide:nth-of-type(n+26):nth-of-type(-n+30) small {
+  font-size: clamp(0.86rem, 0.80vw, 0.96rem) !important;
+  line-height: 1.42 !important;
+}
+
+.deck-slide:nth-of-type(n+26):nth-of-type(-n+30) a {
+  font-size: clamp(0.84rem, 0.78vw, 0.94rem);
+  line-height: 1.4;
+}
+
+.deck-slide:nth-of-type(n+26):nth-of-type(-n+30) button {
+  font-size: clamp(0.90rem, 0.84vw, 1rem);
+}
+
+/* ---------------------------------------------------------------
+   SLIDE 26 · Trait evaluation
+   --------------------------------------------------------------- */
+
+.deck-slide:nth-of-type(26) .trait-evaluation-slide button {
+  font-size: clamp(0.92rem, 0.86vw, 1.02rem) !important;
+}
+
+.deck-slide:nth-of-type(26) [class*="trait"] > span,
+.deck-slide:nth-of-type(26) [class*="evaluation"] > span,
+.deck-slide:nth-of-type(26) [class*="label"] {
+  font-size: clamp(0.86rem, 0.80vw, 0.94rem) !important;
+}
+
+.deck-slide:nth-of-type(26) [class*="trait"] p,
+.deck-slide:nth-of-type(26) [class*="evaluation"] p {
+  font-size: clamp(0.98rem, 0.92vw, 1.08rem) !important;
+  line-height: 1.46 !important;
+}
+
+.deck-slide:nth-of-type(26) [class*="trait"] strong,
+.deck-slide:nth-of-type(26) [class*="evaluation"] strong {
+  font-size: clamp(1rem, 0.94vw, 1.12rem) !important;
+}
+
+.deck-slide:nth-of-type(26) [class*="note"],
+.deck-slide:nth-of-type(26) [class*="distinction"] {
+  font-size: clamp(0.96rem, 0.90vw, 1.06rem) !important;
+  line-height: 1.45 !important;
+}
+
+/* ---------------------------------------------------------------
+   SLIDE 27 · Genebank to breeding / field
+   --------------------------------------------------------------- */
+
+.deck-slide:nth-of-type(27) .bank-field-flow article > span {
+  font-size: clamp(0.86rem, 0.80vw, 0.94rem) !important;
+}
+
+.deck-slide:nth-of-type(27) .bank-field-flow article > strong {
+  font-size: clamp(1rem, 0.94vw, 1.12rem) !important;
+}
+
+.deck-slide:nth-of-type(27) .bank-field-flow article p,
+.deck-slide:nth-of-type(27) .bank-field-flow article small {
+  font-size: clamp(0.96rem, 0.90vw, 1.06rem) !important;
+  line-height: 1.44 !important;
+}
+
+.deck-slide:nth-of-type(27) [class*="drag"],
+.deck-slide:nth-of-type(27) [class*="note"],
+.deck-slide:nth-of-type(27) [class*="takeaway"] {
+  font-size: clamp(0.98rem, 0.92vw, 1.08rem) !important;
+  line-height: 1.45 !important;
+}
+
+/* ---------------------------------------------------------------
+   SLIDE 28 · Real resource explorer
+   --------------------------------------------------------------- */
+
+.deck-slide:nth-of-type(28) .resource-map-grid h3 {
+  font-size: clamp(1.08rem, 1vw, 1.20rem) !important;
+  line-height: 1.2 !important;
+}
+
+.deck-slide:nth-of-type(28) .resource-map-grid p {
+  font-size: clamp(0.98rem, 0.92vw, 1.08rem) !important;
+  line-height: 1.46 !important;
+}
+
+.deck-slide:nth-of-type(28) .resource-map-grid small,
+.deck-slide:nth-of-type(28) [class*="label"] {
+  font-size: clamp(0.86rem, 0.80vw, 0.94rem) !important;
+}
+
+.deck-slide:nth-of-type(28) .resource-map-grid a {
+  font-size: clamp(0.90rem, 0.84vw, 1rem) !important;
+}
+
+/* ---------------------------------------------------------------
+   SLIDE 29 · Read an accession record
+   --------------------------------------------------------------- */
+
+.deck-slide:nth-of-type(29) .accession-reading-record small {
+  font-size: clamp(0.86rem, 0.80vw, 0.94rem) !important;
+}
+
+.deck-slide:nth-of-type(29) .accession-reading-record strong {
+  font-size: clamp(0.98rem, 0.92vw, 1.08rem) !important;
+  line-height: 1.4 !important;
+}
+
+.deck-slide:nth-of-type(29) .accession-reading-record p,
+.deck-slide:nth-of-type(29) .accession-reading-questions li {
+  font-size: clamp(0.96rem, 0.90vw, 1.06rem) !important;
+  line-height: 1.46 !important;
+}
+
+.deck-slide:nth-of-type(29) .accession-reading-questions strong {
+  font-size: clamp(1rem, 0.94vw, 1.12rem) !important;
+}
+
+.deck-slide:nth-of-type(29) a {
+  font-size: clamp(0.88rem, 0.82vw, 0.98rem) !important;
+}
+
+/* ---------------------------------------------------------------
+   SLIDE 30 · Explore challenge / synthesis
+   --------------------------------------------------------------- */
+
+.deck-slide:nth-of-type(30) .explore-task-grid h3 {
+  font-size: clamp(1.06rem, 1vw, 1.18rem) !important;
+  line-height: 1.2 !important;
+}
+
+.deck-slide:nth-of-type(30) .explore-task-grid p {
+  font-size: clamp(0.96rem, 0.90vw, 1.06rem) !important;
+  line-height: 1.46 !important;
+}
+
+.deck-slide:nth-of-type(30) .explore-task-grid small,
+.deck-slide:nth-of-type(30) [class*="label"] {
+  font-size: clamp(0.86rem, 0.80vw, 0.94rem) !important;
+}
+
+.deck-slide:nth-of-type(30) .explore-task-grid a {
+  font-size: clamp(0.88rem, 0.82vw, 0.98rem) !important;
+}
+
+.deck-slide:nth-of-type(30) .course-synthesis > p {
+  font-size: clamp(1rem, 0.94vw, 1.10rem) !important;
+  line-height: 1.48 !important;
+}
+
+.deck-slide:nth-of-type(30) .course-synthesis strong {
+  font-size: clamp(1rem, 0.94vw, 1.12rem) !important;
+}
+
+/* ---------------------------------------------------------------
+   LOW-HEIGHT SAFETY
+   --------------------------------------------------------------- */
+
+@media (max-height: 720px) and (min-width: 621px) {
+  .deck-slide:nth-of-type(n+26):nth-of-type(-n+30) p {
+    line-height: 1.36 !important;
+  }
+
+  .deck-slide:nth-of-type(n+26):nth-of-type(-n+30) small {
+    font-size: 0.82rem !important;
+  }
+}
