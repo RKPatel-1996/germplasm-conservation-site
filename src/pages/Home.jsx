@@ -14,6 +14,18 @@ const slides = [
     id: "insight",
     label: "The Question",
   },
+  {
+    id: "trait-gap",
+    label: "The Missing Trait",
+  },
+  {
+    id: "search-space",
+    label: "Search Wider",
+  },
+  {
+    id: "oryza-case",
+    label: "A Real Rescue",
+  },
 ];
 
 const stressScenarios = {
@@ -74,6 +86,40 @@ const stressScenarios = {
   },
 };
 
+
+const traitSources = {
+  landrace: {
+    short: "Landrace",
+    title: "Traditional farmer-maintained varieties",
+    description:
+      "Landraces have been maintained and selected over generations in particular farming environments. They can contain locally adapted variation that is absent from modern uniform cultivars.",
+    value: "Local adaptation · stress response · quality traits",
+  },
+
+  obsolete: {
+    short: "Old cultivar",
+    title: "Cultivars no longer widely grown",
+    description:
+      "A cultivar can disappear from commercial production without becoming genetically useless. Older varieties may retain traits that were not priorities during later breeding.",
+    value: "Previously selected traits · historical diversity",
+  },
+
+  breeding: {
+    short: "Breeding line",
+    title: "Material already developed by breeders",
+    description:
+      "Experimental lines and breeding populations contain combinations of traits that may never have become commercial varieties but can still be valuable parents.",
+    value: "Pre-selected variation · useful trait combinations",
+  },
+
+  wild: {
+    short: "Wild relative",
+    title: "Crop wild relatives",
+    description:
+      "Wild species related to crops have evolved outside modern cultivation. They can contain resistance and stress-response traits that are rare or absent in cultivated material.",
+    value: "Novel resistance · environmental adaptation",
+  },
+};
 const totalPlants = 20;
 
 function MiniCropField({ survivors }) {
@@ -112,8 +158,15 @@ function SlideFrame({ active, children }) {
 function Home() {
   const [slideIndex, setSlideIndex] = useState(0);
   const [activeStress, setActiveStress] = useState("disease");
+  const [activeSource, setActiveSource] = useState("wild");
 
   const scenario = stressScenarios[activeStress];
+  const source = traitSources[activeSource];
+
+  const currentChapter =
+    slideIndex < 3
+      ? "Chapter 01 · Why diversity matters"
+      : "Chapter 02 · Where useful variation comes from";
 
   const previousSlide = () => {
     setSlideIndex((current) => Math.max(0, current - 1));
@@ -181,7 +234,7 @@ function Home() {
 
           <div>
             <strong>Germplasm Conservation</strong>
-            <span>Chapter 01 · Why diversity matters</span>
+            <span>{currentChapter}</span>
           </div>
         </div>
 
@@ -397,7 +450,236 @@ function Home() {
             </div>
           </div>
         </SlideFrame>
-      </main>
+
+        <SlideFrame active={slideIndex === 3}>
+          <div className="trait-gap-slide">
+            <div className="slide-heading">
+              <span className="slide-eyebrow">04 · THE TRAIT IS MISSING</span>
+              <h2>
+                What if the crop we grow
+                <em> does not contain the trait we need?</em>
+              </h2>
+            </div>
+
+            <div className="trait-gap-layout">
+              <article className="cultivar-profile">
+                <div className="cultivar-profile__header">
+                  <span>CURRENT CULTIVAR</span>
+                  <strong>High-performing rice variety</strong>
+                </div>
+
+                <div className="trait-list">
+                  <div><span>High yield</span><strong className="trait-good">✓</strong></div>
+                  <div><span>Uniform maturity</span><strong className="trait-good">✓</strong></div>
+                  <div><span>Desired grain quality</span><strong className="trait-good">✓</strong></div>
+                  <div className="trait-list__missing">
+                    <span>Resistance to a new disease</span>
+                    <strong>?</strong>
+                  </div>
+                </div>
+              </article>
+
+              <div className="trait-gap-arrow">→</div>
+
+              <article className="breeder-problem">
+                <span>BREEDER'S PROBLEM</span>
+
+                <strong>
+                  Selection can only use variation that is present in the
+                  material being searched.
+                </strong>
+
+                <p>
+                  If the required response is absent, repeatedly selecting
+                  within the same narrow material may not solve the problem.
+                </p>
+
+                <div className="search-wider-callout">
+                  Search a wider genetic resource →
+                </div>
+              </article>
+            </div>
+
+            <p className="trait-gap-footer">
+              The cultivar in today's field represents only a fraction of the
+              genetic variation that may exist within the crop and its relatives.
+            </p>
+          </div>
+        </SlideFrame>
+
+        <SlideFrame active={slideIndex === 4}>
+          <div className="search-slide">
+            <div className="slide-heading slide-heading--compact">
+              <span className="slide-eyebrow">05 · WIDEN THE SEARCH</span>
+
+              <h2>
+                The crop in the field is only
+                <em> one place to look.</em>
+              </h2>
+            </div>
+
+            <div className="search-explorer">
+              <div className="search-map">
+
+                <button
+                  type="button"
+                  className={activeSource === "wild" ? "active" : ""}
+                  onClick={() => setActiveSource("wild")}
+                >
+                  <span>Crop wild relative</span>
+                  <small>outside cultivation</small>
+                </button>
+
+                <button
+                  type="button"
+                  className={activeSource === "obsolete" ? "active" : ""}
+                  onClick={() => setActiveSource("obsolete")}
+                >
+                  <span>Old cultivar</span>
+                  <small>previously grown</small>
+                </button>
+
+                <div className="current-crop-node">
+                  <small>CURRENT</small>
+                  <strong>CROP</strong>
+                  <span>today's cultivated material</span>
+                </div>
+
+                <button
+                  type="button"
+                  className={activeSource === "landrace" ? "active" : ""}
+                  onClick={() => setActiveSource("landrace")}
+                >
+                  <span>Landrace</span>
+                  <small>farmer-maintained</small>
+                </button>
+
+                <button
+                  type="button"
+                  className={activeSource === "breeding" ? "active" : ""}
+                  onClick={() => setActiveSource("breeding")}
+                >
+                  <span>Breeding line</span>
+                  <small>experimental material</small>
+                </button>
+              </div>
+
+              <article className="source-detail">
+                <span className="source-detail__label">{source.short}</span>
+                <h3>{source.title}</h3>
+                <p>{source.description}</p>
+
+                <div className="source-value">
+                  <small>POTENTIAL VALUE</small>
+                  <strong>{source.value}</strong>
+                </div>
+              </article>
+            </div>
+
+            <div className="search-slide__takeaway">
+              <strong>Core idea:</strong>
+              <span>
+                breeders preserve access to variation because tomorrow's useful
+                trait may not be present in today's successful cultivar.
+              </span>
+            </div>
+          </div>
+        </SlideFrame>
+
+        <SlideFrame active={slideIndex === 5}>
+          <div className="case-slide">
+            <div className="case-slide__heading">
+              <span className="slide-eyebrow">06 · A REAL RESCUE</span>
+
+              <h2>
+                A wild rice relative supplied resistance
+                <em> cultivated rice needed.</em>
+              </h2>
+
+              <p>
+                Rice grassy stunt disease provides a classic example of why
+                conserving genetic diversity matters before a crisis occurs.
+              </p>
+            </div>
+
+            <div className="case-timeline">
+              <article>
+                <span>01</span>
+                <strong>Problem</strong>
+                <p>Grassy stunt disease became a serious threat to Asian rice.</p>
+              </article>
+
+              <div className="case-arrow">→</div>
+
+              <article>
+                <span>02</span>
+                <strong>Search</strong>
+                <p>Researchers screened thousands of rice lines for resistance.</p>
+              </article>
+
+              <div className="case-arrow">→</div>
+
+              <article className="case-highlight">
+                <span>03</span>
+                <strong>Wild relative</strong>
+                <p>
+                  Resistance was identified in
+                  <em> Oryza nivara</em>, a wild rice relative collected in India.
+                </p>
+              </article>
+
+              <div className="case-arrow">→</div>
+
+              <article>
+                <span>04</span>
+                <strong>Breeding</strong>
+                <p>
+                  The resistance was incorporated into cultivated rice breeding
+                  material.
+                </p>
+              </article>
+            </div>
+
+            <div className="case-conclusion">
+              <div>
+                <small>WHY CONSERVATION MATTERED</small>
+                <strong>
+                  Breeders could use the trait because the biological material
+                  had already been collected and made available for research.
+                </strong>
+              </div>
+
+              <div className="case-question">
+                <small>NEXT QUESTION</small>
+                <strong>
+                  What do we call these conserved biological resources?
+                </strong>
+                <span>Chapter 03 · Germplasm →</span>
+              </div>
+            </div>
+
+            <div className="case-resources">
+              <span>Primary resources:</span>
+
+              <a
+                href="https://books.irri.org/9789712202421_content.pdf"
+                target="_blank"
+                rel="noreferrer"
+              >
+                IRRI historical account ↗
+              </a>
+
+              <a
+                href="https://ricetoday.irri.org/feral-play-blank/"
+                target="_blank"
+                rel="noreferrer"
+              >
+                IRRI Rice Today retrospective ↗
+              </a>
+            </div>
+          </div>
+        </SlideFrame>      </main>
+
 
       <footer className="deck-controls">
         <button
