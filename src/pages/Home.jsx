@@ -26,6 +26,18 @@ const slides = [
     id: "oryza-case",
     label: "A Real Rescue",
   },
+  {
+    id: "germplasm-definition",
+    label: "What Is Germplasm?",
+  },
+  {
+    id: "germplasm-forms",
+    label: "Forms of Germplasm",
+  },
+  {
+    id: "accession",
+    label: "The Accession",
+  },
 ];
 
 const stressScenarios = {
@@ -120,6 +132,62 @@ const traitSources = {
     value: "Novel resistance · environmental adaptation",
   },
 };
+
+const germplasmForms = {
+  seed: {
+    label: "Seed",
+    title: "Seeds",
+    description:
+      "For many crops, seeds preserve living hereditary material and can regenerate whole plants.",
+    examples: "Wheat · rice · maize · pulses",
+    conservation: "Conventional seed banking when seed biology permits",
+  },
+
+  vegetative: {
+    label: "Shoot / bud",
+    title: "Vegetative material",
+    description:
+      "Clonally propagated crops may be conserved as shoot tips, buds, tubers or other vegetative tissues because seed would not preserve the exact cultivar.",
+    examples: "Potato · banana · cassava · yam",
+    conservation: "Field collections · in-vitro banks · cryopreservation",
+  },
+
+  pollen: {
+    label: "Pollen",
+    title: "Pollen",
+    description:
+      "Pollen carries paternal hereditary material and can support breeding when flowering times or locations do not coincide.",
+    examples: "Controlled crossing and breeding programmes",
+    conservation: "Storage conditions depend strongly on species",
+  },
+
+  embryo: {
+    label: "Embryo",
+    title: "Embryos and embryonic axes",
+    description:
+      "Embryos or embryonic axes can be conserved when whole seeds cannot tolerate conventional drying and low-temperature storage.",
+    examples: "Important for some recalcitrant-seeded species",
+    conservation: "Specialised in-vitro and cryogenic methods",
+  },
+
+  culture: {
+    label: "In-vitro",
+    title: "Tissues and cell cultures",
+    description:
+      "Shoot tips, meristems and other living tissues can be maintained under sterile laboratory conditions.",
+    examples: "Especially useful for clonally propagated crops",
+    conservation: "Slow-growth culture · cryopreservation",
+  },
+
+  living: {
+    label: "Living plant",
+    title: "Whole living collections",
+    description:
+      "Some genetic resources are maintained as complete plants when seed storage is unsuitable or when a particular clone must be preserved.",
+    examples: "Fruit trees · perennial crops · clonal accessions",
+    conservation: "Field genebanks · orchards · living collections",
+  },
+};
 const totalPlants = 20;
 
 function MiniCropField({ survivors }) {
@@ -159,14 +227,18 @@ function Home() {
   const [slideIndex, setSlideIndex] = useState(0);
   const [activeStress, setActiveStress] = useState("disease");
   const [activeSource, setActiveSource] = useState("wild");
+  const [activeForm, setActiveForm] = useState("seed");
 
   const scenario = stressScenarios[activeStress];
   const source = traitSources[activeSource];
+  const form = germplasmForms[activeForm];
 
   const currentChapter =
     slideIndex < 3
       ? "Chapter 01 · Why diversity matters"
-      : "Chapter 02 · Where useful variation comes from";
+      : slideIndex < 6
+        ? "Chapter 02 · Where useful variation comes from"
+        : "Chapter 03 · What is germplasm?";
 
   const previousSlide = () => {
     setSlideIndex((current) => Math.max(0, current - 1));
@@ -678,7 +750,206 @@ function Home() {
               </a>
             </div>
           </div>
+        </SlideFrame>
+
+        <SlideFrame active={slideIndex === 6}>
+          <div className="germplasm-definition-slide">
+            <span className="slide-eyebrow">07 · WHAT IS GERMPLASM?</span>
+
+            <h2>
+              Germplasm is
+              <em> biological material carrying hereditary information.</em>
+            </h2>
+
+            <p className="germplasm-definition-lead">
+              We conserve it because the material may contain genetic variation
+              useful for breeding, research, restoration or future crop improvement.
+            </p>
+
+            <div className="definition-equation">
+              <article>
+                <span>BIOLOGICAL MATERIAL</span>
+                <strong>Seed · tissue · pollen · embryo · living plant</strong>
+              </article>
+
+              <b>+</b>
+
+              <article>
+                <span>HEREDITARY INFORMATION</span>
+                <strong>Genetic variation that can be inherited</strong>
+              </article>
+
+              <b>=</b>
+
+              <article className="definition-result">
+                <span>GERMPLASM</span>
+                <strong>A plant genetic resource that can be conserved and used</strong>
+              </article>
+            </div>
+
+            <div className="definition-distinction">
+              <strong>Important distinction:</strong>
+              <span>
+                A digital DNA sequence describes genetic information.
+                Germplasm conservation preserves physical biological material.
+              </span>
+            </div>
+          </div>
+        </SlideFrame>
+
+        <SlideFrame active={slideIndex === 7}>
+          <div className="germplasm-forms-slide">
+            <div className="slide-heading slide-heading--compact">
+              <span className="slide-eyebrow">08 · WHAT CAN BE CONSERVED?</span>
+
+              <h2>
+                Germplasm is
+                <em> not just seed.</em>
+              </h2>
+            </div>
+
+            <div className="form-explorer">
+              <div className="form-buttons">
+                {Object.entries(germplasmForms).map(([key, item]) => (
+                  <button
+                    key={key}
+                    type="button"
+                    className={activeForm === key ? "active" : ""}
+                    onClick={() => setActiveForm(key)}
+                  >
+                    {item.label}
+                  </button>
+                ))}
+              </div>
+
+              <article className="form-detail">
+                <span>{form.label}</span>
+                <h3>{form.title}</h3>
+                <p>{form.description}</p>
+
+                <div className="form-detail-meta">
+                  <div>
+                    <small>EXAMPLES</small>
+                    <strong>{form.examples}</strong>
+                  </div>
+
+                  <div>
+                    <small>CONSERVATION</small>
+                    <strong>{form.conservation}</strong>
+                  </div>
+                </div>
+              </article>
+            </div>
+
+            <div className="form-note">
+              The biology of the material determines how it can be conserved.
+              One storage method cannot work for every crop.
+            </div>
+          </div>
+        </SlideFrame>
+
+        <SlideFrame active={slideIndex === 8}>
+          <div className="accession-slide">
+            <span className="slide-eyebrow">
+              09 · HOW A GENEBANK KNOWS WHAT IT HAS
+            </span>
+
+            <h2>
+              A stored sample needs
+              <em> an identity.</em>
+            </h2>
+
+            <div className="accession-layout">
+              <article className="accession-object">
+                <span className="accession-label">ACCESSION</span>
+
+                <div className="seed-sample">
+                  <i />
+                  <i />
+                  <i />
+                  <i />
+                  <i />
+                  <i />
+                </div>
+
+                <strong>
+                  A distinct, uniquely identifiable germplasm sample
+                </strong>
+
+                <p>
+                  It may represent a cultivar, breeding line or population
+                  maintained for conservation and use.
+                </p>
+              </article>
+
+              <div className="accession-plus">+</div>
+
+              <article className="passport-record">
+                <span>PASSPORT DATA</span>
+
+                <div>
+                  <strong>Accession number</strong>
+                  <small>unique genebank identifier</small>
+                </div>
+
+                <div>
+                  <strong>Scientific name</strong>
+                  <small>what material is it?</small>
+                </div>
+
+                <div>
+                  <strong>Origin</strong>
+                  <small>where did it come from?</small>
+                </div>
+
+                <div>
+                  <strong>Collection information</strong>
+                  <small>where and when was it collected?</small>
+                </div>
+
+                <div>
+                  <strong>Biological status</strong>
+                  <small>landrace, wild, breeding material, cultivar...</small>
+                </div>
+              </article>
+            </div>
+
+            <div className="accession-bottom">
+              <div>
+                <strong>Material + identity + documentation</strong>
+                <span>
+                  turns a stored sample into a traceable scientific resource.
+                </span>
+              </div>
+
+              <div className="accession-links">
+                <a
+                  href="https://www.fao.org/wiews/glossary/en/"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  FAO glossary &nearr;
+                </a>
+
+                <a
+                  href="https://www.genesys-pgr.org/"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Explore real accession records &nearr;
+                </a>
+              </div>
+            </div>
+
+            <div className="chapter-next chapter-next--chapter3">
+              <span>Chapter 04</span>
+              <strong>
+                How do we conserve different kinds of germplasm? &rarr;
+              </strong>
+            </div>
+          </div>
         </SlideFrame>      </main>
+
 
 
       <footer className="deck-controls">
