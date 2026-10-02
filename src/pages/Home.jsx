@@ -110,6 +110,19 @@ const slides = [
     id: "bank-to-field",
     label: "From Bank to Field",
   },
+  {
+    id: "resource-map",
+    label: "Explore Resources",
+  },
+  {
+    id: "read-accession",
+    label: "Read an Accession",
+  },
+  {
+    id: "explore-challenge",
+    label: "Explore It Yourself",
+  },
+
 
 
 
@@ -454,7 +467,9 @@ function Home() {
                   ? "Chapter 07 · Plant genetic resources in India"
                   : slideIndex < 24
                     ? "Chapter 08 · Beyond conventional seed banking"
-                    : "Chapter 09 · From conservation back to use";
+                    : slideIndex < 27
+                      ? "Chapter 09 · From conservation back to use"
+                      : "Chapter 10 · Explore real germplasm resources";
 
   const previousSlide = () => {
     setSlideIndex((current) => Math.max(0, current - 1));
@@ -2395,6 +2410,283 @@ function Home() {
                 Explore real germplasm collections and accession databases
                 &rarr;
               </strong>
+            </div>
+
+          </div>
+        </SlideFrame>
+
+        <SlideFrame active={slideIndex === 27}>
+          <div className="resource-map-slide">
+
+            <span className="slide-eyebrow">
+              28 · THE REAL SYSTEM IS ONLINE
+            </span>
+
+            <h2>
+              Now explore the
+              <em> actual conservation network.</em>
+            </h2>
+
+            <div className="resource-map-grid">
+
+              <a
+                href="https://www.genesys-pgr.org/"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <span>ACCESSION DATABASE</span>
+                <h3>Genesys</h3>
+                <p>
+                  Search millions of plant genetic resource records contributed
+                  by genebanks around the world.
+                </p>
+                <strong>Browse accessions &nearr;</strong>
+              </a>
+
+              <a
+                href="https://www.fao.org/wiews/en/"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <span>GLOBAL INFORMATION SYSTEM</span>
+                <h3>FAO WIEWS</h3>
+                <p>
+                  Explore official information on conservation and use of plant
+                  genetic resources for food and agriculture.
+                </p>
+                <strong>Open WIEWS &nearr;</strong>
+              </a>
+
+              <a
+                href="https://www.cgiar.org/cgiar-research-portfolio-2025-2030/genebanks"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <span>INTERNATIONAL COLLECTIONS</span>
+                <h3>CGIAR Genebanks</h3>
+                <p>
+                  See how international crop collections are conserved,
+                  managed and connected to research and breeding.
+                </p>
+                <strong>Explore CGIAR &nearr;</strong>
+              </a>
+
+              <a
+                href="https://www.seedvault.no/"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <span>SAFETY DUPLICATION</span>
+                <h3>Svalbard Seed Vault</h3>
+                <p>
+                  Explore the global backup facility and see current deposit,
+                  species and depositor information.
+                </p>
+                <strong>Visit Seed Vault &nearr;</strong>
+              </a>
+
+              <a
+                href="https://icar.gov.in/en/national-bureaux"
+                target="_blank"
+                rel="noreferrer"
+                className="resource-map-india"
+              >
+                <span>INDIA</span>
+                <h3>ICAR-NBPGR</h3>
+                <p>
+                  Locate India's National Bureau of Plant Genetic Resources
+                  within the ICAR national research system.
+                </p>
+                <strong>Open ICAR resource &nearr;</strong>
+              </a>
+
+            </div>
+
+            <div className="resource-map-note">
+              <strong>Remember:</strong>
+              <span>
+                these websites provide information about conserved material.
+                The biological germplasm remains physically held by genebanks
+                and other conservation facilities.
+              </span>
+            </div>
+
+          </div>
+        </SlideFrame>
+
+        <SlideFrame active={slideIndex === 28}>
+          <div className="read-accession-slide">
+
+            <span className="slide-eyebrow">
+              29 · LEARN TO READ AN ACCESSION RECORD
+            </span>
+
+            <h2>
+              An accession page tells a
+              <em> biological story.</em>
+            </h2>
+
+            <div className="accession-reading-layout">
+
+              <article className="accession-reading-record">
+
+                <div>
+                  <small>ACCESSION NUMBER</small>
+                  <strong>Unique identity</strong>
+                </div>
+
+                <div>
+                  <small>TAXON</small>
+                  <strong>What species is it?</strong>
+                </div>
+
+                <div>
+                  <small>COUNTRY OF ORIGIN</small>
+                  <strong>Where did it come from?</strong>
+                </div>
+
+                <div>
+                  <small>BIOLOGICAL STATUS</small>
+                  <strong>Landrace? Wild? Cultivar? Breeding material?</strong>
+                </div>
+
+                <div>
+                  <small>COLLECTING SITE</small>
+                  <strong>Where was the sample obtained?</strong>
+                </div>
+
+                <div>
+                  <small>HOLDING INSTITUTE</small>
+                  <strong>Which genebank conserves it?</strong>
+                </div>
+
+              </article>
+
+              <article className="accession-reading-questions">
+                <span>ASK THESE QUESTIONS</span>
+
+                <ol>
+                  <li>What exactly is being conserved?</li>
+                  <li>Where did the material originate?</li>
+                  <li>Is it wild, traditional or bred material?</li>
+                  <li>Who currently holds the accession?</li>
+                  <li>What additional characterization or evaluation data exist?</li>
+                </ol>
+
+                <div>
+                  <a
+                    href="https://www.genesys-pgr.org/"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    Practice in Genesys &nearr;
+                  </a>
+
+                  <a
+                    href="https://www.fao.org/wiews/data/ex-situ-sdg-251/search/en/"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    Practice in FAO WIEWS &nearr;
+                  </a>
+                </div>
+              </article>
+
+            </div>
+
+          </div>
+        </SlideFrame>
+
+        <SlideFrame active={slideIndex === 29}>
+          <div className="explore-challenge-slide">
+
+            <span className="slide-eyebrow">
+              30 · EXPLORE IT YOURSELF
+            </span>
+
+            <h2>
+              Move from
+              <em> learning about germplasm</em>
+              to investigating it.
+            </h2>
+
+            <div className="explore-task-grid">
+
+              <a
+                href="https://www.genesys-pgr.org/"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <span>CHALLENGE 01</span>
+                <h3>Find a rice accession</h3>
+                <p>
+                  Identify its accession number, biological status and country
+                  of origin.
+                </p>
+                <strong>Open Genesys &nearr;</strong>
+              </a>
+
+              <a
+                href="https://www.fao.org/wiews/data/ex-situ-sdg-251/search/en/?instcode=IND002"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <span>CHALLENGE 02</span>
+                <h3>Explore Indian holdings</h3>
+                <p>
+                  Examine fields used to describe accessions held under the
+                  selected Indian institute record.
+                </p>
+                <strong>Open WIEWS search &nearr;</strong>
+              </a>
+
+              <a
+                href="https://www.seedvault.no/"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <span>CHALLENGE 03</span>
+                <h3>Check the global backup</h3>
+                <p>
+                  Find the current number of samples, depositors and species
+                  represented at Svalbard.
+                </p>
+                <strong>Open Seed Vault &nearr;</strong>
+              </a>
+
+              <a
+                href="https://www.cgiar.org/cgiar-research-portfolio-2025-2030/genebanks"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <span>CHALLENGE 04</span>
+                <h3>Find an international crop collection</h3>
+                <p>
+                  Identify one CGIAR genebank and the crops or collections it
+                  conserves.
+                </p>
+                <strong>Open CGIAR &nearr;</strong>
+              </a>
+
+            </div>
+
+            <div className="course-synthesis">
+              <span>THE COMPLETE IDEA</span>
+
+              <strong>
+                DIVERSITY
+                &rarr; GERMPPLASM
+                &rarr; CONSERVATION
+                &rarr; DOCUMENTATION
+                &rarr; EVALUATION
+                &rarr; USE
+              </strong>
+
+              <p>
+                Germplasm conservation protects biological options so future
+                researchers, breeders and farmers are not limited only to the
+                variation available in today's crops.
+              </p>
             </div>
 
           </div>
