@@ -38,6 +38,19 @@ const slides = [
     id: "accession",
     label: "The Accession",
   },
+  {
+    id: "conservation-choice",
+    label: "Choose the Method",
+  },
+  {
+    id: "seed-behaviour",
+    label: "Seed Behaviour",
+  },
+  {
+    id: "method-map",
+    label: "Conservation Methods",
+  },
+
 ];
 
 const stressScenarios = {
@@ -188,6 +201,34 @@ const germplasmForms = {
     conservation: "Field genebanks · orchards · living collections",
   },
 };
+const seedBehaviours = {
+  orthodox: {
+    label: "Orthodox",
+    headline: "Can usually be dried and stored cold",
+    description:
+      "Orthodox seeds tolerate substantial drying and low-temperature storage. This makes conventional seed banking effective for many crop species.",
+    examples: "Wheat · rice · maize · many pulses",
+    route: "Dry → package → cold seed-bank storage",
+  },
+
+  intermediate: {
+    label: "Intermediate",
+    headline: "Some drying tolerance, but clear limits",
+    description:
+      "Intermediate seeds tolerate some drying, but excessive drying or very low storage temperatures can damage them. Safe conditions are species-specific.",
+    examples: "Storage behaviour varies among species",
+    route: "Determine safe moisture and temperature experimentally",
+  },
+
+  recalcitrant: {
+    label: "Recalcitrant",
+    headline: "Sensitive to conventional drying",
+    description:
+      "Recalcitrant seeds lose viability when dried to levels used for orthodox seed banking. Many also cannot tolerate conventional freezer storage.",
+    examples: "Common among many tropical tree species",
+    route: "Living collections · in-vitro methods · cryopreservation",
+  },
+};
 const totalPlants = 20;
 
 function MiniCropField({ survivors }) {
@@ -228,17 +269,21 @@ function Home() {
   const [activeStress, setActiveStress] = useState("disease");
   const [activeSource, setActiveSource] = useState("wild");
   const [activeForm, setActiveForm] = useState("seed");
+  const [activeSeedType, setActiveSeedType] = useState("orthodox");
 
   const scenario = stressScenarios[activeStress];
   const source = traitSources[activeSource];
   const form = germplasmForms[activeForm];
+  const seedType = seedBehaviours[activeSeedType];
 
   const currentChapter =
     slideIndex < 3
       ? "Chapter 01 · Why diversity matters"
       : slideIndex < 6
         ? "Chapter 02 · Where useful variation comes from"
-        : "Chapter 03 · What is germplasm?";
+        : slideIndex < 9
+          ? "Chapter 03 · What is germplasm?"
+          : "Chapter 04 · Choosing a conservation method";
 
   const previousSlide = () => {
     setSlideIndex((current) => Math.max(0, current - 1));
@@ -948,7 +993,202 @@ function Home() {
               </strong>
             </div>
           </div>
-        </SlideFrame>      </main>
+        </SlideFrame>
+        <SlideFrame active={slideIndex === 9}>
+          <div className="conservation-choice-slide">
+            <span className="slide-eyebrow">
+              10 · CONSERVATION STARTS WITH BIOLOGY
+            </span>
+
+            <h2>
+              Do not choose the storage method first.
+              <em> Ask what the material can survive.</em>
+            </h2>
+
+            <div className="conservation-flow">
+              <article>
+                <span>01</span>
+                <strong>What material?</strong>
+                <p>Seed, shoot tip, embryo, pollen or whole plant?</p>
+              </article>
+
+              <b>&rarr;</b>
+
+              <article>
+                <span>02</span>
+                <strong>Can it be dried?</strong>
+                <p>Drying tolerance strongly affects storage options.</p>
+              </article>
+
+              <b>&rarr;</b>
+
+              <article>
+                <span>03</span>
+                <strong>Can it tolerate cold?</strong>
+                <p>Seeds and tissues differ in their response to freezing.</p>
+              </article>
+
+              <b>&rarr;</b>
+
+              <article className="conservation-flow-result">
+                <span>04</span>
+                <strong>Choose the method</strong>
+                <p>Seed bank, field, in-vitro or cryogenic conservation.</p>
+              </article>
+            </div>
+
+            <div className="conservation-rule">
+              <strong>Core principle:</strong>
+              <span>
+                conservation method follows biological behaviour.
+              </span>
+            </div>
+          </div>
+        </SlideFrame>
+
+        <SlideFrame active={slideIndex === 10}>
+          <div className="seed-behaviour-slide">
+            <div className="slide-heading slide-heading--compact">
+              <span className="slide-eyebrow">
+                11 · NOT ALL SEEDS STORE THE SAME WAY
+              </span>
+
+              <h2>
+                Before putting seed in storage,
+                <em> understand its behaviour.</em>
+              </h2>
+            </div>
+
+            <div className="seed-explorer">
+              <div className="seed-type-buttons">
+                {Object.entries(seedBehaviours).map(([key, item]) => (
+                  <button
+                    key={key}
+                    type="button"
+                    className={activeSeedType === key ? "active" : ""}
+                    onClick={() => setActiveSeedType(key)}
+                  >
+                    {item.label}
+                  </button>
+                ))}
+              </div>
+
+              <article className="seed-type-detail">
+                <span>{seedType.label}</span>
+                <h3>{seedType.headline}</h3>
+                <p>{seedType.description}</p>
+
+                <div className="seed-type-meta">
+                  <div>
+                    <small>EXAMPLES / CONTEXT</small>
+                    <strong>{seedType.examples}</strong>
+                  </div>
+
+                  <div>
+                    <small>CONSERVATION ROUTE</small>
+                    <strong>{seedType.route}</strong>
+                  </div>
+                </div>
+              </article>
+            </div>
+
+            <div className="seed-spectrum">
+              <div>
+                <strong>ORTHODOX</strong>
+                <span>drying tolerant</span>
+              </div>
+
+              <i />
+
+              <div>
+                <strong>INTERMEDIATE</strong>
+                <span>limited tolerance</span>
+              </div>
+
+              <i />
+
+              <div>
+                <strong>RECALCITRANT</strong>
+                <span>drying sensitive</span>
+              </div>
+            </div>
+          </div>
+        </SlideFrame>
+
+        <SlideFrame active={slideIndex === 11}>
+          <div className="method-map-slide">
+            <span className="slide-eyebrow">
+              12 · MATCH MATERIAL TO METHOD
+            </span>
+
+            <h2>
+              Different biology requires
+              <em> different conservation strategies.</em>
+            </h2>
+
+            <div className="method-grid">
+              <article>
+                <span>SEED BANK</span>
+                <h3>Orthodox seeds</h3>
+                <p>
+                  Drying- and cold-tolerant seeds can often be stored
+                  efficiently for long periods.
+                </p>
+              </article>
+
+              <article>
+                <span>FIELD GENEBANK</span>
+                <h3>Living plants</h3>
+                <p>
+                  Useful for perennial and clonally propagated crops maintained
+                  as complete plants.
+                </p>
+              </article>
+
+              <article>
+                <span>IN-VITRO BANK</span>
+                <h3>Living tissues</h3>
+                <p>
+                  Shoot cultures and other tissues can be maintained under
+                  controlled sterile conditions.
+                </p>
+              </article>
+
+              <article>
+                <span>CRYOPRESERVATION</span>
+                <h3>Selected tissues</h3>
+                <p>
+                  Validated shoot tips, embryos and other material can be stored
+                  at ultra-low temperature.
+                </p>
+              </article>
+
+              <article className="method-grid-in-situ">
+                <span>IN SITU / ON-FARM</span>
+                <h3>Keep diversity where it continues to live</h3>
+                <p>
+                  Wild populations remain in natural habitats, while crop
+                  diversity can continue under farmer management and selection.
+                </p>
+              </article>
+            </div>
+
+            <div className="method-conclusion">
+              <strong>No single method works for every genetic resource.</strong>
+              <span>
+                Conservation programmes combine complementary approaches.
+              </span>
+            </div>
+
+            <div className="chapter-next chapter-next--chapter4">
+              <span>Chapter 05</span>
+              <strong>
+                What happens after material enters a genebank? &rarr;
+              </strong>
+            </div>
+          </div>
+        </SlideFrame>
+</main>
 
 
 
