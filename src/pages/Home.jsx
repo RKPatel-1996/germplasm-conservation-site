@@ -555,6 +555,114 @@ function SlideFrame({ active, children }) {
   );
 }
 
+function formatPrintFieldName(value) {
+  return String(value)
+    .replace(/([a-z0-9])([A-Z])/g, "$1 $2")
+    .replace(/[_-]+/g, " ")
+    .replace(/\b\w/g, (character) => character.toUpperCase());
+}
+
+function PrintDataValue({ value }) {
+  if (value === null || value === undefined || value === "") {
+    return null;
+  }
+
+  if (Array.isArray(value)) {
+    return (
+      <div className="print-data-array">
+        {value.map((item, index) => (
+          <div className="print-data-array__item" key={index}>
+            <PrintDataValue value={item} />
+          </div>
+        ))}
+      </div>
+    );
+  }
+
+  if (typeof value === "object") {
+    return (
+      <dl className="print-data-fields">
+        {Object.entries(value).map(([field, fieldValue]) => {
+          if (
+            fieldValue === null ||
+            fieldValue === undefined ||
+            fieldValue === ""
+          ) {
+            return null;
+          }
+
+          return (
+            <div className="print-data-field" key={field}>
+              <dt>{formatPrintFieldName(field)}</dt>
+              <dd>
+                <PrintDataValue value={fieldValue} />
+              </dd>
+            </div>
+          );
+        })}
+      </dl>
+    );
+  }
+
+  if (typeof value === "string" && /^https?:\/\//i.test(value)) {
+    return <a href={value}>{value}</a>;
+  }
+
+  return <span>{String(value)}</span>;
+}
+
+function PrintInteractiveGroup({
+  sourceLabel,
+  title,
+  description,
+  data,
+}) {
+  return (
+    <section className="print-interaction-page">
+      <header className="print-interaction-heading">
+        <span>{sourceLabel}</span>
+        <h2>{title}</h2>
+        <p>{description}</p>
+      </header>
+
+      <div className="print-interaction-grid">
+        {Object.entries(data).map(([key, item]) => {
+          const isPlainObject =
+            item !== null &&
+            typeof item === "object" &&
+            !Array.isArray(item);
+
+          const heading = isPlainObject
+            ? item.title ||
+              item.label ||
+              item.short ||
+              formatPrintFieldName(key)
+            : formatPrintFieldName(key);
+
+          const detail = isPlainObject
+            ? Object.fromEntries(
+                Object.entries(item).filter(
+                  ([field]) =>
+                    !["title", "label", "short"].includes(field),
+                ),
+              )
+            : item;
+
+          return (
+            <article className="print-interaction-card" key={key}>
+              <span className="print-interaction-card__key">
+                {formatPrintFieldName(key)}
+              </span>
+
+              <h3>{heading}</h3>
+              <PrintDataValue value={detail} />
+            </article>
+          );
+        })}
+      </div>
+    </section>
+  );
+}
 function Home() {
   const [slideIndex, setSlideIndex] = useState(0);
   const [activeStress, setActiveStress] = useState("disease");
@@ -571,6 +679,16 @@ function Home() {
   const seedType = seedBehaviours[activeSeedType];
   const genebankStage = genebankStages[activeGenebankStage];
   const breedingTrait = breedingTraitExamples[activeBreedingTrait];
+
+  const printableStressCases = Object.fromEntries(
+    Object.keys(stressScenarios).map((key) => [
+      key,
+      {
+        scenario: stressScenarios[key],
+        documentedCase: stressCaseStudies[key],
+      },
+    ]),
+  );
 
   const currentChapter =
     slideIndex < 3
@@ -2972,6 +3090,50 @@ function Home() {
 </main>
 
 
+
+            <div className="print-interaction-appendix">
+        <PrintInteractiveGroup
+          sourceLabel="SLIDE 02 · INTERACTIVE SUPPLEMENT"
+          title="All stress cases"
+          description="Disease, drought, heat and salinity are shown together in the printable version."
+          data={printableStressCases}
+        />
+
+        <PrintInteractiveGroup
+          sourceLabel="SLIDE 05 · INTERACTIVE SUPPLEMENT"
+          title="All sources of useful variation"
+          description="All crop-diversity source categories available in the interactive explorer."
+          data={traitSources}
+        />
+
+        <PrintInteractiveGroup
+          sourceLabel="SLIDE 08 · INTERACTIVE SUPPLEMENT"
+          title="All forms of germplasm"
+          description="All biological-material forms available through the interactive germplasm selector."
+          data={germplasmForms}
+        />
+
+        <PrintInteractiveGroup
+          sourceLabel="SLIDE 11 · INTERACTIVE SUPPLEMENT"
+          title="All seed-behaviour categories"
+          description="Every seed-behaviour category and its conservation implications."
+          data={seedBehaviours}
+        />
+
+        <PrintInteractiveGroup
+          sourceLabel="GENEBANK LIFECYCLE · INTERACTIVE SUPPLEMENT"
+          title="All genebank stages"
+          description="Every stage available through the interactive genebank lifecycle."
+          data={genebankStages}
+        />
+
+        <PrintInteractiveGroup
+          sourceLabel="SLIDE 26 · INTERACTIVE SUPPLEMENT"
+          title="All trait-evaluation examples"
+          description="Every trait-evaluation example available in the interactive breeding section."
+          data={breedingTraitExamples}
+        />
+      </div>
 
       <footer className="deck-controls">
         <button
