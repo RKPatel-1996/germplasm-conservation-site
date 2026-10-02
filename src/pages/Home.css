@@ -5590,3 +5590,178 @@
     font-size: 0.82rem !important;
   }
 }
+
+/* === READABILITY BATCH 05 · SLIDES 21-25 ======================= */
+/*
+   Standard:
+   body / explanation : ~16-18 px
+   secondary text     : ~15-16 px
+   labels / metadata  : ~14-15 px
+   display titles     : unchanged
+*/
+
+/* ---------------------------------------------------------------
+   SHARED BASE · SLIDES 21-25
+   --------------------------------------------------------------- */
+
+.deck-slide:nth-of-type(n+21):nth-of-type(-n+25) p {
+  font-size: clamp(0.98rem, 0.94vw, 1.10rem);
+  line-height: 1.48;
+}
+
+.deck-slide:nth-of-type(n+21):nth-of-type(-n+25) small {
+  font-size: clamp(0.86rem, 0.80vw, 0.96rem) !important;
+  line-height: 1.42 !important;
+}
+
+.deck-slide:nth-of-type(n+21):nth-of-type(-n+25) a {
+  font-size: clamp(0.84rem, 0.78vw, 0.94rem);
+  line-height: 1.4;
+}
+
+/* ---------------------------------------------------------------
+   SLIDE 21 · India's expanding safety system
+   --------------------------------------------------------------- */
+
+.deck-slide:nth-of-type(21) .india-safety-rule {
+  font-size: clamp(0.98rem, 0.92vw, 1.08rem) !important;
+  line-height: 1.46 !important;
+}
+
+.deck-slide:nth-of-type(21) [class*="timeline"] p,
+.deck-slide:nth-of-type(21) [class*="safety"] p {
+  font-size: clamp(0.96rem, 0.90vw, 1.06rem) !important;
+  line-height: 1.44 !important;
+}
+
+.deck-slide:nth-of-type(21) [class*="timeline"] small,
+.deck-slide:nth-of-type(21) [class*="label"],
+.deck-slide:nth-of-type(21) [class*="eyebrow"] {
+  font-size: clamp(0.86rem, 0.80vw, 0.94rem) !important;
+}
+
+.deck-slide:nth-of-type(21) .source-link-row,
+.deck-slide:nth-of-type(21) .source-link-row a {
+  font-size: clamp(0.86rem, 0.80vw, 0.94rem) !important;
+}
+
+/* ---------------------------------------------------------------
+   SLIDE 22 · Why seed banking is not always enough
+   --------------------------------------------------------------- */
+
+.deck-slide:nth-of-type(22) .seedbank-limit-grid h3 {
+  font-size: clamp(1.05rem, 0.98vw, 1.18rem) !important;
+  line-height: 1.2 !important;
+}
+
+.deck-slide:nth-of-type(22) .seedbank-limit-grid p {
+  font-size: clamp(0.98rem, 0.92vw, 1.08rem) !important;
+  line-height: 1.46 !important;
+}
+
+.deck-slide:nth-of-type(22) .seedbank-limit-grid small,
+.deck-slide:nth-of-type(22) [class*="label"] {
+  font-size: clamp(0.86rem, 0.80vw, 0.94rem) !important;
+}
+
+.deck-slide:nth-of-type(22) [class*="conclusion"],
+.deck-slide:nth-of-type(22) [class*="note"] {
+  font-size: clamp(0.98rem, 0.92vw, 1.08rem) !important;
+  line-height: 1.45 !important;
+}
+
+/* ---------------------------------------------------------------
+   SLIDE 23 · In-vitro conservation
+   --------------------------------------------------------------- */
+
+.deck-slide:nth-of-type(23) .invitro-flow article > span {
+  font-size: clamp(0.86rem, 0.80vw, 0.94rem) !important;
+}
+
+.deck-slide:nth-of-type(23) .invitro-flow article > strong {
+  font-size: clamp(1rem, 0.94vw, 1.12rem) !important;
+}
+
+.deck-slide:nth-of-type(23) .invitro-flow article p,
+.deck-slide:nth-of-type(23) .invitro-use-grid span {
+  font-size: clamp(0.96rem, 0.90vw, 1.06rem) !important;
+  line-height: 1.44 !important;
+}
+
+.deck-slide:nth-of-type(23) .invitro-use-grid strong {
+  font-size: clamp(1rem, 0.94vw, 1.12rem) !important;
+}
+
+.deck-slide:nth-of-type(23) [class*="note"],
+.deck-slide:nth-of-type(23) [class*="caution"] {
+  font-size: clamp(0.98rem, 0.92vw, 1.08rem) !important;
+  line-height: 1.45 !important;
+}
+
+/* ---------------------------------------------------------------
+   SLIDE 24 · Cryopreservation
+   --------------------------------------------------------------- */
+
+.deck-slide:nth-of-type(24) .cryo-process article > strong {
+  font-size: clamp(1rem, 0.94vw, 1.12rem) !important;
+}
+
+.deck-slide:nth-of-type(24) .cryo-process article > small {
+  font-size: clamp(0.86rem, 0.80vw, 0.94rem) !important;
+  line-height: 1.4 !important;
+}
+
+.deck-slide:nth-of-type(24) .cryo-caution {
+  font-size: clamp(0.98rem, 0.92vw, 1.08rem) !important;
+  line-height: 1.46 !important;
+}
+
+.deck-slide:nth-of-type(24) [class*="temperature"],
+.deck-slide:nth-of-type(24) [class*="label"],
+.deck-slide:nth-of-type(24) [class*="eyebrow"] {
+  font-size: clamp(0.86rem, 0.80vw, 0.94rem) !important;
+}
+
+.deck-slide:nth-of-type(24) .source-link-row,
+.deck-slide:nth-of-type(24) .source-link-row a {
+  font-size: clamp(0.86rem, 0.80vw, 0.94rem) !important;
+}
+
+/* ---------------------------------------------------------------
+   SLIDE 25 · Conservation back to use
+   --------------------------------------------------------------- */
+
+.deck-slide:nth-of-type(25) .return-use-flow article > strong {
+  font-size: clamp(1rem, 0.94vw, 1.12rem) !important;
+}
+
+.deck-slide:nth-of-type(25) .return-use-flow article > span,
+.deck-slide:nth-of-type(25) .return-use-flow article > small {
+  font-size: clamp(0.86rem, 0.80vw, 0.94rem) !important;
+}
+
+.deck-slide:nth-of-type(25) .return-use-flow article p {
+  font-size: clamp(0.96rem, 0.90vw, 1.06rem) !important;
+  line-height: 1.44 !important;
+}
+
+.deck-slide:nth-of-type(25) [class*="takeaway"],
+.deck-slide:nth-of-type(25) [class*="note"],
+.deck-slide:nth-of-type(25) [class*="conclusion"] {
+  font-size: clamp(0.98rem, 0.92vw, 1.08rem) !important;
+  line-height: 1.45 !important;
+}
+
+/* ---------------------------------------------------------------
+   LOW-HEIGHT SAFETY
+   --------------------------------------------------------------- */
+
+@media (max-height: 720px) and (min-width: 621px) {
+  .deck-slide:nth-of-type(n+21):nth-of-type(-n+25) p {
+    line-height: 1.36 !important;
+  }
+
+  .deck-slide:nth-of-type(n+21):nth-of-type(-n+25) small {
+    font-size: 0.82rem !important;
+  }
+}
