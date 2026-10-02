@@ -544,10 +544,530 @@ function MiniCropField({ survivors }) {
   );
 }
 
-function SlideFrame({ active, children }) {
+function PrintSlideReplica({ variantLabel, children }) {
+  return (
+    <div
+      className="print-slide-replica"
+      data-print-variant={variantLabel}
+    >
+      <div className="deck-slide__content">{children}</div>
+    </div>
+  );
+}
+
+function PrintStressSlides() {
+  return (
+    <>
+      {Object.entries(stressScenarios).map(([activeKey, scenarioItem]) => {
+        const caseItem = stressCaseStudies[activeKey];
+
+        return (
+          <PrintSlideReplica
+            key={`print-stress-${activeKey}`}
+            variantLabel={`Slide 02 · ${scenarioItem.label}`}
+          >
+            <div className="case-driven-stress-slide">
+              <div className="case-driven-heading">
+                <div>
+                  <span className="slide-eyebrow">02 · TEST THE CROP</span>
+
+                  <h2>
+                    Same stress.
+                    <em> Different possible outcomes.</em>
+                  </h2>
+                </div>
+
+                <div className="case-driven-buttons">
+                  {Object.entries(stressScenarios).map(([key, item]) => (
+                    <button
+                      key={key}
+                      type="button"
+                      tabIndex={-1}
+                      className={activeKey === key ? "active" : ""}
+                    >
+                      {item.label}
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              <div className="case-driven-scenario">
+                <div>
+                  <span>{scenarioItem.eyebrow}</span>
+                  <strong>{scenarioItem.title}</strong>
+                </div>
+
+                <p>{scenarioItem.short}</p>
+              </div>
+
+              <div className="case-driven-body">
+                <article className="compact-response-panel">
+                  <div className="compact-response-title">
+                    <span>CONCEPT</span>
+                    <strong>
+                      Same stress - different genetic responses
+                    </strong>
+                  </div>
+
+                  <div className="compact-response-fields">
+                    <div className="compact-field compact-field--narrow">
+                      <div>
+                        <strong>Narrow</strong>
+                        <small>similar response</small>
+                      </div>
+
+                      <div className="compact-mini-field">
+                        <MiniCropField
+                          survivors={scenarioItem.narrowSurvivors}
+                        />
+                      </div>
+                    </div>
+
+                    <div className="compact-vs">VS</div>
+
+                    <div className="compact-field compact-field--broad">
+                      <div>
+                        <strong>Broader</strong>
+                        <small>more possible responses</small>
+                      </div>
+
+                      <div className="compact-mini-field">
+                        <MiniCropField
+                          survivors={scenarioItem.diverseSurvivors}
+                        />
+                      </div>
+                    </div>
+                  </div>
+
+                  <p className="compact-response-caption">
+                    Genetic diversity does not guarantee survival. It increases
+                    the range of biological responses available for selection.
+                  </p>
+                </article>
+
+                <article className="dynamic-real-case">
+                  <div className="dynamic-case-heading">
+                    <span>{caseItem.kicker}</span>
+                    <h3>{caseItem.title}</h3>
+                    <p>{caseItem.context}</p>
+                  </div>
+
+                  <div className="dynamic-case-stats">
+                    {caseItem.stats.map((stat) => (
+                      <div key={`${stat.value}-${stat.label}`}>
+                        <strong>{stat.value}</strong>
+                        <span>{stat.label}</span>
+                      </div>
+                    ))}
+                  </div>
+
+                  <div className="dynamic-case-lesson">
+                    <strong>Why this matters</strong>
+                    <span>{caseItem.lesson}</span>
+                  </div>
+
+                  <div className="dynamic-case-links">
+                    {caseItem.sources.map((sourceItem) => (
+                      <a
+                        key={sourceItem.href}
+                        href={sourceItem.href}
+                        target="_blank"
+                        rel="noreferrer"
+                      >
+                        {sourceItem.label} &nearr;
+                      </a>
+                    ))}
+                  </div>
+                </article>
+              </div>
+
+              <div className="case-driven-bottom">
+                <strong>Conservation logic:</strong>
+                <span>
+                  we cannot predict which stress or trait will matter next, so
+                  preserving diverse genetic resources preserves future options.
+                </span>
+              </div>
+            </div>
+          </PrintSlideReplica>
+        );
+      })}
+    </>
+  );
+}
+
+function PrintSourceSlides() {
+  return (
+    <>
+      {Object.entries(traitSources).map(([activeKey, sourceItem]) => (
+        <PrintSlideReplica
+          key={`print-source-${activeKey}`}
+          variantLabel={`Slide 05 · ${sourceItem.title}`}
+        >
+          <div className="search-slide">
+            <div className="slide-heading slide-heading--compact">
+              <span className="slide-eyebrow">
+                05 · WIDEN THE SEARCH
+              </span>
+
+              <h2>
+                The crop in the field is only
+                <em> one place to look.</em>
+              </h2>
+            </div>
+
+            <div className="search-explorer">
+              <div className="search-map">
+                <button
+                  type="button"
+                  tabIndex={-1}
+                  className={activeKey === "wild" ? "active" : ""}
+                >
+                  <span>Crop wild relative</span>
+                  <small>outside cultivation</small>
+                </button>
+
+                <button
+                  type="button"
+                  tabIndex={-1}
+                  className={activeKey === "obsolete" ? "active" : ""}
+                >
+                  <span>Old cultivar</span>
+                  <small>previously grown</small>
+                </button>
+
+                <div className="current-crop-node">
+                  <small>CURRENT</small>
+                  <strong>CROP</strong>
+                  <span>today's cultivated material</span>
+                </div>
+
+                <button
+                  type="button"
+                  tabIndex={-1}
+                  className={activeKey === "landrace" ? "active" : ""}
+                >
+                  <span>Landrace</span>
+                  <small>farmer-maintained</small>
+                </button>
+
+                <button
+                  type="button"
+                  tabIndex={-1}
+                  className={activeKey === "breeding" ? "active" : ""}
+                >
+                  <span>Breeding line</span>
+                  <small>experimental material</small>
+                </button>
+              </div>
+
+              <article className="source-detail">
+                <span className="source-detail__label">
+                  {sourceItem.short}
+                </span>
+
+                <h3>{sourceItem.title}</h3>
+                <p>{sourceItem.description}</p>
+
+                <div className="source-value">
+                  <small>POTENTIAL VALUE</small>
+                  <strong>{sourceItem.value}</strong>
+                </div>
+              </article>
+            </div>
+
+            <div className="search-slide__takeaway">
+              <strong>Core idea:</strong>
+              <span>
+                breeders preserve access to variation because tomorrow's useful
+                trait may not be present in today's successful cultivar.
+              </span>
+            </div>
+          </div>
+        </PrintSlideReplica>
+      ))}
+    </>
+  );
+}
+
+function PrintFormSlides() {
+  return (
+    <>
+      {Object.entries(germplasmForms).map(([activeKey, formItem]) => (
+        <PrintSlideReplica
+          key={`print-form-${activeKey}`}
+          variantLabel={`Slide 08 · ${formItem.title}`}
+        >
+          <div className="germplasm-forms-slide">
+            <div className="slide-heading slide-heading--compact">
+              <span className="slide-eyebrow">
+                08 · WHAT CAN BE CONSERVED?
+              </span>
+
+              <h2>
+                Germplasm is
+                <em> not just seed.</em>
+              </h2>
+            </div>
+
+            <div className="form-explorer">
+              <div className="form-buttons">
+                {Object.entries(germplasmForms).map(([key, item]) => (
+                  <button
+                    key={key}
+                    type="button"
+                    tabIndex={-1}
+                    className={activeKey === key ? "active" : ""}
+                  >
+                    {item.label}
+                  </button>
+                ))}
+              </div>
+
+              <article className="form-detail">
+                <span>{formItem.label}</span>
+                <h3>{formItem.title}</h3>
+                <p>{formItem.description}</p>
+
+                <div className="form-detail-meta">
+                  <div>
+                    <small>EXAMPLES</small>
+                    <strong>{formItem.examples}</strong>
+                  </div>
+
+                  <div>
+                    <small>CONSERVATION</small>
+                    <strong>{formItem.conservation}</strong>
+                  </div>
+                </div>
+              </article>
+            </div>
+
+            <div className="form-note">
+              The biology of the material determines how it can be conserved.
+              One storage method cannot work for every crop.
+            </div>
+          </div>
+        </PrintSlideReplica>
+      ))}
+    </>
+  );
+}
+
+function PrintSeedSlides() {
+  return (
+    <>
+      {Object.entries(seedBehaviours).map(([activeKey, seedItem]) => (
+        <PrintSlideReplica
+          key={`print-seed-${activeKey}`}
+          variantLabel={`Slide 11 · ${seedItem.label}`}
+        >
+          <div className="seed-behaviour-slide">
+            <div className="slide-heading slide-heading--compact">
+              <span className="slide-eyebrow">
+                11 · NOT ALL SEEDS STORE THE SAME WAY
+              </span>
+
+              <h2>
+                Before putting seed in storage,
+                <em> understand its behaviour.</em>
+              </h2>
+            </div>
+
+            <div className="seed-explorer">
+              <div className="seed-type-buttons">
+                {Object.entries(seedBehaviours).map(([key, item]) => (
+                  <button
+                    key={key}
+                    type="button"
+                    tabIndex={-1}
+                    className={activeKey === key ? "active" : ""}
+                  >
+                    {item.label}
+                  </button>
+                ))}
+              </div>
+
+              <article className="seed-type-detail">
+                <span>{seedItem.label}</span>
+                <h3>{seedItem.headline}</h3>
+                <p>{seedItem.description}</p>
+
+                <div className="seed-type-meta">
+                  <div>
+                    <small>EXAMPLES / CONTEXT</small>
+                    <strong>{seedItem.examples}</strong>
+                  </div>
+
+                  <div>
+                    <small>CONSERVATION ROUTE</small>
+                    <strong>{seedItem.route}</strong>
+                  </div>
+                </div>
+              </article>
+            </div>
+
+            <div className="seed-spectrum">
+              <div>
+                <strong>ORTHODOX</strong>
+                <span>drying tolerant</span>
+              </div>
+
+              <i />
+
+              <div>
+                <strong>INTERMEDIATE</strong>
+                <span>limited tolerance</span>
+              </div>
+
+              <i />
+
+              <div>
+                <strong>RECALCITRANT</strong>
+                <span>drying sensitive</span>
+              </div>
+            </div>
+          </div>
+        </PrintSlideReplica>
+      ))}
+    </>
+  );
+}
+
+function PrintLifecycleSlides() {
+  return (
+    <>
+      {Object.entries(genebankStages).map(([activeKey, stageItem]) => (
+        <PrintSlideReplica
+          key={`print-stage-${activeKey}`}
+          variantLabel={`Slide 14 · ${stageItem.title}`}
+        >
+          <div className="lifecycle-slide">
+            <div className="slide-heading slide-heading--compact">
+              <span className="slide-eyebrow">
+                14 · FOLLOW ONE ACCESSION
+              </span>
+
+              <h2>
+                Every accession has
+                <em> a lifecycle.</em>
+              </h2>
+            </div>
+
+            <div className="lifecycle-layout">
+              <div className="lifecycle-buttons">
+                {Object.entries(genebankStages).map(([key, item]) => (
+                  <button
+                    key={key}
+                    type="button"
+                    tabIndex={-1}
+                    className={activeKey === key ? "active" : ""}
+                  >
+                    <span>{item.number}</span>
+                    <strong>{item.label}</strong>
+                  </button>
+                ))}
+              </div>
+
+              <article className="lifecycle-detail">
+                <span>STEP {stageItem.number}</span>
+                <h3>{stageItem.title}</h3>
+                <p>{stageItem.description}</p>
+
+                <div>
+                  <small>RESULT</small>
+                  <strong>{stageItem.output}</strong>
+                </div>
+              </article>
+            </div>
+
+            <div className="lifecycle-warning">
+              <strong>Storage alone is not conservation.</strong>
+              <span>
+                An accession must remain identifiable, biologically viable and
+                recoverable when someone needs it.
+              </span>
+            </div>
+          </div>
+        </PrintSlideReplica>
+      ))}
+    </>
+  );
+}
+
+function PrintTraitSlides() {
+  return (
+    <>
+      {Object.entries(breedingTraitExamples).map(
+        ([activeKey, traitItem]) => (
+          <PrintSlideReplica
+            key={`print-trait-${activeKey}`}
+            variantLabel={`Slide 26 · ${traitItem.label}`}
+          >
+            <div className="trait-evaluation-slide">
+              <div className="slide-heading slide-heading--compact">
+                <span className="slide-eyebrow">
+                  26 · FIND THE USEFUL VARIATION
+                </span>
+
+                <h2>
+                  A genebank accession is not automatically
+                  <em> a useful breeding parent.</em>
+                </h2>
+              </div>
+
+              <div className="trait-evaluation-layout">
+                <div className="trait-evaluation-buttons">
+                  {Object.entries(breedingTraitExamples).map(
+                    ([key, item]) => (
+                      <button
+                        key={key}
+                        type="button"
+                        tabIndex={-1}
+                        className={activeKey === key ? "active" : ""}
+                      >
+                        {item.label}
+                      </button>
+                    ),
+                  )}
+                </div>
+
+                <article className="trait-evaluation-detail">
+                  <span>QUESTION</span>
+                  <h3>{traitItem.question}</h3>
+
+                  <div>
+                    <small>EVALUATION</small>
+                    <p>{traitItem.evidence}</p>
+                  </div>
+
+                  <div>
+                    <small>IF USEFUL</small>
+                    <p>{traitItem.next}</p>
+                  </div>
+                </article>
+              </div>
+
+              <div className="trait-evaluation-note">
+                <strong>
+                  Characterization tells us what material is.
+                </strong>
+
+                <span>
+                  Evaluation asks how it performs for traits of interest.
+                </span>
+              </div>
+            </div>
+          </PrintSlideReplica>
+        ),
+      )}
+    </>
+  );
+}
+function SlideFrame({ active, children, className = "" }) {
   return (
     <section
-      className={`deck-slide ${active ? "deck-slide--active" : ""}`}
+      className={`deck-slide ${active ? "deck-slide--active" : ""} ${className}`.trim()}
       aria-hidden={!active}
     >
       <div className="deck-slide__content">{children}</div>
@@ -555,114 +1075,6 @@ function SlideFrame({ active, children }) {
   );
 }
 
-function formatPrintFieldName(value) {
-  return String(value)
-    .replace(/([a-z0-9])([A-Z])/g, "$1 $2")
-    .replace(/[_-]+/g, " ")
-    .replace(/\b\w/g, (character) => character.toUpperCase());
-}
-
-function PrintDataValue({ value }) {
-  if (value === null || value === undefined || value === "") {
-    return null;
-  }
-
-  if (Array.isArray(value)) {
-    return (
-      <div className="print-data-array">
-        {value.map((item, index) => (
-          <div className="print-data-array__item" key={index}>
-            <PrintDataValue value={item} />
-          </div>
-        ))}
-      </div>
-    );
-  }
-
-  if (typeof value === "object") {
-    return (
-      <dl className="print-data-fields">
-        {Object.entries(value).map(([field, fieldValue]) => {
-          if (
-            fieldValue === null ||
-            fieldValue === undefined ||
-            fieldValue === ""
-          ) {
-            return null;
-          }
-
-          return (
-            <div className="print-data-field" key={field}>
-              <dt>{formatPrintFieldName(field)}</dt>
-              <dd>
-                <PrintDataValue value={fieldValue} />
-              </dd>
-            </div>
-          );
-        })}
-      </dl>
-    );
-  }
-
-  if (typeof value === "string" && /^https?:\/\//i.test(value)) {
-    return <a href={value}>{value}</a>;
-  }
-
-  return <span>{String(value)}</span>;
-}
-
-function PrintInteractiveGroup({
-  sourceLabel,
-  title,
-  description,
-  data,
-}) {
-  return (
-    <section className="print-interaction-page">
-      <header className="print-interaction-heading">
-        <span>{sourceLabel}</span>
-        <h2>{title}</h2>
-        <p>{description}</p>
-      </header>
-
-      <div className="print-interaction-grid">
-        {Object.entries(data).map(([key, item]) => {
-          const isPlainObject =
-            item !== null &&
-            typeof item === "object" &&
-            !Array.isArray(item);
-
-          const heading = isPlainObject
-            ? item.title ||
-              item.label ||
-              item.short ||
-              formatPrintFieldName(key)
-            : formatPrintFieldName(key);
-
-          const detail = isPlainObject
-            ? Object.fromEntries(
-                Object.entries(item).filter(
-                  ([field]) =>
-                    !["title", "label", "short"].includes(field),
-                ),
-              )
-            : item;
-
-          return (
-            <article className="print-interaction-card" key={key}>
-              <span className="print-interaction-card__key">
-                {formatPrintFieldName(key)}
-              </span>
-
-              <h3>{heading}</h3>
-              <PrintDataValue value={detail} />
-            </article>
-          );
-        })}
-      </div>
-    </section>
-  );
-}
 function Home() {
   const [slideIndex, setSlideIndex] = useState(0);
   const [activeStress, setActiveStress] = useState("disease");
@@ -680,15 +1092,6 @@ function Home() {
   const genebankStage = genebankStages[activeGenebankStage];
   const breedingTrait = breedingTraitExamples[activeBreedingTrait];
 
-  const printableStressCases = Object.fromEntries(
-    Object.keys(stressScenarios).map((key) => [
-      key,
-      {
-        scenario: stressScenarios[key],
-        documentedCase: stressCaseStudies[key],
-      },
-    ]),
-  );
 
   const currentChapter =
     slideIndex < 3
@@ -867,7 +1270,7 @@ function Home() {
         {/* SLIDE 2 — STRESS + RESPONSE TOGETHER                    */}
         {/* ------------------------------------------------------- */}
 
-        <SlideFrame active={slideIndex === 1}>
+        <SlideFrame active={slideIndex === 1} className="interactive-screen-slide">
           <div className="case-driven-stress-slide">
 
             <div className="case-driven-heading">
@@ -1002,6 +1405,8 @@ function Home() {
         {/* SLIDE 3 — INSIGHT / BRIDGE                              */}
         {/* ------------------------------------------------------- */}
 
+        <PrintStressSlides />
+
         <SlideFrame active={slideIndex === 2}>
           <div className="insight-slide">
             <span className="slide-eyebrow">03 · THE KEY INSIGHT</span>
@@ -1099,7 +1504,7 @@ function Home() {
           </div>
         </SlideFrame>
 
-        <SlideFrame active={slideIndex === 4}>
+        <SlideFrame active={slideIndex === 4} className="interactive-screen-slide">
           <div className="search-slide">
             <div className="slide-heading slide-heading--compact">
               <span className="slide-eyebrow">05 · WIDEN THE SEARCH</span>
@@ -1177,6 +1582,8 @@ function Home() {
             </div>
           </div>
         </SlideFrame>
+
+        <PrintSourceSlides />
 
         <SlideFrame active={slideIndex === 5}>
           <div className="case-slide">
@@ -1317,7 +1724,7 @@ function Home() {
           </div>
         </SlideFrame>
 
-        <SlideFrame active={slideIndex === 7}>
+        <SlideFrame active={slideIndex === 7} className="interactive-screen-slide">
           <div className="germplasm-forms-slide">
             <div className="slide-heading slide-heading--compact">
               <span className="slide-eyebrow">08 · WHAT CAN BE CONSERVED?</span>
@@ -1367,6 +1774,8 @@ function Home() {
             </div>
           </div>
         </SlideFrame>
+
+        <PrintFormSlides />
 
         <SlideFrame active={slideIndex === 8}>
           <div className="accession-slide">
@@ -1521,7 +1930,7 @@ function Home() {
           </div>
         </SlideFrame>
 
-        <SlideFrame active={slideIndex === 10}>
+        <SlideFrame active={slideIndex === 10} className="interactive-screen-slide">
           <div className="seed-behaviour-slide">
             <div className="slide-heading slide-heading--compact">
               <span className="slide-eyebrow">
@@ -1589,6 +1998,8 @@ function Home() {
             </div>
           </div>
         </SlideFrame>
+
+        <PrintSeedSlides />
 
         <SlideFrame active={slideIndex === 11}>
           <div className="method-map-slide">
@@ -1748,7 +2159,7 @@ function Home() {
           </div>
         </SlideFrame>
 
-        <SlideFrame active={slideIndex === 13}>
+        <SlideFrame active={slideIndex === 13} className="interactive-screen-slide">
           <div className="lifecycle-slide">
             <div className="slide-heading slide-heading--compact">
               <span className="slide-eyebrow">
@@ -1801,6 +2212,8 @@ function Home() {
             </div>
           </div>
         </SlideFrame>
+
+        <PrintLifecycleSlides />
 
         <SlideFrame active={slideIndex === 14}>
           <div className="usable-slide">
@@ -2678,7 +3091,7 @@ function Home() {
           </div>
         </SlideFrame>
 
-        <SlideFrame active={slideIndex === 25}>
+        <SlideFrame active={slideIndex === 25} className="interactive-screen-slide">
           <div className="trait-evaluation-slide">
 
             <div className="slide-heading slide-heading--compact">
@@ -2733,6 +3146,8 @@ function Home() {
 
           </div>
         </SlideFrame>
+
+        <PrintTraitSlides />
 
         <SlideFrame active={slideIndex === 26}>
           <div className="bank-field-slide">
@@ -3088,53 +3503,6 @@ function Home() {
           </div>
         </SlideFrame>
 </main>
-
-
-
-            <div className="print-interaction-appendix">
-        <PrintInteractiveGroup
-          sourceLabel="SLIDE 02 · INTERACTIVE SUPPLEMENT"
-          title="All stress cases"
-          description="Disease, drought, heat and salinity are shown together in the printable version."
-          data={printableStressCases}
-        />
-
-        <PrintInteractiveGroup
-          sourceLabel="SLIDE 05 · INTERACTIVE SUPPLEMENT"
-          title="All sources of useful variation"
-          description="All crop-diversity source categories available in the interactive explorer."
-          data={traitSources}
-        />
-
-        <PrintInteractiveGroup
-          sourceLabel="SLIDE 08 · INTERACTIVE SUPPLEMENT"
-          title="All forms of germplasm"
-          description="All biological-material forms available through the interactive germplasm selector."
-          data={germplasmForms}
-        />
-
-        <PrintInteractiveGroup
-          sourceLabel="SLIDE 11 · INTERACTIVE SUPPLEMENT"
-          title="All seed-behaviour categories"
-          description="Every seed-behaviour category and its conservation implications."
-          data={seedBehaviours}
-        />
-
-        <PrintInteractiveGroup
-          sourceLabel="GENEBANK LIFECYCLE · INTERACTIVE SUPPLEMENT"
-          title="All genebank stages"
-          description="Every stage available through the interactive genebank lifecycle."
-          data={genebankStages}
-        />
-
-        <PrintInteractiveGroup
-          sourceLabel="SLIDE 26 · INTERACTIVE SUPPLEMENT"
-          title="All trait-evaluation examples"
-          description="Every trait-evaluation example available in the interactive breeding section."
-          data={breedingTraitExamples}
-        />
-      </div>
-
       <footer className="deck-controls">
         <button
           type="button"
