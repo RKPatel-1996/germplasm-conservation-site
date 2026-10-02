@@ -4999,3 +4999,252 @@
     font-size: clamp(1.8rem, 2.9vw, 2.8rem) !important;
   }
 }
+
+/* === READABILITY AMPLIFICATION 01-15 ============================ */
+
+/*
+   Desktop readability targets:
+   body / explanation : ~15-17 px
+   secondary text     : ~14-15 px
+   labels / metadata  : ~13-14 px
+*/
+
+/* ---------------------------------------------------------------
+   SLIDES 1-5
+   --------------------------------------------------------------- */
+
+.deck-slide:nth-of-type(1) small,
+.deck-slide:nth-of-type(1) [class*="note"] {
+  font-size: clamp(0.88rem, 0.82vw, 0.98rem) !important;
+}
+
+.deck-slide:nth-of-type(2) .case-driven-scenario span,
+.deck-slide:nth-of-type(2) .compact-response-title > span,
+.deck-slide:nth-of-type(2) .dynamic-case-heading > span,
+.deck-slide:nth-of-type(2) .compact-field small,
+.deck-slide:nth-of-type(2) .dynamic-case-stats span,
+.deck-slide:nth-of-type(2) .dynamic-case-links a {
+  font-size: clamp(0.80rem, 0.74vw, 0.88rem) !important;
+}
+
+.deck-slide:nth-of-type(2) .case-driven-scenario p,
+.deck-slide:nth-of-type(2) .compact-response-caption,
+.deck-slide:nth-of-type(2) .dynamic-case-heading > p,
+.deck-slide:nth-of-type(2) .dynamic-case-lesson,
+.deck-slide:nth-of-type(2) .case-driven-bottom {
+  font-size: clamp(0.90rem, 0.84vw, 1rem) !important;
+  line-height: 1.42 !important;
+}
+
+.deck-slide:nth-of-type(2) .compact-field strong,
+.deck-slide:nth-of-type(2) .compact-response-title > strong {
+  font-size: clamp(0.90rem, 0.84vw, 1rem) !important;
+}
+
+.deck-slide:nth-of-type(3) small {
+  font-size: clamp(0.84rem, 0.78vw, 0.94rem) !important;
+}
+
+.deck-slide:nth-of-type(3) p,
+.deck-slide:nth-of-type(3) [class*="takeaway"],
+.deck-slide:nth-of-type(3) [class*="question"],
+.deck-slide:nth-of-type(4) .trait-gap-footer,
+.deck-slide:nth-of-type(4) .breeder-problem p,
+.deck-slide:nth-of-type(5) .search-slide__takeaway {
+  font-size: clamp(0.94rem, 0.88vw, 1.05rem) !important;
+  line-height: 1.45 !important;
+}
+
+.deck-slide:nth-of-type(4) .trait-list span,
+.deck-slide:nth-of-type(5) .source-value strong {
+  font-size: clamp(0.92rem, 0.86vw, 1.02rem) !important;
+}
+
+.deck-slide:nth-of-type(5) .source-detail p {
+  font-size: clamp(0.98rem, 0.92vw, 1.08rem) !important;
+}
+
+.deck-slide:nth-of-type(5) .source-value small,
+.deck-slide:nth-of-type(5) .search-map button small {
+  font-size: clamp(0.80rem, 0.74vw, 0.88rem) !important;
+}
+
+/* ---------------------------------------------------------------
+   SLIDES 6-10
+   --------------------------------------------------------------- */
+
+.deck-slide:nth-of-type(6) .case-timeline article > span,
+.deck-slide:nth-of-type(6) .case-conclusion small {
+  font-size: clamp(0.80rem, 0.74vw, 0.88rem) !important;
+}
+
+.deck-slide:nth-of-type(6) .case-timeline article p,
+.deck-slide:nth-of-type(6) .case-question span,
+.deck-slide:nth-of-type(6) .case-resources,
+.deck-slide:nth-of-type(6) .case-resources a {
+  font-size: clamp(0.90rem, 0.84vw, 1rem) !important;
+  line-height: 1.42 !important;
+}
+
+.deck-slide:nth-of-type(6) .case-conclusion strong,
+.deck-slide:nth-of-type(6) .case-timeline article > strong {
+  font-size: clamp(0.94rem, 0.88vw, 1.05rem) !important;
+}
+
+.deck-slide:nth-of-type(7) .germplasm-definition-lead {
+  font-size: clamp(1rem, 0.94vw, 1.10rem) !important;
+}
+
+.deck-slide:nth-of-type(7) .definition-equation article > span {
+  font-size: clamp(0.80rem, 0.74vw, 0.88rem) !important;
+}
+
+.deck-slide:nth-of-type(7) .definition-equation article > strong,
+.deck-slide:nth-of-type(7) .definition-distinction {
+  font-size: clamp(0.92rem, 0.86vw, 1.02rem) !important;
+  line-height: 1.42 !important;
+}
+
+.deck-slide:nth-of-type(8) .form-buttons button,
+.deck-slide:nth-of-type(8) .form-detail-meta strong {
+  font-size: clamp(0.92rem, 0.86vw, 1.02rem) !important;
+}
+
+.deck-slide:nth-of-type(8) .form-detail > span,
+.deck-slide:nth-of-type(8) .form-detail-meta small {
+  font-size: clamp(0.80rem, 0.74vw, 0.88rem) !important;
+}
+
+.deck-slide:nth-of-type(8) .form-detail > p,
+.deck-slide:nth-of-type(8) .form-note {
+  font-size: clamp(0.96rem, 0.90vw, 1.06rem) !important;
+  line-height: 1.48 !important;
+}
+
+.deck-slide:nth-of-type(9) .accession-label,
+.deck-slide:nth-of-type(9) .passport-record > span {
+  font-size: clamp(0.80rem, 0.74vw, 0.88rem) !important;
+}
+
+.deck-slide:nth-of-type(9) .accession-object p,
+.deck-slide:nth-of-type(9) .passport-record small,
+.deck-slide:nth-of-type(9) .accession-bottom span,
+.deck-slide:nth-of-type(9) .accession-links a {
+  font-size: clamp(0.88rem, 0.82vw, 0.98rem) !important;
+  line-height: 1.42 !important;
+}
+
+.deck-slide:nth-of-type(9) .accession-object > strong,
+.deck-slide:nth-of-type(9) .passport-record strong {
+  font-size: clamp(0.94rem, 0.88vw, 1.05rem) !important;
+}
+
+.deck-slide:nth-of-type(10) .conservation-flow article > span {
+  font-size: clamp(0.80rem, 0.74vw, 0.88rem) !important;
+}
+
+.deck-slide:nth-of-type(10) .conservation-flow article > strong {
+  font-size: clamp(0.96rem, 0.90vw, 1.06rem) !important;
+}
+
+.deck-slide:nth-of-type(10) .conservation-flow article p,
+.deck-slide:nth-of-type(10) .conservation-rule {
+  font-size: clamp(0.90rem, 0.84vw, 1rem) !important;
+  line-height: 1.44 !important;
+}
+
+/* ---------------------------------------------------------------
+   SLIDES 11-15
+   --------------------------------------------------------------- */
+
+.deck-slide:nth-of-type(11) .seed-type-buttons button {
+  font-size: clamp(0.94rem, 0.88vw, 1.04rem) !important;
+}
+
+.deck-slide:nth-of-type(11) .seed-type-detail > span,
+.deck-slide:nth-of-type(11) .seed-type-meta small,
+.deck-slide:nth-of-type(11) .seed-spectrum strong,
+.deck-slide:nth-of-type(11) .seed-spectrum span {
+  font-size: clamp(0.80rem, 0.74vw, 0.88rem) !important;
+}
+
+.deck-slide:nth-of-type(11) .seed-type-detail > p,
+.deck-slide:nth-of-type(11) .seed-type-meta strong {
+  font-size: clamp(0.94rem, 0.88vw, 1.04rem) !important;
+  line-height: 1.46 !important;
+}
+
+.deck-slide:nth-of-type(12) .method-grid article > span {
+  font-size: clamp(0.80rem, 0.74vw, 0.88rem) !important;
+}
+
+.deck-slide:nth-of-type(12) .method-grid h3 {
+  font-size: clamp(1.02rem, 0.96vw, 1.14rem) !important;
+}
+
+.deck-slide:nth-of-type(12) .method-grid p,
+.deck-slide:nth-of-type(12) .method-conclusion,
+.deck-slide:nth-of-type(12) .chapter-next {
+  font-size: clamp(0.90rem, 0.84vw, 1rem) !important;
+  line-height: 1.44 !important;
+}
+
+.deck-slide:nth-of-type(13) .genebank-intro {
+  font-size: clamp(1rem, 0.94vw, 1.10rem) !important;
+}
+
+.deck-slide:nth-of-type(13) .genebank-pipeline article > span {
+  font-size: clamp(0.80rem, 0.74vw, 0.88rem) !important;
+}
+
+.deck-slide:nth-of-type(13) .genebank-pipeline article strong {
+  font-size: clamp(0.94rem, 0.88vw, 1.04rem) !important;
+}
+
+.deck-slide:nth-of-type(13) .genebank-pipeline article small,
+.deck-slide:nth-of-type(13) .pipeline-note,
+.deck-slide:nth-of-type(13) .source-link-row,
+.deck-slide:nth-of-type(13) .source-link-row a {
+  font-size: clamp(0.88rem, 0.82vw, 0.98rem) !important;
+  line-height: 1.42 !important;
+}
+
+.deck-slide:nth-of-type(14) .lifecycle-buttons button {
+  font-size: clamp(0.90rem, 0.84vw, 1rem) !important;
+}
+
+.deck-slide:nth-of-type(14) .lifecycle-buttons button > span,
+.deck-slide:nth-of-type(14) .lifecycle-detail > span,
+.deck-slide:nth-of-type(14) .lifecycle-detail small {
+  font-size: clamp(0.80rem, 0.74vw, 0.88rem) !important;
+}
+
+.deck-slide:nth-of-type(14) .lifecycle-detail > p,
+.deck-slide:nth-of-type(14) .lifecycle-detail div strong,
+.deck-slide:nth-of-type(14) .lifecycle-warning {
+  font-size: clamp(0.94rem, 0.88vw, 1.04rem) !important;
+  line-height: 1.46 !important;
+}
+
+.deck-slide:nth-of-type(15) .usable-grid article > span {
+  font-size: clamp(0.80rem, 0.74vw, 0.88rem) !important;
+}
+
+.deck-slide:nth-of-type(15) .usable-grid h3 {
+  font-size: clamp(1.02rem, 0.96vw, 1.14rem) !important;
+}
+
+.deck-slide:nth-of-type(15) .usable-grid p,
+.deck-slide:nth-of-type(15) .usable-loop,
+.deck-slide:nth-of-type(15) .chapter-next {
+  font-size: clamp(0.90rem, 0.84vw, 1rem) !important;
+  line-height: 1.44 !important;
+}
+
+/* Keep dense low-height screens under control. */
+@media (max-height: 720px) and (min-width: 621px) {
+  .deck-slide:nth-of-type(n+1):nth-of-type(-n+15) p,
+  .deck-slide:nth-of-type(n+1):nth-of-type(-n+15) small {
+    line-height: 1.35 !important;
+  }
+}
