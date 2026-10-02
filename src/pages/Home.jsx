@@ -1782,8 +1782,8 @@ function Home() {
             </span>
 
             <h2>
-              More than
-              <em> 4.7 lakh accessions</em>
+              More than{" "}
+              <em>4.7 lakh accessions</em>{" "}
               are conserved.
             </h2>
 
