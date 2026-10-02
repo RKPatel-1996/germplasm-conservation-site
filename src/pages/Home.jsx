@@ -1445,6 +1445,17 @@ function Home() {
                 the information that makes it scientifically useful.
               </span>
             </div>
+
+            <div className="source-link-row">
+              <span>Reference:</span>
+              <a
+                href="https://www.fao.org/wiews/resources/en/"
+                target="_blank"
+                rel="noreferrer"
+              >
+                FAO Genebank Standards &nearr;
+              </a>
+            </div>
           </div>
         </SlideFrame>
 
@@ -1707,6 +1718,26 @@ function Home() {
               <strong>USER</strong>
               <span>finds material for research or breeding</span>
             </div>
+
+            <div className="source-link-row">
+              <span>Explore:</span>
+
+              <a
+                href="https://www.genesys-pgr.org/"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Genesys &nearr;
+              </a>
+
+              <a
+                href="https://www.cgiar.org/cgiar-research-portfolio-2025-2030/genebanks"
+                target="_blank"
+                rel="noreferrer"
+              >
+                CGIAR Genebanks &nearr;
+              </a>
+            </div>
           </div>
         </SlideFrame>
 
@@ -1786,6 +1817,18 @@ function Home() {
               </span>
             </div>
 
+            <div className="source-link-row">
+              <span>Official resource:</span>
+
+              <a
+                href="https://www.seedvault.no/"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Svalbard Global Seed Vault &nearr;
+              </a>
+            </div>
+
             <div className="chapter-next chapter-next--chapter6">
               <span>Chapter 07</span>
               <strong>
@@ -1856,6 +1899,18 @@ function Home() {
                 works with a network that includes regional stations across India.
               </span>
             </div>
+
+            <div className="source-link-row">
+              <span>Official resource:</span>
+
+              <a
+                href="https://icar.gov.in/en/national-bureaux"
+                target="_blank"
+                rel="noreferrer"
+              >
+                ICAR National Bureaux / NBPGR &nearr;
+              </a>
+            </div>
           </div>
         </SlideFrame>
 
@@ -1920,6 +1975,18 @@ function Home() {
               </span>
             </div>
 
+            <div className="source-link-row">
+              <span>Official source:</span>
+
+              <a
+                href="https://www.pib.gov.in/PressReleasePage.aspx?PRID=2116216&lang=2&reg=3"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Government of India — National Gene Bank figures &nearr;
+              </a>
+            </div>
+
             <small className="data-date">
               Official Government of India figures reported in 2025
             </small>
@@ -1979,6 +2046,26 @@ function Home() {
                 important genetic resources need redundancy so one failure does
                 not become irreversible genetic loss.
               </span>
+            </div>
+
+            <div className="source-link-row">
+              <span>Follow the programme:</span>
+
+              <a
+                href="https://www.pib.gov.in/PressReleasePage.aspx?PRID=2098404&lang=2&reg=3"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Second Gene Bank announcement &nearr;
+              </a>
+
+              <a
+                href="https://www.icar.gov.in/en/national-advisory-board-management-genetic-resources-charts-roadmap-strengthening-indias"
+                target="_blank"
+                rel="noreferrer"
+              >
+                2026 National Safety Genebank update &nearr;
+              </a>
             </div>
 
             <div className="chapter-next chapter-next--chapter7">
@@ -2200,6 +2287,26 @@ function Home() {
                 protocols are selected and validated for the particular species
                 and tissue.
               </span>
+            </div>
+
+            <div className="source-link-row">
+              <span>Technical resources:</span>
+
+              <a
+                href="https://www.fao.org/wiews/resources/en/"
+                target="_blank"
+                rel="noreferrer"
+              >
+                FAO genebank guidance &nearr;
+              </a>
+
+              <a
+                href="https://genebanks.cgiar.org/"
+                target="_blank"
+                rel="noreferrer"
+              >
+                CGIAR Genebanks &nearr;
+              </a>
             </div>
 
             <div className="chapter-next chapter-next--chapter8">
@@ -2675,7 +2782,7 @@ function Home() {
 
               <strong>
                 DIVERSITY
-                &rarr; GERMPPLASM
+                &rarr; GERMPLASM
                 &rarr; CONSERVATION
                 &rarr; DOCUMENTATION
                 &rarr; EVALUATION

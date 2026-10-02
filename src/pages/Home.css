@@ -3584,3 +3584,42 @@
     display: none;
   }
 }
+
+/* === CONTEXTUAL SOURCE LINKS ==================================== */
+
+.source-link-row {
+  max-width: 1000px;
+  margin: 0.5rem auto 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.65rem;
+}
+
+.source-link-row > span {
+  color: var(--deck-muted);
+  font-weight: 700;
+}
+
+.source-link-row a {
+  padding: 0.3rem 0.48rem;
+  border: 1px solid var(--deck-line);
+  border-radius: 8px;
+  background: #fff;
+  color: var(--deck-green-dark);
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.source-link-row a:hover {
+  border-color: var(--deck-green);
+  background: var(--deck-green-soft);
+}
+
+@media (max-width: 620px) {
+  .source-link-row {
+    font-size: 0.58rem;
+  }
+}
