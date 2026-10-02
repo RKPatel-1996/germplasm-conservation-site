@@ -5406,3 +5406,187 @@
     font-size: 0.82rem !important;
   }
 }
+
+/* === READABILITY BATCH 04 · SLIDES 16-20 ======================= */
+/*
+   Same standard established on slides 1-15:
+   body / explanation : ~16-18 px
+   secondary text     : ~15-16 px
+   labels / metadata  : ~14-15 px
+   display titles     : unchanged
+*/
+
+/* ---------------------------------------------------------------
+   SHARED BASE · SLIDES 16-20
+   --------------------------------------------------------------- */
+
+.deck-slide:nth-of-type(n+16):nth-of-type(-n+20) p {
+  font-size: clamp(0.98rem, 0.94vw, 1.10rem);
+  line-height: 1.48;
+}
+
+.deck-slide:nth-of-type(n+16):nth-of-type(-n+20) small {
+  font-size: clamp(0.86rem, 0.80vw, 0.96rem) !important;
+  line-height: 1.42 !important;
+}
+
+.deck-slide:nth-of-type(n+16):nth-of-type(-n+20) a {
+  font-size: clamp(0.84rem, 0.78vw, 0.94rem);
+  line-height: 1.4;
+}
+
+/* ---------------------------------------------------------------
+   SLIDE 16 · Global conservation network
+   --------------------------------------------------------------- */
+
+.deck-slide:nth-of-type(16) .global-network-flow p {
+  font-size: clamp(0.98rem, 0.92vw, 1.08rem) !important;
+  line-height: 1.46 !important;
+}
+
+.deck-slide:nth-of-type(16) .global-network-flow h3 {
+  font-size: clamp(1.04rem, 0.98vw, 1.16rem) !important;
+  line-height: 1.2 !important;
+}
+
+.deck-slide:nth-of-type(16) .global-network-flow small,
+.deck-slide:nth-of-type(16) [class*="label"],
+.deck-slide:nth-of-type(16) [class*="eyebrow"] {
+  font-size: clamp(0.86rem, 0.80vw, 0.94rem) !important;
+}
+
+.deck-slide:nth-of-type(16) .global-network-note,
+.deck-slide:nth-of-type(16) [class*="note"] {
+  font-size: clamp(0.96rem, 0.90vw, 1.06rem) !important;
+  line-height: 1.45 !important;
+}
+
+/* ---------------------------------------------------------------
+   SLIDE 17 · CGIAR + Genesys
+   --------------------------------------------------------------- */
+
+.deck-slide:nth-of-type(17) .global-resource-grid p,
+.deck-slide:nth-of-type(17) .genesys-card p {
+  font-size: clamp(0.98rem, 0.92vw, 1.08rem) !important;
+  line-height: 1.46 !important;
+}
+
+.deck-slide:nth-of-type(17) .global-resource-grid h3,
+.deck-slide:nth-of-type(17) .genesys-card h3 {
+  font-size: clamp(1.06rem, 1vw, 1.18rem) !important;
+}
+
+.deck-slide:nth-of-type(17) .global-stat-row small,
+.deck-slide:nth-of-type(17) .genesys-card > small,
+.deck-slide:nth-of-type(17) .data-date {
+  font-size: clamp(0.86rem, 0.80vw, 0.94rem) !important;
+  line-height: 1.4 !important;
+}
+
+.deck-slide:nth-of-type(17) .global-stat-row strong {
+  font-size: clamp(1.15rem, 1.25vw, 1.45rem) !important;
+}
+
+.deck-slide:nth-of-type(17) .source-link-row,
+.deck-slide:nth-of-type(17) .source-link-row a {
+  font-size: clamp(0.86rem, 0.80vw, 0.94rem) !important;
+}
+
+/* ---------------------------------------------------------------
+   SLIDE 18 · Svalbard
+   --------------------------------------------------------------- */
+
+.deck-slide:nth-of-type(18) .svalbard-rule {
+  font-size: clamp(0.98rem, 0.92vw, 1.08rem) !important;
+  line-height: 1.46 !important;
+}
+
+.deck-slide:nth-of-type(18) .global-stat-row small,
+.deck-slide:nth-of-type(18) .data-date,
+.deck-slide:nth-of-type(18) [class*="label"] {
+  font-size: clamp(0.86rem, 0.80vw, 0.94rem) !important;
+}
+
+.deck-slide:nth-of-type(18) .global-stat-row strong {
+  font-size: clamp(1.18rem, 1.3vw, 1.5rem) !important;
+}
+
+.deck-slide:nth-of-type(18) [class*="backup"] p,
+.deck-slide:nth-of-type(18) [class*="backup"] span {
+  font-size: clamp(0.94rem, 0.88vw, 1.04rem) !important;
+  line-height: 1.44 !important;
+}
+
+.deck-slide:nth-of-type(18) .source-link-row,
+.deck-slide:nth-of-type(18) .source-link-row a {
+  font-size: clamp(0.86rem, 0.80vw, 0.94rem) !important;
+}
+
+/* ---------------------------------------------------------------
+   SLIDE 19 · India system
+   --------------------------------------------------------------- */
+
+.deck-slide:nth-of-type(19) .india-system-note {
+  font-size: clamp(0.98rem, 0.92vw, 1.08rem) !important;
+  line-height: 1.46 !important;
+}
+
+.deck-slide:nth-of-type(19) [class*="role"] p,
+.deck-slide:nth-of-type(19) [class*="network"] p {
+  font-size: clamp(0.96rem, 0.90vw, 1.06rem) !important;
+  line-height: 1.44 !important;
+}
+
+.deck-slide:nth-of-type(19) [class*="role"] small,
+.deck-slide:nth-of-type(19) [class*="label"],
+.deck-slide:nth-of-type(19) [class*="eyebrow"] {
+  font-size: clamp(0.86rem, 0.80vw, 0.94rem) !important;
+}
+
+.deck-slide:nth-of-type(19) .source-link-row,
+.deck-slide:nth-of-type(19) .source-link-row a {
+  font-size: clamp(0.86rem, 0.80vw, 0.94rem) !important;
+}
+
+/* ---------------------------------------------------------------
+   SLIDE 20 · National Gene Bank figures
+   --------------------------------------------------------------- */
+
+.deck-slide:nth-of-type(20) .india-crop-stats span,
+.deck-slide:nth-of-type(20) .data-date {
+  font-size: clamp(0.86rem, 0.80vw, 0.94rem) !important;
+  line-height: 1.4 !important;
+}
+
+.deck-slide:nth-of-type(20) .india-crop-stats strong {
+  font-size: clamp(1.12rem, 1.2vw, 1.4rem) !important;
+}
+
+.deck-slide:nth-of-type(20) .india-stat-note {
+  font-size: clamp(0.98rem, 0.92vw, 1.08rem) !important;
+  line-height: 1.46 !important;
+}
+
+.deck-slide:nth-of-type(20) [class*="stat"] p,
+.deck-slide:nth-of-type(20) [class*="figure"] p {
+  font-size: clamp(0.94rem, 0.88vw, 1.04rem) !important;
+}
+
+.deck-slide:nth-of-type(20) .source-link-row,
+.deck-slide:nth-of-type(20) .source-link-row a {
+  font-size: clamp(0.86rem, 0.80vw, 0.94rem) !important;
+}
+
+/* ---------------------------------------------------------------
+   LOW-HEIGHT SAFETY
+   --------------------------------------------------------------- */
+
+@media (max-height: 720px) and (min-width: 621px) {
+  .deck-slide:nth-of-type(n+16):nth-of-type(-n+20) p {
+    line-height: 1.36 !important;
+  }
+
+  .deck-slide:nth-of-type(n+16):nth-of-type(-n+20) small {
+    font-size: 0.82rem !important;
+  }
+}
