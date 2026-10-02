@@ -6336,3 +6336,188 @@
     padding-right: 0.82rem !important;
   }
 }
+
+/* === PRINT / PDF CONTROL ======================================= */
+
+.deck-print-button {
+  margin-left: 0.9rem;
+  min-height: 36px;
+  padding: 0.42rem 0.7rem;
+  border: 1px solid var(--deck-line);
+  border-radius: 10px;
+  background: #ffffff;
+  color: var(--deck-green-dark);
+  font: inherit;
+  font-size: 0.72rem;
+  font-weight: 800;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.deck-print-button:hover {
+  border-color: var(--deck-green);
+  background: var(--deck-green-soft);
+}
+
+@media (max-width: 700px) {
+  .deck-print-button {
+    margin-left: 0;
+    min-height: 36px;
+    padding: 0.42rem 0.55rem;
+    font-size: 0.7rem;
+  }
+}
+
+/* === PRINT / PDF MODE V1 ======================================= */
+
+@page {
+  size: A4 landscape;
+  margin: 8mm;
+}
+
+@media print {
+  html,
+  body,
+  #root {
+    width: 100% !important;
+    height: auto !important;
+    min-height: 0 !important;
+    margin: 0 !important;
+    overflow: visible !important;
+    background: #ffffff !important;
+  }
+
+  body {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .presentation-deck {
+    width: 100% !important;
+    height: auto !important;
+    min-height: 0 !important;
+    display: block !important;
+    overflow: visible !important;
+    background: #ffffff !important;
+  }
+
+  .deck-header,
+  .deck-controls,
+  .deck-print-button {
+    display: none !important;
+  }
+
+  .deck-stage {
+    position: static !important;
+    width: 100% !important;
+    min-height: 0 !important;
+    overflow: visible !important;
+  }
+
+  /* Print every slide, not only the currently active slide. */
+
+  .deck-slide,
+  .deck-slide--active {
+    display: block !important;
+    position: relative !important;
+    inset: auto !important;
+    width: 100% !important;
+    height: auto !important;
+    min-height: 180mm !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+    transform: none !important;
+    overflow: visible !important;
+
+    break-after: page;
+    page-break-after: always;
+  }
+
+  .deck-slide:last-child {
+    break-after: auto;
+    page-break-after: auto;
+  }
+
+  .deck-slide__content {
+    width: 100% !important;
+    height: auto !important;
+    min-height: 180mm !important;
+    margin: 0 !important;
+    padding: 6mm 7mm !important;
+    display: block !important;
+    overflow: visible !important;
+  }
+
+  .deck-slide__content > div {
+    height: auto !important;
+    min-height: 0 !important;
+  }
+
+  /* Print typography intentionally compact enough for landscape A4. */
+
+  .presentation-deck .deck-slide h1 {
+    max-width: 100% !important;
+    font-size: 30pt !important;
+    line-height: 1 !important;
+  }
+
+  .presentation-deck .deck-slide h2 {
+    max-width: 100% !important;
+    font-size: 23pt !important;
+    line-height: 1.03 !important;
+  }
+
+  .presentation-deck .deck-slide h3 {
+    font-size: 13.5pt !important;
+    line-height: 1.15 !important;
+  }
+
+  .presentation-deck .deck-slide p,
+  .presentation-deck .deck-slide li {
+    font-size: 9.5pt !important;
+    line-height: 1.34 !important;
+  }
+
+  .presentation-deck .deck-slide small,
+  .presentation-deck .deck-slide a,
+  .presentation-deck .source-link-row,
+  .presentation-deck .source-link-row a {
+    font-size: 8.5pt !important;
+    line-height: 1.3 !important;
+  }
+
+  .slide-eyebrow {
+    font-size: 8pt !important;
+  }
+
+  .presentation-deck a {
+    text-decoration: underline !important;
+  }
+
+  /* Avoid cards or evidence boxes splitting across pages. */
+
+  .deck-slide article,
+  .deck-slide [class*="card"],
+  .deck-slide [class*="note"],
+  .deck-slide [class*="stat"],
+  .deck-slide [class*="question"],
+  .deck-slide [class*="conclusion"] {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  .mini-field,
+  .compact-mini-field,
+  .evidence-mini-field {
+    max-height: 38mm !important;
+    overflow: hidden !important;
+  }
+
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}

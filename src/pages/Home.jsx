@@ -676,6 +676,15 @@ function Home() {
           <span>/</span>
           <span>{String(slides.length).padStart(2, "0")}</span>
         </div>
+
+        <button
+          type="button"
+          className="deck-print-button"
+          onClick={() => window.print()}
+          title="Print all slides or save them as a PDF"
+        >
+          Print / PDF
+        </button>
       </header>
 
       <main className="deck-stage">
