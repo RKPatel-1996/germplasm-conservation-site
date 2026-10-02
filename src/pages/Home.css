@@ -5949,3 +5949,390 @@
     font-size: 0.82rem !important;
   }
 }
+
+/* === MOBILE READING MODE V1 ==================================== */
+/*
+   Desktop keeps presentation mode.
+   Phones become vertically scrollable reading slides.
+*/
+
+@media (max-width: 700px) {
+  html,
+  body,
+  #root {
+    width: 100%;
+    height: auto !important;
+    min-height: 100%;
+    overflow-x: hidden;
+  }
+
+  body {
+    overflow-y: auto !important;
+  }
+
+  .presentation-deck {
+    width: 100%;
+    height: auto !important;
+    min-height: 100dvh !important;
+    display: flex !important;
+    flex-direction: column;
+    overflow: visible !important;
+  }
+
+  /* -------------------------------------------------------------
+     HEADER
+     ------------------------------------------------------------- */
+
+  .deck-header {
+    position: sticky !important;
+    top: 0;
+    z-index: 50;
+    flex: 0 0 auto;
+    min-height: 58px;
+    height: auto;
+    padding: 0.55rem 0.8rem !important;
+    gap: 0.65rem;
+    background: rgba(244, 246, 243, 0.97);
+    border-bottom: 1px solid var(--deck-line);
+    backdrop-filter: blur(8px);
+  }
+
+  .deck-brand {
+    gap: 0.55rem !important;
+  }
+
+  .deck-brand__mark {
+    width: 32px !important;
+    height: 32px !important;
+  }
+
+  .deck-brand strong {
+    font-size: 0.84rem !important;
+  }
+
+  .deck-brand div span {
+    display: none !important;
+  }
+
+  .deck-counter {
+    margin-left: auto;
+    flex: 0 0 auto;
+  }
+
+  /* -------------------------------------------------------------
+     STAGE / ACTIVE SLIDE
+     ------------------------------------------------------------- */
+
+  .deck-stage {
+    position: relative !important;
+    flex: 1 0 auto;
+    width: 100%;
+    min-height: 0 !important;
+    overflow: visible !important;
+  }
+
+  .deck-slide {
+    display: none !important;
+    position: relative !important;
+    inset: auto !important;
+    width: 100% !important;
+    height: auto !important;
+    min-height: 0 !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+    transform: none !important;
+    overflow: visible !important;
+  }
+
+  .deck-slide--active {
+    display: block !important;
+  }
+
+  .deck-slide__content {
+    width: 100% !important;
+    height: auto !important;
+    min-height: calc(100dvh - 126px);
+    margin: 0 !important;
+    padding: 1.15rem 1rem 2rem !important;
+    display: block !important;
+    overflow: visible !important;
+  }
+
+  .deck-slide__content > * {
+    max-width: 100% !important;
+  }
+
+  .deck-slide__content > div {
+    width: 100%;
+    height: auto !important;
+    min-height: 0 !important;
+  }
+
+  /* -------------------------------------------------------------
+     MOBILE TYPOGRAPHY
+     ------------------------------------------------------------- */
+
+  .presentation-deck .deck-slide h1 {
+    max-width: 100% !important;
+    font-size: clamp(2.15rem, 9.5vw, 3rem) !important;
+    line-height: 1 !important;
+    letter-spacing: -0.045em !important;
+  }
+
+  .presentation-deck .deck-slide h2 {
+    max-width: 100% !important;
+    font-size: clamp(1.75rem, 7.5vw, 2.4rem) !important;
+    line-height: 1.05 !important;
+    letter-spacing: -0.035em !important;
+  }
+
+  .presentation-deck .deck-slide h3 {
+    font-size: clamp(1.12rem, 5vw, 1.4rem) !important;
+    line-height: 1.2 !important;
+  }
+
+  .presentation-deck .deck-slide p {
+    font-size: 1rem !important;
+    line-height: 1.55 !important;
+  }
+
+  .presentation-deck .deck-slide small {
+    font-size: 0.88rem !important;
+    line-height: 1.45 !important;
+  }
+
+  .presentation-deck .deck-slide a,
+  .presentation-deck .source-link-row,
+  .presentation-deck .source-link-row a {
+    font-size: 0.9rem !important;
+    line-height: 1.45 !important;
+  }
+
+  .slide-eyebrow {
+    font-size: 0.77rem !important;
+    line-height: 1.3 !important;
+  }
+
+  /* -------------------------------------------------------------
+     STACK CONTENT RATHER THAN SQUEEZING IT
+     ------------------------------------------------------------- */
+
+  .cause-chain,
+  .stress-grid,
+  .population-comparison,
+  .trait-gap-layout,
+  .search-explorer,
+  .case-timeline,
+  .definition-equation,
+  .germplasm-forms-layout,
+  .accession-layout,
+  .conservation-flow,
+  .seed-explorer,
+  .seed-type-meta,
+  .method-grid,
+  .genebank-pipeline,
+  .lifecycle-layout,
+  .usable-grid,
+  .global-network-flow,
+  .global-resource-grid,
+  .svalbard-layout,
+  .backup-flow,
+  .india-role-grid,
+  .india-stat-layout,
+  .india-safety-flow,
+  .seedbank-limit-grid,
+  .invitro-flow,
+  .invitro-use-grid,
+  .cryo-layout,
+  .cryo-process,
+  .return-use-flow,
+  .bank-field-flow,
+  .trait-evaluation-layout,
+  .resource-map-grid,
+  .explore-task-grid,
+  .accession-reading-layout,
+  .accession-reading-record,
+  .evidence-stress-heading,
+  .evidence-scenario-strip,
+  .evidence-comparison-grid,
+  .real-evidence-grid,
+  .case-driven-heading,
+  .case-driven-scenario,
+  .case-driven-body {
+    grid-template-columns: 1fr !important;
+  }
+
+  .method-grid-in-situ,
+  .resource-map-india {
+    grid-column: auto !important;
+  }
+
+  /* Interactive controls remain compact but touch-friendly. */
+
+  .case-driven-buttons,
+  .evidence-stress-buttons,
+  .trait-evaluation-buttons {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 0.55rem !important;
+  }
+
+  .seed-type-buttons,
+  .lifecycle-buttons {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 0.55rem !important;
+  }
+
+  .presentation-deck button {
+    min-height: 44px;
+  }
+
+  .case-driven-buttons button,
+  .evidence-stress-buttons button {
+    min-height: 44px !important;
+    font-size: 0.84rem !important;
+  }
+
+  /* -------------------------------------------------------------
+     RESTORE SUBSTANTIVE CONTENT PREVIOUSLY HIDDEN TO FORCE FIT
+     ------------------------------------------------------------- */
+
+  .slide-caveat,
+  .population-card__title small,
+  .chapter-question p,
+  .method-conclusion,
+  .pipeline-note,
+  .usable-loop,
+  .physical-digital-flow,
+  .seedbank-limit-answer,
+  .cryo-caution,
+  .linkage-drag-note,
+  .course-synthesis > p,
+  .case-driven-bottom,
+  .real-case-card > p,
+  .evidence-key-idea,
+  .compact-response-panel {
+    display: block !important;
+  }
+
+  .invitro-use-grid {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+  }
+
+  .stress-flow {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+  }
+
+  .seed-spectrum {
+    display: block !important;
+  }
+
+  /* Decorative connecting arrows can remain suppressed on narrow screens. */
+
+  .cause-chain > span,
+  .population-vs,
+  .conservation-flow > b,
+  .genebank-pipeline > b,
+  .global-network-flow > b,
+  .backup-flow > b,
+  .india-safety-flow > b,
+  .invitro-flow > b,
+  .cryo-process > b,
+  .return-use-flow > b,
+  .bank-field-flow > b,
+  .same-stress-badge {
+    display: none !important;
+  }
+
+  /* Avoid desktop minimum heights creating giant blank areas. */
+
+  .cause-chain article,
+  .conservation-flow article,
+  .genebank-pipeline article,
+  .global-network-flow article,
+  .india-safety-flow article,
+  .invitro-flow article,
+  .return-use-flow article,
+  .bank-field-flow article {
+    min-height: 0 !important;
+  }
+
+  /* -------------------------------------------------------------
+     MOBILE NAVIGATION
+     ------------------------------------------------------------- */
+
+  .deck-controls {
+    position: sticky !important;
+    bottom: 0;
+    z-index: 50;
+    flex: 0 0 auto;
+    min-height: 64px;
+    padding:
+      0.55rem
+      0.75rem
+      calc(0.55rem + env(safe-area-inset-bottom)) !important;
+    display: grid !important;
+    grid-template-columns: auto minmax(0, 1fr) auto !important;
+    gap: 0.55rem;
+    align-items: center;
+    background: rgba(244, 246, 243, 0.98);
+    border-top: 1px solid var(--deck-line);
+    backdrop-filter: blur(8px);
+  }
+
+  .deck-nav-button {
+    min-width: 44px;
+    min-height: 44px;
+    padding: 0.55rem 0.7rem !important;
+    font-size: 0.8rem !important;
+  }
+
+  .deck-nav-button span {
+    font-size: 1rem !important;
+  }
+
+  .deck-progress {
+    min-width: 0;
+    max-width: 100%;
+    padding: 0.35rem 0;
+    display: flex !important;
+    justify-content: flex-start;
+    gap: 0.32rem !important;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .deck-progress::-webkit-scrollbar {
+    display: none;
+  }
+
+  .deck-progress button {
+    flex: 0 0 auto;
+    width: 9px !important;
+    min-width: 9px !important;
+    height: 9px !important;
+    min-height: 9px !important;
+  }
+
+  .deck-progress button.active {
+    width: 24px !important;
+  }
+}
+
+@media (max-width: 380px) {
+  .deck-counter {
+    display: none;
+  }
+
+  .deck-header {
+    gap: 0.4rem;
+  }
+
+  .deck-slide__content {
+    padding-left: 0.82rem !important;
+    padding-right: 0.82rem !important;
+  }
+}
