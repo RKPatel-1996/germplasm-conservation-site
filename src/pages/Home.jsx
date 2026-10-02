@@ -74,6 +74,19 @@ const slides = [
     id: "svalbard",
     label: "Svalbard Backup",
   },
+  {
+    id: "india-system",
+    label: "India's PGR System",
+  },
+  {
+    id: "india-genebank",
+    label: "National Gene Bank",
+  },
+  {
+    id: "india-safety",
+    label: "Safety for the Future",
+  },
+
 
 
 
@@ -370,7 +383,9 @@ function Home() {
             ? "Chapter 04 · Choosing a conservation method"
             : slideIndex < 15
               ? "Chapter 05 · Inside a genebank"
-              : "Chapter 06 · The global conservation system";
+              : slideIndex < 18
+                ? "Chapter 06 · The global conservation system"
+                : "Chapter 07 · Plant genetic resources in India";
 
   const previousSlide = () => {
     setSlideIndex((current) => Math.max(0, current - 1));
@@ -1691,6 +1706,201 @@ function Home() {
               <span>Chapter 07</span>
               <strong>
                 How is plant germplasm conserved in India? &rarr;
+              </strong>
+            </div>
+          </div>
+        </SlideFrame>
+
+        <SlideFrame active={slideIndex === 18}>
+          <div className="india-system-slide">
+            <span className="slide-eyebrow">
+              19 · INDIA'S PLANT GENETIC RESOURCE SYSTEM
+            </span>
+
+            <h2>
+              India's national hub is
+              <em> ICAR-NBPGR.</em>
+            </h2>
+
+            <p className="india-lead">
+              The National Bureau of Plant Genetic Resources coordinates major
+              activities for collection, conservation, characterization,
+              documentation and use of plant genetic resources.
+            </p>
+
+            <div className="india-role-grid">
+              <article>
+                <span>COLLECT</span>
+                <h3>Explore diversity</h3>
+                <p>
+                  Germplasm is collected from farming systems, natural habitats
+                  and other sources before valuable variation disappears.
+                </p>
+              </article>
+
+              <article>
+                <span>CONSERVE</span>
+                <h3>Maintain material</h3>
+                <p>
+                  Seed, field, in-vitro and cryogenic approaches are used
+                  according to the biology of the material.
+                </p>
+              </article>
+
+              <article>
+                <span>CHARACTERIZE</span>
+                <h3>Understand what is stored</h3>
+                <p>
+                  Accessions are evaluated and documented so useful variation
+                  can be identified.
+                </p>
+              </article>
+
+              <article>
+                <span>DISTRIBUTE</span>
+                <h3>Return diversity to use</h3>
+                <p>
+                  Conserved germplasm supports crop improvement, research and
+                  genetic-resource management.
+                </p>
+              </article>
+            </div>
+
+            <div className="india-system-note">
+              <strong>ICAR-NBPGR, New Delhi</strong>
+              <span>
+                works with a network that includes regional stations across India.
+              </span>
+            </div>
+          </div>
+        </SlideFrame>
+
+        <SlideFrame active={slideIndex === 19}>
+          <div className="india-genebank-slide">
+            <span className="slide-eyebrow">
+              20 · INDIA'S NATIONAL GENE BANK
+            </span>
+
+            <h2>
+              More than
+              <em> 4.7 lakh accessions</em>
+              are conserved.
+            </h2>
+
+            <div className="india-stat-layout">
+              <article className="india-main-stat">
+                <small>NATIONAL GENE BANK · ICAR-NBPGR · NEW DELHI</small>
+
+                <strong>471,561</strong>
+                <span>accessions</span>
+
+                <div>
+                  <b>2,157</b>
+                  <span>species represented</span>
+                </div>
+              </article>
+
+              <div className="india-crop-stats">
+                <article>
+                  <strong>~170,000</strong>
+                  <span>cereal accessions</span>
+                </article>
+
+                <article>
+                  <strong>60,600+</strong>
+                  <span>millet accessions</span>
+                </article>
+
+                <article>
+                  <strong>69,200+</strong>
+                  <span>legume accessions</span>
+                </article>
+
+                <article>
+                  <strong>63,500+</strong>
+                  <span>oilseed accessions</span>
+                </article>
+
+                <article>
+                  <strong>~30,000</strong>
+                  <span>vegetable accessions</span>
+                </article>
+              </div>
+            </div>
+
+            <div className="india-stat-note">
+              <strong>What does 471,561 mean?</strong>
+              <span>
+                Not 471,561 species. Each accession is a distinct documented
+                germplasm sample within the collection.
+              </span>
+            </div>
+
+            <small className="data-date">
+              Official Government of India figures reported in 2025
+            </small>
+          </div>
+        </SlideFrame>
+
+        <SlideFrame active={slideIndex === 20}>
+          <div className="india-safety-slide">
+            <span className="slide-eyebrow">
+              21 · BUILDING MORE SAFETY
+            </span>
+
+            <h2>
+              One national collection should not remain
+              <em> the only secure copy.</em>
+            </h2>
+
+            <div className="india-safety-flow">
+              <article>
+                <span>EXISTING</span>
+                <h3>National Gene Bank</h3>
+                <strong>4.7+ lakh accessions</strong>
+                <p>
+                  India's established national plant germplasm collection at
+                  ICAR-NBPGR, New Delhi.
+                </p>
+              </article>
+
+              <b>&rarr;</b>
+
+              <article className="india-safety-highlight">
+                <span>EXPANSION / SAFETY</span>
+                <h3>Additional national capacity</h3>
+                <strong>10 lakh germplasm lines</strong>
+                <p>
+                  A second national genebank was announced with large-scale
+                  capacity to strengthen conservation and redundancy.
+                </p>
+              </article>
+
+              <b>&rarr;</b>
+
+              <article>
+                <span>2026 STATUS</span>
+                <h3>National Safety Genebank</h3>
+                <strong>Progress under review</strong>
+                <p>
+                  ICAR reported ongoing work toward a safety genebank intended
+                  to strengthen long-term protection of national collections.
+                </p>
+              </article>
+            </div>
+
+            <div className="india-safety-rule">
+              <strong>Same principle as Svalbard:</strong>
+              <span>
+                important genetic resources need redundancy so one failure does
+                not become irreversible genetic loss.
+              </span>
+            </div>
+
+            <div className="chapter-next chapter-next--chapter7">
+              <span>Chapter 08</span>
+              <strong>
+                What happens when ordinary seed banking is not enough? &rarr;
               </strong>
             </div>
           </div>
