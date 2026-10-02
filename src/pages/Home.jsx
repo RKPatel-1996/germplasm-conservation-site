@@ -98,6 +98,19 @@ const slides = [
     id: "cryopreservation",
     label: "Cryopreservation",
   },
+  {
+    id: "return-to-use",
+    label: "Return to Use",
+  },
+  {
+    id: "find-useful-trait",
+    label: "Find Useful Traits",
+  },
+  {
+    id: "bank-to-field",
+    label: "From Bank to Field",
+  },
+
 
 
 
@@ -336,6 +349,43 @@ const genebankStages = {
     output: "Renewed material for continued conservation",
   },
 };
+const breedingTraitExamples = {
+  disease: {
+    label: "Disease resistance",
+    question: "Does an accession survive or restrict a pathogen?",
+    evidence:
+      "Researchers expose candidate material to the disease under controlled or field conditions and compare responses.",
+    next:
+      "Promising donors can enter crossing or pre-breeding programmes.",
+  },
+
+  drought: {
+    label: "Drought response",
+    question: "Does the material perform differently under water stress?",
+    evidence:
+      "Traits may involve rooting, flowering time, water use, recovery or yield under defined stress conditions.",
+    next:
+      "Useful responses must be confirmed across appropriate environments.",
+  },
+
+  quality: {
+    label: "Quality trait",
+    question: "Does the accession contain a useful nutritional or processing trait?",
+    evidence:
+      "Researchers characterize grain, fruit, biochemical or other quality properties and identify useful variation.",
+    next:
+      "The trait can be combined with agronomic performance through breeding.",
+  },
+
+  wild: {
+    label: "Wild-relative trait",
+    question: "Does a crop wild relative contain variation missing from cultivated material?",
+    evidence:
+      "Wild accessions can provide novel resistance or adaptation, but they may also carry undesirable linked traits.",
+    next:
+      "Pre-breeding helps transfer useful variation into material breeders can use more readily.",
+  },
+};
 const totalPlants = 20;
 
 function MiniCropField({ survivors }) {
@@ -378,12 +428,14 @@ function Home() {
   const [activeForm, setActiveForm] = useState("seed");
   const [activeSeedType, setActiveSeedType] = useState("orthodox");
   const [activeGenebankStage, setActiveGenebankStage] = useState("acquire");
+  const [activeBreedingTrait, setActiveBreedingTrait] = useState("disease");
 
   const scenario = stressScenarios[activeStress];
   const source = traitSources[activeSource];
   const form = germplasmForms[activeForm];
   const seedType = seedBehaviours[activeSeedType];
   const genebankStage = genebankStages[activeGenebankStage];
+  const breedingTrait = breedingTraitExamples[activeBreedingTrait];
 
   const currentChapter =
     slideIndex < 3
@@ -400,7 +452,9 @@ function Home() {
                 ? "Chapter 06 · The global conservation system"
                 : slideIndex < 21
                   ? "Chapter 07 · Plant genetic resources in India"
-                  : "Chapter 08 · Beyond conventional seed banking";
+                  : slideIndex < 24
+                    ? "Chapter 08 · Beyond conventional seed banking"
+                    : "Chapter 09 · From conservation back to use";
 
   const previousSlide = () => {
     setSlideIndex((current) => Math.max(0, current - 1));
@@ -2137,6 +2191,208 @@ function Home() {
               <span>Chapter 09</span>
               <strong>
                 How does conserved diversity return to breeding and agriculture?
+                &rarr;
+              </strong>
+            </div>
+
+          </div>
+        </SlideFrame>
+
+        <SlideFrame active={slideIndex === 24}>
+          <div className="return-use-slide">
+
+            <span className="slide-eyebrow">
+              25 · CONSERVATION IS NOT THE END POINT
+            </span>
+
+            <h2>
+              Germplasm matters because it can
+              <em> return to use.</em>
+            </h2>
+
+            <div className="return-use-flow">
+
+              <article>
+                <span>01</span>
+                <strong>Discover</strong>
+                <p>
+                  Search accession records for material that may contain useful
+                  variation.
+                </p>
+              </article>
+
+              <b>&rarr;</b>
+
+              <article>
+                <span>02</span>
+                <strong>Request</strong>
+                <p>
+                  Obtain available material from the conserving genebank under
+                  the appropriate procedures.
+                </p>
+              </article>
+
+              <b>&rarr;</b>
+
+              <article>
+                <span>03</span>
+                <strong>Evaluate</strong>
+                <p>
+                  Test the material to determine whether the desired phenotype
+                  or genetic variation is really present.
+                </p>
+              </article>
+
+              <b>&rarr;</b>
+
+              <article className="return-use-result">
+                <span>04</span>
+                <strong>Use</strong>
+                <p>
+                  Useful material can enter research, pre-breeding or crop
+                  improvement.
+                </p>
+              </article>
+
+            </div>
+
+            <div className="return-use-rule">
+              <strong>A conserved accession is potential.</strong>
+              <span>
+                Evaluation reveals whether that potential contains something
+                useful for a specific problem.
+              </span>
+            </div>
+
+          </div>
+        </SlideFrame>
+
+        <SlideFrame active={slideIndex === 25}>
+          <div className="trait-evaluation-slide">
+
+            <div className="slide-heading slide-heading--compact">
+              <span className="slide-eyebrow">
+                26 · FIND THE USEFUL VARIATION
+              </span>
+
+              <h2>
+                A genebank accession is not automatically
+                <em> a useful breeding parent.</em>
+              </h2>
+            </div>
+
+            <div className="trait-evaluation-layout">
+
+              <div className="trait-evaluation-buttons">
+                {Object.entries(breedingTraitExamples).map(([key, item]) => (
+                  <button
+                    key={key}
+                    type="button"
+                    className={activeBreedingTrait === key ? "active" : ""}
+                    onClick={() => setActiveBreedingTrait(key)}
+                  >
+                    {item.label}
+                  </button>
+                ))}
+              </div>
+
+              <article className="trait-evaluation-detail">
+                <span>QUESTION</span>
+                <h3>{breedingTrait.question}</h3>
+
+                <div>
+                  <small>EVALUATION</small>
+                  <p>{breedingTrait.evidence}</p>
+                </div>
+
+                <div>
+                  <small>IF USEFUL</small>
+                  <p>{breedingTrait.next}</p>
+                </div>
+              </article>
+
+            </div>
+
+            <div className="trait-evaluation-note">
+              <strong>Characterization tells us what material is.</strong>
+              <span>
+                Evaluation asks how it performs for traits of interest.
+              </span>
+            </div>
+
+          </div>
+        </SlideFrame>
+
+        <SlideFrame active={slideIndex === 26}>
+          <div className="bank-field-slide">
+
+            <span className="slide-eyebrow">
+              27 · FROM DONOR TO CULTIVAR
+            </span>
+
+            <h2>
+              Finding a useful trait is only
+              <em> the beginning of breeding.</em>
+            </h2>
+
+            <div className="bank-field-flow">
+
+              <article>
+                <span>GENEBANK</span>
+                <strong>Donor accession</strong>
+                <p>Useful variation identified.</p>
+              </article>
+
+              <b>&rarr;</b>
+
+              <article>
+                <span>CROSSING</span>
+                <strong>Introduce the trait</strong>
+                <p>Combine donor material with adapted breeding material.</p>
+              </article>
+
+              <b>&rarr;</b>
+
+              <article className="bank-field-prebreed">
+                <span>PRE-BREEDING</span>
+                <strong>Make diversity usable</strong>
+                <p>
+                  Reduce undesirable donor characteristics while retaining the
+                  valuable variation.
+                </p>
+              </article>
+
+              <b>&rarr;</b>
+
+              <article>
+                <span>SELECTION</span>
+                <strong>Choose better combinations</strong>
+                <p>Evaluate generations and retain promising material.</p>
+              </article>
+
+              <b>&rarr;</b>
+
+              <article>
+                <span>FIELD TESTING</span>
+                <strong>Prove performance</strong>
+                <p>Test agronomic value across relevant environments.</p>
+              </article>
+
+            </div>
+
+            <div className="linkage-drag-note">
+              <strong>Why can this take time?</strong>
+              <span>
+                A donor — especially a wild relative — may carry useful genes
+                together with undesirable traits. Breeders must separate the
+                useful variation from unwanted genetic background.
+              </span>
+            </div>
+
+            <div className="chapter-next chapter-next--chapter9">
+              <span>Chapter 10</span>
+              <strong>
+                Explore real germplasm collections and accession databases
                 &rarr;
               </strong>
             </div>
