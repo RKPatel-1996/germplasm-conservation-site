@@ -1,105 +1,1054 @@
-/* src/pages/Home.css */
+.presentation-deck {
+  --deck-ink: #10241a;
+  --deck-muted: #647269;
+  --deck-green: #1f6542;
+  --deck-green-dark: #143c29;
+  --deck-green-soft: #eaf2e9;
+  --deck-risk: #b74d3c;
+  --deck-risk-soft: #f8e8e3;
+  --deck-paper: #f8f7f1;
+  --deck-line: #d8dfd8;
 
-/* --- General Enhancements --- */
-
-/* Add a subtle fade-in animation to the whole page on load */
-.home-container {
-  animation: fadeIn 0.8s ease-in-out;
+  width: 100%;
+  height: 100dvh;
+  min-height: 100dvh;
+  display: grid;
+  grid-template-rows: 62px minmax(0, 1fr) 68px;
+  overflow: hidden;
+  background: var(--deck-paper);
+  color: var(--deck-ink);
 }
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(15px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* --- Hero Section Styles --- */
-
-.hero-section {
+.deck-header {
   position: relative;
-  height: 45vh; /* A bit more height for drama */
+  z-index: 10;
+  padding: 0 3.2vw;
   display: flex;
   align-items: center;
-  justify-content: center;
-  color: white;
-  text-align: center;
-  border-radius: 8px;
-  margin-bottom: 2rem;
-  padding: 1rem;
-  overflow: hidden; /* Ensures background doesn't spill */
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(16, 36, 26, 0.1);
+  background: rgba(248, 247, 241, 0.92);
+  backdrop-filter: blur(12px);
 }
 
-.hero-background {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-image: url(https://images.unsplash.com/photo-1563233269-7e2f17d41038?auto=format&fit=crop&w=1400);
-  background-size: cover;
-  background-position: center;
-  filter: brightness(0.5);
-  border-radius: inherit;
-  z-index: 1;
-  transition: transform 0.4s ease-out; /* Smooth zoom effect */
+.deck-brand {
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
 }
 
-/* Add a cool zoom effect to the background on hover */
-.hero-section:hover .hero-background {
-  transform: scale(1.05);
+.deck-brand__mark {
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  flex: 0 0 auto;
+  border-radius: 10px;
+  background: var(--deck-green-dark);
+  color: #fff;
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 0.04em;
 }
 
-.hero-text {
-  z-index: 2; /* Ensures text is on top of the background */
+.deck-brand > div {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  line-height: 1.15;
 }
 
-/* Make the animated text cursor more visible */
-.hero-text .TypeAnimation__cursor {
-  color: #ffc107; /* A bright, complementary color */
-  font-size: 2.5rem;
+.deck-brand strong {
+  font-size: 0.87rem;
 }
 
-/* --- Interactive Card Styles --- */
-
-.interactive-card {
-  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-  height: 100%; /* Makes all cards in a row the same height */
+.deck-brand div span {
+  margin-top: 0.2rem;
+  color: var(--deck-muted);
+  font-size: 0.67rem;
 }
 
-.interactive-card:hover {
-  transform: translateY(-8px); /* Lifts the card up instead of just scaling */
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
+.deck-counter {
+  display: flex;
+  align-items: baseline;
+  gap: 0.35rem;
+  font-variant-numeric: tabular-nums;
 }
 
-/* --- Genetic Erosion Visual --- */
-.erosion-visual-container .MuiSvgIcon-root {
-  /* Control the size of the seed icons */
+.deck-counter strong {
+  color: var(--deck-green);
   font-size: 1rem;
 }
 
-/* --- MOBILE FRIENDLY MEDIA QUERIES --- */
-/* These styles will ONLY apply if the screen width is 768px or less */
+.deck-counter span {
+  color: #7c877f;
+  font-size: 0.78rem;
+}
 
-@media (max-width: 768px) {
-  .hero-section {
-    height: 40vh; /* Reduce height on mobile */
+.deck-stage {
+  position: relative;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.deck-slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateX(2.2%);
+  transition:
+    opacity 260ms ease,
+    transform 320ms ease,
+    visibility 320ms step-end;
+}
+
+.deck-slide--active {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateX(0);
+  transition:
+    opacity 260ms ease,
+    transform 320ms ease,
+    visibility 0ms step-start;
+}
+
+.deck-slide__content {
+  width: min(1480px, 100%);
+  height: 100%;
+  margin: 0 auto;
+  padding:
+    clamp(1.2rem, 3vh, 2.2rem)
+    clamp(1.4rem, 6vw, 6.5rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.slide-eyebrow {
+  color: var(--deck-green);
+  font-size: clamp(0.65rem, 0.8vw, 0.8rem);
+  font-weight: 900;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.slide-one h1 {
+  max-width: 1100px;
+  margin:
+    clamp(0.7rem, 1.5vh, 1.2rem)
+    0
+    clamp(0.7rem, 1.6vh, 1.3rem);
+  font-size: clamp(2.8rem, 6.6vw, 6.6rem);
+  line-height: 0.93;
+  letter-spacing: -0.06em;
+  font-weight: 850;
+}
+
+.slide-one h1 em,
+.insight-slide h2 em {
+  color: var(--deck-risk);
+  font-style: normal;
+}
+
+.slide-lead {
+  max-width: 980px;
+  margin: 0;
+  color: #405248;
+  font-size: clamp(1rem, 1.5vw, 1.35rem);
+  line-height: 1.6;
+}
+
+.cause-chain {
+  width: 100%;
+  margin-top: clamp(1.1rem, 3vh, 2.4rem);
+  display: grid;
+  grid-template-columns: 1fr auto 1fr auto 1fr auto 1fr;
+  align-items: center;
+  gap: clamp(0.35rem, 0.8vw, 0.8rem);
+}
+
+.cause-chain article {
+  min-height: clamp(84px, 12vh, 118px);
+  padding: 0.9rem 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border: 1px solid var(--deck-line);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.78);
+}
+
+.cause-chain small {
+  color: var(--deck-green);
+  font-weight: 900;
+}
+
+.cause-chain strong {
+  font-size: clamp(0.9rem, 1.1vw, 1.05rem);
+}
+
+.cause-chain > span {
+  color: #839087;
+}
+
+.cause-chain .cause-chain__risk {
+  background: var(--deck-risk-soft);
+  border-color: #ebc8bf;
+}
+
+.cause-chain__risk small {
+  color: var(--deck-risk);
+}
+
+.slide-caveat {
+  max-width: 1020px;
+  margin: clamp(0.8rem, 2vh, 1.6rem) 0 0;
+  padding-left: 1rem;
+  border-left: 3px solid #8eb59a;
+  color: var(--deck-muted);
+  font-size: clamp(0.72rem, 0.95vw, 0.9rem);
+  line-height: 1.5;
+}
+
+.slide-heading {
+  max-width: 970px;
+}
+
+.slide-heading h2 {
+  margin: 0.55rem 0 0.7rem;
+  font-size: clamp(2.3rem, 5vw, 5rem);
+  line-height: 0.98;
+  letter-spacing: -0.055em;
+}
+
+.slide-heading p {
+  max-width: 880px;
+  margin: 0;
+  color: var(--deck-muted);
+  font-size: clamp(0.9rem, 1.25vw, 1.12rem);
+  line-height: 1.55;
+}
+
+.stress-grid {
+  margin: clamp(1rem, 2.5vh, 2rem) 0;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.75rem;
+}
+
+.stress-grid button {
+  min-height: clamp(60px, 9vh, 86px);
+  padding: 0.8rem 1rem;
+  border: 1px solid var(--deck-line);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.74);
+  color: #31483a;
+  font: inherit;
+  cursor: pointer;
+  transition:
+    transform 150ms ease,
+    background 150ms ease,
+    color 150ms ease,
+    border-color 150ms ease;
+}
+
+.stress-grid button span {
+  font-size: clamp(0.9rem, 1.15vw, 1.08rem);
+  font-weight: 800;
+}
+
+.stress-grid button:hover {
+  transform: translateY(-2px);
+  border-color: var(--deck-green);
+}
+
+.stress-grid button.active {
+  background: var(--deck-green-dark);
+  border-color: var(--deck-green-dark);
+  color: #fff;
+}
+
+.stress-explainer {
+  padding: clamp(1rem, 2.5vh, 1.6rem);
+  border-radius: 22px;
+  background:
+    linear-gradient(
+      120deg,
+      rgba(232, 242, 232, 0.95),
+      rgba(255, 255, 255, 0.75)
+    );
+  border: 1px solid #d9e6da;
+}
+
+.stress-explainer > span {
+  color: var(--deck-risk);
+  font-size: 0.7rem;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+}
+
+.stress-explainer h3 {
+  max-width: 950px;
+  margin: 0.4rem 0 0.55rem;
+  font-size: clamp(1.35rem, 2.7vw, 2.35rem);
+  line-height: 1.12;
+}
+
+.stress-explainer p {
+  max-width: 960px;
+  margin: 0;
+  color: var(--deck-muted);
+  font-size: clamp(0.78rem, 1vw, 0.98rem);
+  line-height: 1.55;
+}
+
+.stress-flow {
+  margin-top: clamp(0.8rem, 2vh, 1.4rem);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.6rem;
+  color: #68766d;
+  font-size: clamp(0.75rem, 0.95vw, 0.9rem);
+}
+
+.stress-flow span,
+.stress-flow strong {
+  padding: 0.5rem 0.7rem;
+  border-radius: 999px;
+  background: #fff;
+  border: 1px solid var(--deck-line);
+}
+
+.stress-flow strong {
+  color: var(--deck-green-dark);
+}
+
+.stress-flow i {
+  font-style: normal;
+  color: #879289;
+}
+
+.slide-heading--compact h2 {
+  font-size: clamp(2rem, 4.2vw, 4.1rem);
+}
+
+.population-comparison {
+  margin-top: clamp(0.9rem, 2vh, 1.5rem);
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 1rem;
+  align-items: center;
+}
+
+.population-card {
+  min-width: 0;
+  padding: clamp(0.85rem, 1.6vw, 1.25rem);
+  border-radius: 22px;
+  border: 1px solid var(--deck-line);
+}
+
+.population-card--narrow {
+  background: linear-gradient(180deg, #fcf3ef, #f9ebe5);
+}
+
+.population-card--diverse {
+  background: linear-gradient(180deg, #f2f7f0, #e8f2e6);
+}
+
+.population-card__title {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+
+.population-card__title > span {
+  width: 30px;
+  height: 30px;
+  display: grid;
+  place-items: center;
+  flex: 0 0 auto;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.86);
+  font-size: 0.72rem;
+  font-weight: 900;
+}
+
+.population-card__title div {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.population-card__title strong {
+  font-size: clamp(0.85rem, 1.15vw, 1.08rem);
+}
+
+.population-card__title small {
+  margin-top: 0.1rem;
+  color: var(--deck-muted);
+  font-size: clamp(0.62rem, 0.8vw, 0.75rem);
+}
+
+.mini-field {
+  min-height: clamp(160px, 25vh, 245px);
+  margin: clamp(0.7rem, 1.5vh, 1rem) 0;
+  padding: 0.8rem 0.65rem 0.4rem;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0.55rem;
+  align-items: end;
+  border-radius: 16px;
+  background:
+    linear-gradient(
+      to bottom,
+      #eff4e9 0 70%,
+      #dfd0ad 70% 100%
+    );
+}
+
+.plant {
+  position: relative;
+  width: 30px;
+  height: 39px;
+  justify-self: center;
+  transform-origin: bottom center;
+  transition:
+    opacity 180ms ease,
+    filter 180ms ease,
+    transform 180ms ease;
+}
+
+.plant__stem {
+  position: absolute;
+  left: 14px;
+  bottom: 0;
+  width: 3px;
+  height: 29px;
+  border-radius: 99px;
+  background: #3a744b;
+}
+
+.plant__head {
+  position: absolute;
+  left: 8px;
+  top: 0;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: #5c8b44;
+}
+
+.plant__leaf {
+  position: absolute;
+  top: 17px;
+  width: 14px;
+  height: 7px;
+  border-radius: 100% 0 100% 0;
+  background: #4c8151;
+}
+
+.plant__leaf--left {
+  left: 0;
+  transform: rotate(22deg);
+}
+
+.plant__leaf--right {
+  right: 0;
+  transform: scaleX(-1) rotate(22deg);
+}
+
+.plant--stressed {
+  opacity: 0.28;
+  filter: saturate(0.2) sepia(0.65);
+  transform: rotate(11deg) translateY(4px);
+}
+
+.population-card > p {
+  min-height: 2.8em;
+  margin: 0;
+  color: #5e6b62;
+  font-size: clamp(0.68rem, 0.85vw, 0.82rem);
+  line-height: 1.45;
+}
+
+.population-vs {
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--deck-green-dark);
+  color: #fff;
+  font-size: 0.72rem;
+  font-weight: 900;
+}
+
+.teaching-note {
+  max-width: 1000px;
+  margin: clamp(0.7rem, 1.8vh, 1.2rem) auto 0;
+  padding: 0.65rem 0.9rem;
+  display: flex;
+  gap: 0.45rem;
+  justify-content: center;
+  border-radius: 14px;
+  color: var(--deck-muted);
+  background: rgba(255, 255, 255, 0.66);
+  font-size: clamp(0.65rem, 0.8vw, 0.78rem);
+  line-height: 1.45;
+}
+
+.teaching-note strong {
+  flex: 0 0 auto;
+  color: var(--deck-green-dark);
+}
+
+.insight-slide h2 {
+  max-width: 1200px;
+  margin:
+    clamp(0.8rem, 2vh, 1.4rem)
+    0
+    clamp(1rem, 2.4vh, 1.8rem);
+  font-size: clamp(2.5rem, 5.5vw, 5.8rem);
+  line-height: 0.98;
+  letter-spacing: -0.055em;
+}
+
+.trait-cloud {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+}
+
+.trait-cloud span {
+  padding: 0.55rem 0.8rem;
+  border-radius: 999px;
+  background: #edf3ea;
+  border: 1px solid #d6e2d4;
+  color: #31533e;
+  font-size: clamp(0.72rem, 0.9vw, 0.86rem);
+  font-weight: 700;
+}
+
+.chapter-question {
+  max-width: 980px;
+  margin-top: clamp(1rem, 2.8vh, 2rem);
+  padding: clamp(1rem, 2.3vh, 1.5rem);
+  border-left: 5px solid var(--deck-risk);
+  background: #fff;
+}
+
+.chapter-question small {
+  color: var(--deck-risk);
+  font-weight: 900;
+  letter-spacing: 0.12em;
+}
+
+.chapter-question strong {
+  display: block;
+  margin-top: 0.35rem;
+  font-size: clamp(1.25rem, 2.2vw, 2rem);
+}
+
+.chapter-question p {
+  max-width: 850px;
+  margin: 0.5rem 0 0;
+  color: var(--deck-muted);
+  font-size: clamp(0.72rem, 0.95vw, 0.9rem);
+  line-height: 1.55;
+}
+
+.chapter-next {
+  margin-top: clamp(0.8rem, 2vh, 1.4rem);
+  display: flex;
+  align-items: baseline;
+  gap: 0.7rem;
+  color: var(--deck-green);
+}
+
+.chapter-next span {
+  font-size: 0.68rem;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.chapter-next strong {
+  font-size: clamp(0.85rem, 1.1vw, 1rem);
+}
+
+.deck-controls {
+  position: relative;
+  z-index: 10;
+  padding: 0 3.2vw;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  border-top: 1px solid rgba(16, 36, 26, 0.1);
+  background: rgba(248, 247, 241, 0.95);
+  backdrop-filter: blur(12px);
+}
+
+.deck-nav-button {
+  justify-self: start;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.55rem 0.8rem;
+  border: 0;
+  border-radius: 10px;
+  background: transparent;
+  color: var(--deck-green-dark);
+  font: inherit;
+  font-size: 0.78rem;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.deck-nav-button:hover:not(:disabled) {
+  background: #e8eee8;
+}
+
+.deck-nav-button:disabled {
+  opacity: 0.25;
+  cursor: default;
+}
+
+.deck-nav-button--next {
+  justify-self: end;
+}
+
+.deck-progress {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.deck-progress button {
+  width: 9px;
+  height: 9px;
+  padding: 0;
+  border: 0;
+  border-radius: 99px;
+  background: #bcc7bd;
+  cursor: pointer;
+  transition:
+    width 180ms ease,
+    background 180ms ease;
+}
+
+.deck-progress button.active {
+  width: 26px;
+  background: var(--deck-green);
+}
+
+@media (max-width: 820px) {
+  .presentation-deck {
+    grid-template-rows: 54px minmax(0, 1fr) 58px;
   }
 
-  /* We need to target the MUI typography classes directly here */
-  .hero-text .MuiTypography-h2 {
-    font-size: 2.2rem; /* Make the main headline smaller */
+  .deck-header,
+  .deck-controls {
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
 
-  .hero-text .MuiTypography-h5 {
-    font-size: 1.1rem; /* Make the sub-headline smaller */
+  .deck-brand div span {
+    display: none;
   }
 
-  .erosion-visual-container .MuiSvgIcon-root {
-    font-size: 0.6rem; /* Make seed icons smaller to fit on the screen */
+  .deck-slide__content {
+    padding:
+      clamp(0.8rem, 2vh, 1.2rem)
+      clamp(1rem, 4vw, 1.6rem);
+  }
+
+  .cause-chain {
+    grid-template-columns: 1fr 1fr;
+    gap: 0.55rem;
+  }
+
+  .cause-chain > span {
+    display: none;
+  }
+
+  .cause-chain article {
+    min-height: 76px;
+  }
+
+  .stress-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 0.55rem;
+  }
+
+  .stress-grid button {
+    min-height: 54px;
+  }
+
+  .population-comparison {
+    grid-template-columns: 1fr 1fr;
+    gap: 0.7rem;
+  }
+
+  .population-vs {
+    display: none;
+  }
+
+  .mini-field {
+    min-height: 185px;
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .plant:nth-child(n + 17) {
+    display: none;
+  }
+
+  .teaching-note {
+    text-align: left;
+  }
+}
+
+@media (max-width: 520px) {
+  .deck-brand strong {
+    font-size: 0.76rem;
+  }
+
+  .deck-brand__mark {
+    width: 30px;
+    height: 30px;
+  }
+
+  .slide-one h1 {
+    font-size: clamp(2.4rem, 12vw, 4rem);
+  }
+
+  .slide-lead {
+    font-size: 0.9rem;
+    line-height: 1.45;
+  }
+
+  .slide-caveat {
+    display: none;
+  }
+
+  .cause-chain article {
+    min-height: 66px;
+    padding: 0.65rem;
+  }
+
+  .cause-chain strong {
+    font-size: 0.78rem;
+  }
+
+  .slide-heading h2 {
+    font-size: clamp(2rem, 10vw, 3.3rem);
+  }
+
+  .slide-heading p {
+    font-size: 0.8rem;
+  }
+
+  .stress-explainer h3 {
+    font-size: 1.2rem;
+  }
+
+  .stress-flow {
+    display: none;
+  }
+
+  .population-card {
+    padding: 0.65rem;
+  }
+
+  .population-card__title small {
+    display: none;
+  }
+
+  .mini-field {
+    min-height: 155px;
+    gap: 0.25rem;
+    padding-left: 0.3rem;
+    padding-right: 0.3rem;
+  }
+
+  .plant {
+    transform: scale(0.75);
+  }
+
+  .plant--stressed {
+    transform: scale(0.75) rotate(11deg) translateY(4px);
+  }
+
+  .population-card > p {
+    font-size: 0.64rem;
+  }
+
+  .teaching-note {
+    font-size: 0.61rem;
+  }
+
+  .insight-slide h2 {
+    font-size: clamp(2rem, 10vw, 3.6rem);
+  }
+
+  .chapter-question p {
+    display: none;
+  }
+
+  .deck-nav-button {
+    font-size: 0;
+  }
+
+  .deck-nav-button span {
+    font-size: 1rem;
+  }
+}
+
+@media (max-height: 720px) and (min-width: 821px) {
+  .presentation-deck {
+    grid-template-rows: 52px minmax(0, 1fr) 56px;
+  }
+
+  .slide-one h1 {
+    font-size: clamp(2.8rem, 5.5vw, 5.2rem);
+  }
+
+  .cause-chain article {
+    min-height: 76px;
+  }
+
+  .mini-field {
+    min-height: 155px;
+  }
+
+  .stress-grid button {
+    min-height: 54px;
+  }
+
+  .insight-slide h2 {
+    font-size: clamp(2.5rem, 4.8vw, 4.5rem);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .deck-slide,
+  .stress-grid button,
+  .deck-progress button,
+  .plant {
+    transition: none !important;
+  }
+}
+
+/* ================================================================
+   WORK 02A — MERGED STRESS + RESPONSE SLIDE
+   ================================================================ */
+
+.experiment-slide {
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.experiment-top {
+  display: grid;
+  grid-template-columns: minmax(360px, 0.9fr) minmax(500px, 1.1fr);
+  gap: clamp(1.2rem, 3vw, 3rem);
+  align-items: end;
+}
+
+.slide-heading--experiment h2 {
+  margin: 0.45rem 0 0;
+  font-size: clamp(2rem, 4vw, 4rem);
+  line-height: 0.98;
+}
+
+.stress-grid--compact {
+  margin: 0;
+}
+
+.stress-grid--compact button {
+  min-height: 58px;
+}
+
+.scenario-strip {
+  margin-top: clamp(0.8rem, 1.8vh, 1.25rem);
+  padding: 0.75rem 1rem;
+  display: grid;
+  grid-template-columns: minmax(300px, 0.9fr) minmax(400px, 1.1fr);
+  gap: 1rem;
+  align-items: center;
+  border-radius: 16px;
+  background: linear-gradient(
+    110deg,
+    rgba(235, 243, 233, 0.96),
+    rgba(255, 255, 255, 0.82)
+  );
+  border: 1px solid #d8e4d7;
+}
+
+.scenario-strip > div {
+  min-width: 0;
+}
+
+.scenario-strip div > span {
+  display: block;
+  margin-bottom: 0.2rem;
+  color: var(--deck-risk);
+  font-size: 0.62rem;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+}
+
+.scenario-strip div > strong {
+  display: block;
+  font-size: clamp(0.95rem, 1.4vw, 1.25rem);
+  line-height: 1.2;
+}
+
+.scenario-strip p {
+  margin: 0;
+  color: var(--deck-muted);
+  font-size: clamp(0.7rem, 0.88vw, 0.84rem);
+  line-height: 1.45;
+}
+
+.population-comparison--merged {
+  flex: 1;
+  min-height: 0;
+  margin-top: clamp(0.65rem, 1.4vh, 1rem);
+}
+
+.population-comparison--merged .population-card {
+  min-height: 0;
+}
+
+.population-comparison--merged .mini-field {
+  min-height: clamp(135px, 21vh, 205px);
+}
+
+.population-comparison--merged .population-vs {
+  width: 52px;
+  height: 52px;
+  padding: 0.25rem;
+  font-size: 0.55rem;
+  line-height: 1.2;
+  text-align: center;
+}
+
+.experiment-takeaway {
+  max-width: 980px;
+  margin: clamp(0.55rem, 1.3vh, 0.9rem) auto 0;
+  padding: 0.55rem 0.8rem;
+  display: flex;
+  align-items: baseline;
+  gap: 0.6rem;
+  border-radius: 12px;
+  background: #edf3ea;
+  color: #536259;
+  font-size: clamp(0.66rem, 0.82vw, 0.8rem);
+  line-height: 1.4;
+}
+
+.experiment-takeaway strong {
+  flex: 0 0 auto;
+  color: var(--deck-green-dark);
+}
+
+@media (max-width: 900px) {
+  .experiment-top {
+    grid-template-columns: 1fr;
+    gap: 0.7rem;
+  }
+
+  .slide-heading--experiment h2 br {
+    display: none;
+  }
+
+  .stress-grid--compact {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .scenario-strip {
+    grid-template-columns: 1fr;
+    gap: 0.3rem;
+  }
+}
+
+@media (max-width: 620px) {
+  .slide-heading--experiment h2 {
+    font-size: clamp(1.7rem, 8vw, 2.7rem);
+  }
+
+  .stress-grid--compact {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .stress-grid--compact button {
+    min-height: 43px;
+    padding: 0.45rem;
+    font-size: 0.75rem;
+  }
+
+  .scenario-strip {
+    padding: 0.55rem 0.65rem;
+  }
+
+  .scenario-strip div > strong {
+    font-size: 0.9rem;
+  }
+
+  .scenario-strip p {
+    display: none;
+  }
+
+  .population-comparison--merged {
+    gap: 0.45rem;
+  }
+
+  .population-comparison--merged .population-card {
+    padding: 0.55rem;
+  }
+
+  .population-comparison--merged .mini-field {
+    min-height: 130px;
+  }
+
+  .experiment-takeaway {
+    font-size: 0.61rem;
+  }
+}
+
+@media (max-height: 720px) and (min-width: 901px) {
+  .slide-heading--experiment h2 {
+    font-size: clamp(1.8rem, 3.3vw, 3rem);
+  }
+
+  .stress-grid--compact button {
+    min-height: 46px;
+  }
+
+  .scenario-strip {
+    margin-top: 0.55rem;
+    padding-top: 0.55rem;
+    padding-bottom: 0.55rem;
+  }
+
+  .population-comparison--merged {
+    margin-top: 0.5rem;
+  }
+
+  .population-comparison--merged .mini-field {
+    min-height: 125px;
+  }
+
+  .experiment-takeaway {
+    margin-top: 0.45rem;
   }
 }
