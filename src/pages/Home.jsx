@@ -611,32 +611,24 @@ function Home() {
         {/* ------------------------------------------------------- */}
 
         <SlideFrame active={slideIndex === 1}>
-          <div className="experiment-slide">
+          <div className="evidence-stress-slide">
 
-            <div className="experiment-top">
-              <div className="slide-heading slide-heading--experiment">
-                <span className="slide-eyebrow">
-                  02 · TEST THE CROP
-                </span>
+            <div className="evidence-stress-heading">
+              <div>
+                <span className="slide-eyebrow">02 · TEST THE CROP</span>
 
                 <h2>
                   Same stress.
-                  <br />
-                  Different possible outcomes.
+                  <em> Different possible outcomes.</em>
                 </h2>
               </div>
 
-              <div
-                className="stress-grid stress-grid--compact"
-                role="group"
-                aria-label="Choose a crop stress"
-              >
+              <div className="evidence-stress-buttons">
                 {Object.entries(stressScenarios).map(([key, item]) => (
                   <button
                     key={key}
                     type="button"
                     className={activeStress === key ? "active" : ""}
-                    aria-pressed={activeStress === key}
                     onClick={() => setActiveStress(key)}
                   >
                     {item.label}
@@ -645,7 +637,7 @@ function Home() {
               </div>
             </div>
 
-            <div className="scenario-strip">
+            <div className="evidence-scenario-strip">
               <div>
                 <span>{scenario.eyebrow}</span>
                 <strong>{scenario.title}</strong>
@@ -654,58 +646,148 @@ function Home() {
               <p>{scenario.short}</p>
             </div>
 
-            <div className="population-comparison population-comparison--merged">
+            <div className="evidence-comparison-grid">
 
-              <article className="population-card population-card--narrow">
-                <div className="population-card__title">
+              <article className="evidence-comparison-card evidence-comparison-card--narrow">
+                <div className="evidence-card-heading">
                   <span>A</span>
 
                   <div>
                     <strong>Narrow response range</strong>
-                    <small>
-                      many plants share a similar genetic response
-                    </small>
+                    <small>many plants share a similar genetic response</small>
                   </div>
                 </div>
 
-                <MiniCropField survivors={scenario.narrowSurvivors} />
+                <div className="evidence-mini-field">
+                  <MiniCropField survivors={scenario.narrowSurvivors} />
+                </div>
 
                 <p>{scenario.narrow}</p>
               </article>
 
-              <div className="population-vs">
+              <div className="same-stress-badge">
                 SAME
                 <br />
                 STRESS
               </div>
 
-              <article className="population-card population-card--diverse">
-                <div className="population-card__title">
+              <article className="evidence-comparison-card evidence-comparison-card--broad">
+                <div className="evidence-card-heading">
                   <span>B</span>
 
                   <div>
                     <strong>Broader response range</strong>
-                    <small>
-                      more genetic variation is represented
-                    </small>
+                    <small>more genetic variation is represented</small>
                   </div>
                 </div>
 
-                <MiniCropField survivors={scenario.diverseSurvivors} />
+                <div className="evidence-mini-field">
+                  <MiniCropField survivors={scenario.diverseSurvivors} />
+                </div>
 
                 <p>{scenario.diverse}</p>
               </article>
+
             </div>
 
-            <div className="experiment-takeaway">
-              <strong>Key idea</strong>
+            <div className="real-evidence-grid">
+
+              <article className="real-case-card">
+                <div className="real-case-header">
+                  <span>REAL CASE · CROP LOSS</span>
+                  <strong>1970 · Southern corn leaf blight</strong>
+                </div>
+
+                <div className="real-case-stats">
+                  <div>
+                    <strong>&gt;85%</strong>
+                    <span>
+                      of hybrids had the cms-T genetic background
+                    </span>
+                  </div>
+
+                  <div>
+                    <strong>~15%</strong>
+                    <span>
+                      of the North American corn crop was destroyed
+                    </span>
+                  </div>
+                </div>
+
+                <p>
+                  A pathogen adapted to the widely used Texas male-sterile
+                  cytoplasm exposed the danger of relying on a highly uniform
+                  crop background.
+                </p>
+
+                <a
+                  href="https://www.ars.usda.gov/research/publications/publication/?seqNo115=336830"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  USDA Agricultural Research Service &nearr;
+                </a>
+              </article>
+
+              <article className="real-case-card real-case-card--backup">
+                <div className="real-case-header">
+                  <span>REAL CASE · BACKUP USED</span>
+                  <strong>Syria → Svalbard → Lebanon & Morocco</strong>
+                </div>
+
+                <div className="real-case-stats">
+                  <div>
+                    <strong>80%+</strong>
+                    <span>
+                      of ICARDA's collection had been safety-duplicated
+                    </span>
+                  </div>
+
+                  <div>
+                    <strong>2015</strong>
+                    <span>
+                      first withdrawal from the Svalbard Seed Vault
+                    </span>
+                  </div>
+                </div>
+
+                <p>
+                  After ICARDA lost access to its Syrian genebank during the
+                  conflict, its safety duplicates were used to rebuild active
+                  collections in Lebanon and Morocco.
+                </p>
+
+                <div className="real-case-links">
+                  <a
+                    href="https://www.croptrust.org/what-we-do/programs/svalbard-global-seed-vault/"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    Crop Trust &nearr;
+                  </a>
+
+                  <a
+                    href="https://icarda.org/publications/22012/safeguarding-global-seed-heritage-syria-svalbard"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    ICARDA case study &nearr;
+                  </a>
+                </div>
+              </article>
+
+            </div>
+
+            <div className="evidence-key-idea">
+              <strong>Why conserve diversity?</strong>
 
               <span>
-                Genetic diversity does not guarantee survival. It increases
-                the range of biological responses available when conditions
-                change.
+                Genetic uniformity can magnify vulnerability. Conserved and
+                safety-duplicated diversity preserves options before the next
+                disease, environmental stress or disaster occurs.
               </span>
             </div>
+
           </div>
         </SlideFrame>
 

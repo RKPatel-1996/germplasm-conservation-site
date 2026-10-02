@@ -3623,3 +3623,344 @@
     font-size: 0.58rem;
   }
 }
+
+/* === SLIDE 02: COMPACT COMPARISON + REAL CASES ================= */
+
+.evidence-stress-slide {
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.evidence-stress-heading {
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  gap: 1rem;
+  align-items: end;
+}
+
+.evidence-stress-heading h2 {
+  max-width: 500px;
+  margin: 0.45rem 0 0;
+  font-size: clamp(1.8rem, 3.7vw, 3.7rem);
+  line-height: 0.98;
+  letter-spacing: -0.05em;
+}
+
+.evidence-stress-heading h2 em {
+  display: block;
+  color: var(--deck-green);
+  font-style: normal;
+}
+
+.evidence-stress-buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.55rem;
+}
+
+.evidence-stress-buttons button {
+  min-height: 52px;
+  border: 1px solid var(--deck-line);
+  border-radius: 14px;
+  background: #fff;
+  color: var(--deck-ink);
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.evidence-stress-buttons button:hover,
+.evidence-stress-buttons button.active {
+  border-color: var(--deck-green-dark);
+  background: var(--deck-green-dark);
+  color: #fff;
+}
+
+.evidence-scenario-strip {
+  margin-top: 0.65rem;
+  padding: 0.55rem 0.8rem;
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 1rem;
+  align-items: center;
+  border: 1px solid var(--deck-line);
+  border-radius: 14px;
+  background: #f6f8f3;
+}
+
+.evidence-scenario-strip > div {
+  display: flex;
+  flex-direction: column;
+}
+
+.evidence-scenario-strip span {
+  color: #b84b38;
+  font-size: 0.56rem;
+  font-weight: 900;
+  letter-spacing: 0.11em;
+}
+
+.evidence-scenario-strip strong {
+  margin-top: 0.15rem;
+  font-size: 0.9rem;
+}
+
+.evidence-scenario-strip p {
+  margin: 0;
+  color: var(--deck-muted);
+  font-size: 0.7rem;
+  line-height: 1.4;
+}
+
+.evidence-comparison-grid {
+  margin-top: 0.6rem;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 0.55rem;
+  align-items: center;
+}
+
+.evidence-comparison-card {
+  padding: 0.65rem;
+  border: 1px solid var(--deck-line);
+  border-radius: 16px;
+}
+
+.evidence-comparison-card--narrow {
+  background: #faf1ed;
+}
+
+.evidence-comparison-card--broad {
+  background: #eef6ec;
+}
+
+.evidence-card-heading {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.evidence-card-heading > span {
+  width: 28px;
+  height: 28px;
+  display: grid;
+  place-items: center;
+  flex: 0 0 auto;
+  border-radius: 50%;
+  background: #fff;
+  font-size: 0.65rem;
+  font-weight: 900;
+}
+
+.evidence-card-heading strong,
+.evidence-card-heading small {
+  display: block;
+}
+
+.evidence-card-heading strong {
+  font-size: 0.78rem;
+}
+
+.evidence-card-heading small {
+  margin-top: 0.1rem;
+  color: var(--deck-muted);
+  font-size: 0.58rem;
+}
+
+.evidence-mini-field {
+  height: 86px;
+  margin-top: 0.35rem;
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+.evidence-mini-field .mini-field {
+  min-height: 0 !important;
+  height: 86px !important;
+}
+
+.evidence-mini-field .plant {
+  transform: scale(0.68);
+  transform-origin: bottom center;
+}
+
+.evidence-comparison-card > p {
+  margin: 0.4rem 0 0;
+  color: var(--deck-muted);
+  font-size: 0.62rem;
+  line-height: 1.35;
+}
+
+.same-stress-badge {
+  width: 46px;
+  height: 46px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--deck-green-dark);
+  color: #fff;
+  text-align: center;
+  font-size: 0.48rem;
+  font-weight: 900;
+  line-height: 1.15;
+}
+
+.real-evidence-grid {
+  margin-top: 0.6rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.65rem;
+}
+
+.real-case-card {
+  padding: 0.7rem 0.8rem;
+  border: 1px solid #dfd1c4;
+  border-radius: 15px;
+  background: #fff8f2;
+}
+
+.real-case-card--backup {
+  border-color: #bfd0c0;
+  background: #f0f6ee;
+}
+
+.real-case-header > span,
+.real-case-header > strong {
+  display: block;
+}
+
+.real-case-header > span {
+  color: #b84b38;
+  font-size: 0.52rem;
+  font-weight: 900;
+  letter-spacing: 0.09em;
+}
+
+.real-case-card--backup .real-case-header > span {
+  color: var(--deck-green);
+}
+
+.real-case-header > strong {
+  margin-top: 0.15rem;
+  font-size: 0.82rem;
+}
+
+.real-case-stats {
+  margin-top: 0.45rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.45rem;
+}
+
+.real-case-stats > div {
+  padding: 0.4rem 0.5rem;
+  border-radius: 9px;
+  background: rgba(255,255,255,0.75);
+}
+
+.real-case-stats strong,
+.real-case-stats span {
+  display: block;
+}
+
+.real-case-stats strong {
+  color: var(--deck-green-dark);
+  font-size: 1rem;
+}
+
+.real-case-stats span {
+  color: var(--deck-muted);
+  font-size: 0.54rem;
+  line-height: 1.25;
+}
+
+.real-case-card > p {
+  margin: 0.45rem 0;
+  color: var(--deck-muted);
+  font-size: 0.6rem;
+  line-height: 1.35;
+}
+
+.real-case-card a {
+  color: var(--deck-green-dark);
+  font-size: 0.57rem;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.real-case-links {
+  display: flex;
+  gap: 0.55rem;
+}
+
+.evidence-key-idea {
+  max-width: 1000px;
+  margin: 0.55rem auto 0;
+  padding: 0.45rem 0.65rem;
+  display: flex;
+  gap: 0.45rem;
+  border-radius: 10px;
+  background: #edf3ea;
+  font-size: 0.62rem;
+}
+
+.evidence-key-idea span {
+  color: var(--deck-muted);
+}
+
+@media (max-height: 760px) and (min-width: 621px) {
+  .evidence-stress-heading h2 {
+    font-size: clamp(1.6rem, 3vw, 3rem);
+  }
+
+  .evidence-mini-field,
+  .evidence-mini-field .mini-field {
+    height: 70px !important;
+  }
+
+  .evidence-comparison-card > p {
+    display: none;
+  }
+}
+
+@media (max-width: 620px) {
+  .evidence-stress-heading {
+    grid-template-columns: 1fr;
+  }
+
+  .evidence-stress-buttons {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .evidence-stress-buttons button {
+    min-height: 38px;
+    font-size: 0.65rem;
+  }
+
+  .evidence-scenario-strip {
+    grid-template-columns: 1fr;
+  }
+
+  .evidence-comparison-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .same-stress-badge {
+    display: none;
+  }
+
+  .real-evidence-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .real-case-card > p {
+    display: none;
+  }
+
+  .evidence-key-idea {
+    display: none;
+  }
+}
