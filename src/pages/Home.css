@@ -2305,3 +2305,310 @@
     display: none;
   }
 }
+
+/* === CHAPTER 06 ================================================= */
+
+.global-network-slide,
+.cgiar-genesys-slide,
+.svalbard-slide {
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.global-network-slide h2,
+.cgiar-genesys-slide h2,
+.svalbard-slide h2 {
+  max-width: 1180px;
+  margin: 0.6rem 0 1rem;
+  font-size: clamp(2rem, 4.5vw, 4.6rem);
+  line-height: 0.98;
+  letter-spacing: -0.055em;
+}
+
+.global-network-slide h2 em,
+.cgiar-genesys-slide h2 em,
+.svalbard-slide h2 em {
+  color: var(--deck-green);
+  font-style: normal;
+}
+
+.global-network-flow {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr auto 1fr auto 1fr;
+  gap: 0.55rem;
+  align-items: center;
+}
+
+.global-network-flow article {
+  min-height: 150px;
+  padding: 0.9rem;
+  border: 1px solid var(--deck-line);
+  border-radius: 17px;
+  background: #fff;
+}
+
+.global-network-flow article > span,
+.global-resource-grid article > span,
+.svalbard-explain > span {
+  color: var(--deck-green);
+  font-size: 0.58rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+}
+
+.global-network-flow h3 {
+  margin: 0.5rem 0 0.35rem;
+}
+
+.global-network-flow p,
+.global-resource-grid p,
+.svalbard-explain p {
+  color: var(--deck-muted);
+  font-size: 0.73rem;
+  line-height: 1.45;
+}
+
+.global-network-flow > b {
+  color: #8a968d;
+}
+
+.global-network-core {
+  background: var(--deck-green-soft) !important;
+}
+
+.global-network-rule {
+  max-width: 920px;
+  margin: 1rem auto 0;
+  padding: 0.7rem 0.9rem;
+  display: flex;
+  gap: 0.5rem;
+  border-radius: 12px;
+  background: #edf3ea;
+  font-size: 0.76rem;
+}
+
+.global-network-rule span {
+  color: var(--deck-muted);
+}
+
+.global-resource-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.9rem;
+}
+
+.global-resource-grid article {
+  min-height: 245px;
+  padding: 1.15rem;
+  border: 1px solid var(--deck-line);
+  border-radius: 20px;
+  background: #fff;
+}
+
+.global-stat-row {
+  margin: 1rem 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5rem;
+}
+
+.global-stat-row > div {
+  padding: 0.65rem;
+  border-radius: 12px;
+  background: #f1f5ef;
+}
+
+.global-stat-row strong,
+.global-stat-row small {
+  display: block;
+}
+
+.global-stat-row strong {
+  color: var(--deck-green-dark);
+  font-size: clamp(1.1rem, 2vw, 1.8rem);
+}
+
+.genesys-card {
+  background: var(--deck-green-dark) !important;
+  color: #fff;
+}
+
+.genesys-card > span {
+  color: #b8d3be !important;
+}
+
+.genesys-number {
+  display: block;
+  margin-top: 0.9rem;
+  font-size: clamp(2rem, 4vw, 4rem);
+  letter-spacing: -0.04em;
+}
+
+.genesys-card > small {
+  color: #c3d4c6;
+}
+
+.genesys-card p {
+  color: #d0ddd2;
+}
+
+.genesys-distinction {
+  margin-top: 0.8rem;
+  padding: 0.65rem;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.1);
+  font-size: 0.7rem;
+}
+
+.genesys-distinction span {
+  margin-left: 0.3rem;
+  color: #d2dfd4;
+}
+
+.physical-digital-flow {
+  margin-top: 0.8rem;
+  padding: 0.65rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.45rem;
+  border-radius: 12px;
+  background: #edf3ea;
+  font-size: 0.7rem;
+}
+
+.physical-digital-flow span {
+  color: var(--deck-muted);
+}
+
+.physical-digital-flow b {
+  color: var(--deck-green);
+}
+
+.svalbard-layout {
+  display: grid;
+  grid-template-columns: 1.3fr 0.7fr;
+  gap: 0.9rem;
+}
+
+.svalbard-explain,
+.svalbard-stats {
+  padding: 1.1rem;
+  border: 1px solid var(--deck-line);
+  border-radius: 20px;
+  background: #fff;
+}
+
+.svalbard-explain h3 {
+  margin: 0.55rem 0 0.8rem;
+  font-size: clamp(1.2rem, 2.2vw, 2rem);
+}
+
+.backup-flow {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr auto 1fr;
+  gap: 0.45rem;
+  align-items: center;
+}
+
+.backup-flow > div {
+  padding: 0.7rem;
+  border-radius: 12px;
+  background: #f1f5ef;
+}
+
+.backup-flow strong,
+.backup-flow small {
+  display: block;
+}
+
+.backup-flow small {
+  margin-top: 0.2rem;
+  color: var(--deck-muted);
+  font-size: 0.62rem;
+}
+
+.backup-flow > b {
+  color: #89958c;
+}
+
+.svalbard-stats {
+  display: grid;
+  gap: 0.65rem;
+  background: var(--deck-green-dark);
+  color: #fff;
+}
+
+.svalbard-stats > div {
+  padding-bottom: 0.55rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.svalbard-stats strong,
+.svalbard-stats span {
+  display: block;
+}
+
+.svalbard-stats strong {
+  font-size: clamp(1.4rem, 3vw, 2.7rem);
+}
+
+.svalbard-stats span,
+.svalbard-stats > small {
+  color: #c2d4c5;
+}
+
+.svalbard-rule {
+  max-width: 850px;
+  margin: 0.75rem auto 0;
+  display: flex;
+  gap: 0.5rem;
+  font-size: 0.75rem;
+}
+
+.svalbard-rule span {
+  color: var(--deck-muted);
+}
+
+.chapter-next--chapter6 {
+  margin-top: 0.6rem;
+}
+
+@media (max-width: 620px) {
+  .global-network-flow {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .global-network-flow > b {
+    display: none;
+  }
+
+  .global-network-flow article {
+    min-height: 100px;
+  }
+
+  .global-resource-grid,
+  .svalbard-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .physical-digital-flow {
+    display: none;
+  }
+
+  .backup-flow {
+    grid-template-columns: 1fr;
+  }
+
+  .backup-flow > b {
+    display: none;
+  }
+
+  .svalbard-stats {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

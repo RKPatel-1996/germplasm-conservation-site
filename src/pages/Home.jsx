@@ -62,6 +62,19 @@ const slides = [
     id: "regenerate-use",
     label: "Keep It Usable",
   },
+  {
+    id: "global-network",
+    label: "Global Network",
+  },
+  {
+    id: "cgiar-genesys",
+    label: "CGIAR and Genesys",
+  },
+  {
+    id: "svalbard",
+    label: "Svalbard Backup",
+  },
+
 
 
 ];
@@ -355,7 +368,9 @@ function Home() {
           ? "Chapter 03 · What is germplasm?"
           : slideIndex < 12
             ? "Chapter 04 · Choosing a conservation method"
-            : "Chapter 05 · Inside a genebank";
+            : slideIndex < 15
+              ? "Chapter 05 · Inside a genebank"
+              : "Chapter 06 · The global conservation system";
 
   const previousSlide = () => {
     setSlideIndex((current) => Math.max(0, current - 1));
@@ -1451,6 +1466,231 @@ function Home() {
               <span>Chapter 06</span>
               <strong>
                 How do genebanks connect into a global conservation system? &rarr;
+              </strong>
+            </div>
+          </div>
+        </SlideFrame>
+
+        <SlideFrame active={slideIndex === 15}>
+          <div className="global-network-slide">
+            <span className="slide-eyebrow">
+              16 · CONSERVATION IS A NETWORK
+            </span>
+
+            <h2>
+              No single genebank can conserve
+              <em> all crop diversity.</em>
+            </h2>
+
+            <div className="global-network-flow">
+              <article>
+                <span>LOCAL / NATIONAL</span>
+                <h3>National genebanks</h3>
+                <p>
+                  Countries conserve genetic resources important to their
+                  agriculture, ecosystems and breeding programmes.
+                </p>
+              </article>
+
+              <b>&harr;</b>
+
+              <article className="global-network-core">
+                <span>INTERNATIONAL</span>
+                <h3>International collections</h3>
+                <p>
+                  Major crop collections connect conservation, research and
+                  distribution across countries.
+                </p>
+              </article>
+
+              <b>&harr;</b>
+
+              <article>
+                <span>INFORMATION</span>
+                <h3>Shared databases</h3>
+                <p>
+                  Accession information allows researchers to discover material
+                  conserved in many different institutions.
+                </p>
+              </article>
+
+              <b>&harr;</b>
+
+              <article>
+                <span>SAFETY BACKUP</span>
+                <h3>Duplicate collections</h3>
+                <p>
+                  Important seed collections can be duplicated elsewhere so a
+                  disaster at one facility does not erase the only copy.
+                </p>
+              </article>
+            </div>
+
+            <div className="global-network-rule">
+              <strong>One system, different roles:</strong>
+              <span>
+                conserve locally, share information globally, and protect
+                important material with safety duplication.
+              </span>
+            </div>
+          </div>
+        </SlideFrame>
+
+        <SlideFrame active={slideIndex === 16}>
+          <div className="cgiar-genesys-slide">
+            <span className="slide-eyebrow">
+              17 · COLLECTIONS + INFORMATION
+            </span>
+
+            <h2>
+              Physical germplasm and digital records
+              <em> work together.</em>
+            </h2>
+
+            <div className="global-resource-grid">
+              <article className="cgiar-card">
+                <span>CGIAR GENEBANKS</span>
+
+                <div className="global-stat-row">
+                  <div>
+                    <strong>11</strong>
+                    <small>genebanks</small>
+                  </div>
+
+                  <div>
+                    <strong>700,000+</strong>
+                    <small>accessions</small>
+                  </div>
+
+                  <div>
+                    <strong>3,000+</strong>
+                    <small>plant species</small>
+                  </div>
+                </div>
+
+                <p>
+                  CGIAR genebanks conserve major international crop collections
+                  and make genetic material available for research and breeding.
+                </p>
+              </article>
+
+              <article className="genesys-card">
+                <span>GENESYS</span>
+
+                <strong className="genesys-number">
+                  4,542,188
+                </strong>
+
+                <small>accession records currently discoverable</small>
+
+                <p>
+                  Genesys is an information platform connecting records from
+                  genebanks around the world.
+                </p>
+
+                <div className="genesys-distinction">
+                  <strong>Important:</strong>
+                  <span>
+                    Genesys does not contain millions of seed packets. It
+                    contains information describing germplasm held by genebanks.
+                  </span>
+                </div>
+              </article>
+            </div>
+
+            <div className="physical-digital-flow">
+              <strong>GENEBANK</strong>
+              <span>holds biological material</span>
+              <b>&harr;</b>
+              <strong>DATABASE</strong>
+              <span>makes the material discoverable</span>
+              <b>&rarr;</b>
+              <strong>USER</strong>
+              <span>finds material for research or breeding</span>
+            </div>
+          </div>
+        </SlideFrame>
+
+        <SlideFrame active={slideIndex === 17}>
+          <div className="svalbard-slide">
+            <span className="slide-eyebrow">
+              18 · THE SAFETY BACKUP
+            </span>
+
+            <h2>
+              Svalbard protects
+              <em> duplicate seed samples.</em>
+            </h2>
+
+            <div className="svalbard-layout">
+              <article className="svalbard-explain">
+                <span>SVALBARD GLOBAL SEED VAULT</span>
+
+                <h3>
+                  A backup for genebanks — not a replacement for them.
+                </h3>
+
+                <div className="backup-flow">
+                  <div>
+                    <strong>Primary genebank</strong>
+                    <small>manages and distributes its collection</small>
+                  </div>
+
+                  <b>&rarr;</b>
+
+                  <div>
+                    <strong>Duplicate seed sample</strong>
+                    <small>prepared for safety storage</small>
+                  </div>
+
+                  <b>&rarr;</b>
+
+                  <div>
+                    <strong>Svalbard</strong>
+                    <small>secure long-term backup</small>
+                  </div>
+                </div>
+
+                <p>
+                  The depositing institution retains responsibility for its
+                  material. The Seed Vault provides insurance against loss of a
+                  collection elsewhere.
+                </p>
+              </article>
+
+              <article className="svalbard-stats">
+                <div>
+                  <strong>1,401,285</strong>
+                  <span>seed samples</span>
+                </div>
+
+                <div>
+                  <strong>134</strong>
+                  <span>depositors</span>
+                </div>
+
+                <div>
+                  <strong>6,539</strong>
+                  <span>species</span>
+                </div>
+
+                <small>
+                  Official Seed Vault figures accessed October 2026
+                </small>
+              </article>
+            </div>
+
+            <div className="svalbard-rule">
+              <strong>Think of it as:</strong>
+              <span>
+                genebank collection &rarr; safety duplicate &rarr; secure backup.
+              </span>
+            </div>
+
+            <div className="chapter-next chapter-next--chapter6">
+              <span>Chapter 07</span>
+              <strong>
+                How is plant germplasm conserved in India? &rarr;
               </strong>
             </div>
           </div>
