@@ -86,6 +86,19 @@ const slides = [
     id: "india-safety",
     label: "Safety for the Future",
   },
+  {
+    id: "seedbank-limit",
+    label: "When Seed Banking Fails",
+  },
+  {
+    id: "in-vitro",
+    label: "In-vitro Conservation",
+  },
+  {
+    id: "cryopreservation",
+    label: "Cryopreservation",
+  },
+
 
 
 
@@ -385,7 +398,9 @@ function Home() {
               ? "Chapter 05 · Inside a genebank"
               : slideIndex < 18
                 ? "Chapter 06 · The global conservation system"
-                : "Chapter 07 · Plant genetic resources in India";
+                : slideIndex < 21
+                  ? "Chapter 07 · Plant genetic resources in India"
+                  : "Chapter 08 · Beyond conventional seed banking";
 
   const previousSlide = () => {
     setSlideIndex((current) => Math.max(0, current - 1));
@@ -1903,6 +1918,229 @@ function Home() {
                 What happens when ordinary seed banking is not enough? &rarr;
               </strong>
             </div>
+          </div>
+        </SlideFrame>
+
+        <SlideFrame active={slideIndex === 21}>
+          <div className="seedbank-limit-slide">
+            <span className="slide-eyebrow">
+              22 · WHEN A SEED BANK IS NOT ENOUGH
+            </span>
+
+            <h2>
+              Conventional seed banking works well —
+              <em> but not for every plant.</em>
+            </h2>
+
+            <div className="seedbank-limit-grid">
+
+              <article>
+                <span>PROBLEM 01</span>
+                <h3>Recalcitrant seeds</h3>
+                <p>
+                  Some seeds are damaged by the drying required for conventional
+                  seed-bank storage.
+                </p>
+                <strong>Drying becomes the problem.</strong>
+              </article>
+
+              <article>
+                <span>PROBLEM 02</span>
+                <h3>Clonally propagated crops</h3>
+                <p>
+                  A seed may not reproduce the exact cultivar that growers want
+                  to preserve.
+                </p>
+                <strong>The clone itself must be conserved.</strong>
+              </article>
+
+              <article>
+                <span>PROBLEM 03</span>
+                <h3>Seedless or poorly fertile material</h3>
+                <p>
+                  Some important crops produce little useful seed or are normally
+                  propagated vegetatively.
+                </p>
+                <strong>There may be no suitable seed to bank.</strong>
+              </article>
+
+            </div>
+
+            <div className="seedbank-limit-answer">
+              <strong>So what can we conserve instead?</strong>
+
+              <div>
+                <span>shoot tips</span>
+                <span>meristems</span>
+                <span>embryos</span>
+                <span>buds</span>
+                <span>other living tissues</span>
+              </div>
+            </div>
+
+          </div>
+        </SlideFrame>
+
+        <SlideFrame active={slideIndex === 22}>
+          <div className="invitro-slide">
+            <span className="slide-eyebrow">
+              23 · IN-VITRO CONSERVATION
+            </span>
+
+            <h2>
+              Keep living tissue
+              <em> growing slowly under controlled conditions.</em>
+            </h2>
+
+            <div className="invitro-flow">
+
+              <article>
+                <span>01</span>
+                <strong>Select tissue</strong>
+                <p>
+                  A shoot tip, meristem or other suitable propagule is chosen.
+                </p>
+              </article>
+
+              <b>&rarr;</b>
+
+              <article>
+                <span>02</span>
+                <strong>Establish sterile culture</strong>
+                <p>
+                  Material is introduced into an appropriate culture medium
+                  under aseptic conditions.
+                </p>
+              </article>
+
+              <b>&rarr;</b>
+
+              <article>
+                <span>03</span>
+                <strong>Slow growth</strong>
+                <p>
+                  Temperature, nutrients or other culture conditions are managed
+                  to reduce growth and extend the interval between transfers.
+                </p>
+              </article>
+
+              <b>&rarr;</b>
+
+              <article className="invitro-flow-result">
+                <span>04</span>
+                <strong>Recover when needed</strong>
+                <p>
+                  Viable cultures can be multiplied and regenerated back into
+                  plants.
+                </p>
+              </article>
+
+            </div>
+
+            <div className="invitro-use-grid">
+              <div>
+                <strong>Useful for</strong>
+                <span>banana · potato · cassava · yam · other clonal crops</span>
+              </div>
+
+              <div>
+                <strong>Main advantage</strong>
+                <span>
+                  living material can be maintained in a relatively compact,
+                  controlled environment
+                </span>
+              </div>
+
+              <div>
+                <strong>Important limitation</strong>
+                <span>
+                  cultures still require management, monitoring and periodic
+                  transfer
+                </span>
+              </div>
+            </div>
+
+          </div>
+        </SlideFrame>
+
+        <SlideFrame active={slideIndex === 23}>
+          <div className="cryo-slide">
+            <span className="slide-eyebrow">
+              24 · CRYOPRESERVATION
+            </span>
+
+            <h2>
+              For selected material, metabolism can be reduced
+              <em> to an extremely low level.</em>
+            </h2>
+
+            <div className="cryo-layout">
+
+              <article className="cryo-main">
+                <span>ULTRA-LOW-TEMPERATURE STORAGE</span>
+
+                <strong>-196°C</strong>
+
+                <small>temperature of liquid nitrogen</small>
+
+                <p>
+                  Carefully prepared biological material can be stored in or
+                  above liquid nitrogen. At these temperatures, metabolic and
+                  biochemical processes are essentially arrested.
+                </p>
+              </article>
+
+              <div className="cryo-process">
+                <article>
+                  <span>01</span>
+                  <strong>Prepare tissue</strong>
+                  <small>control water and protect cells</small>
+                </article>
+
+                <b>&rarr;</b>
+
+                <article>
+                  <span>02</span>
+                  <strong>Cool safely</strong>
+                  <small>avoid lethal ice-crystal injury</small>
+                </article>
+
+                <b>&rarr;</b>
+
+                <article>
+                  <span>03</span>
+                  <strong>Store</strong>
+                  <small>liquid-nitrogen temperatures</small>
+                </article>
+
+                <b>&rarr;</b>
+
+                <article>
+                  <span>04</span>
+                  <strong>Warm + recover</strong>
+                  <small>regenerate viable material</small>
+                </article>
+              </div>
+
+            </div>
+
+            <div className="cryo-caution">
+              <strong>Cryopreservation is not one universal recipe.</strong>
+              <span>
+                Controlled freezing, vitrification-based approaches and other
+                protocols are selected and validated for the particular species
+                and tissue.
+              </span>
+            </div>
+
+            <div className="chapter-next chapter-next--chapter8">
+              <span>Chapter 09</span>
+              <strong>
+                How does conserved diversity return to breeding and agriculture?
+                &rarr;
+              </strong>
+            </div>
+
           </div>
         </SlideFrame>
 </main>
